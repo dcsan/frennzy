@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+    <ProjectGuid>{892E4801-4C0F-46F0-A931-5A472B386A44}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Frennzy_Nuh_UhScreens</RootNamespace>
+    <AssemblyName>Frennzy_Nuh-Uh.Screens</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls.Toolkit" />
+    <Reference Include="System.Windows.Controls.Toolkit.Internals" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <PropertyGroup>
+    <ExpressionBlendPrototypingEnabled>true</ExpressionBlendPrototypingEnabled>
+    <ExpressionBlendPrototypeHarness>false</ExpressionBlendPrototypeHarness>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Controls" />
+    <Reference Include="System.Windows.Interactivity" />
+    <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Microsoft.Expression.Prototyping.Interactivity" />
+    <Reference Include="Microsoft.Expression.Prototyping.Runtime" />
+    <Reference Include="Microsoft.Expression.Prototyping.SketchControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Control_PlayerPhone.xaml.cs">
+      <DependentUpon>Control_PlayerPhone.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frennzy_Flow.xaml.cs">
+      <DependentUpon>Frennzy_Flow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationExtensions.cs" />
+    <Compile Include="VM.cs" />
+    <Compile Include="VM_Phone.cs" />
+    <Compile Include="VM_Player.cs" />
+    <Compile Include="VM_Statement.cs" />
+    <Page Include="Control_PlayerPhone.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frennzy_Flow.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProjectDataSources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <ContainsDataSources>True</ContainsDataSources>
+    </Page>
+    <Page Include="SketchStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\Properties\Version.cs">
+      <Link>Properties\Version.cs</Link>
+    </Compile>
+    <Resource Include="Fonts\BuxtonSketch.ttf" />
+    <Resource Include="Fonts\SketchFlow Print.ttf" />
+    <Resource Include="Fonts\SegoeMarker.ttf" />
+    <Resource Include="FrennzyFullNameLogo.png" />
+    <Resource Include="iPhone.png" />
+    <Resource Include="package_games_board.png" />
+    <Resource Include="Sketch.Flow" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="person.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	     Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

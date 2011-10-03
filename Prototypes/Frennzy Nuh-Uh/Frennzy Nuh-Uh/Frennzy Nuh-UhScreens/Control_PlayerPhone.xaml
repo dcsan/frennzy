@@ -1,0 +1,680 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+	xmlns:System="clr-namespace:System;assembly=mscorlib" 
+	xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+	xmlns:local="clr-namespace:Frennzy_Nuh_UhScreens" 
+	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" x:Name="userControl"
+	x:Class="Frennzy_Nuh_UhScreens.Control_PlayerPhone" 
+	mc:Ignorable="d"
+	d:DesignWidth="380" d:DesignHeight="743">
+
+	<UserControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="ProjectDataSources.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+			<LinearGradientBrush x:Key="DarkBlueGloss" EndPoint="0.5,1" StartPoint="0.5,0">
+				<GradientStop Color="#FF2A2937" Offset="1"/>
+				<GradientStop Color="#FFA0A3AA"/>
+				<GradientStop Color="#FF4D4C5A" Offset="0.453"/>
+				<GradientStop Color="#FF252734" Offset="0.464"/>
+			</LinearGradientBrush>
+			<DataTemplate x:Key="PlayerListDataTemplate">
+				<Grid Margin="2">
+					<VisualStateManager.VisualStateGroups>
+						<VisualStateGroup x:Name="IsHostStates">
+							<VisualState x:Name="IsHost">
+								<Storyboard>
+									<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button" d:IsOptimized="True"/>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Control.IsEnabled)" Storyboard.TargetName="button">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<System:Boolean>False</System:Boolean>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="IsNotHost"/>
+						</VisualStateGroup>
+						<VisualStateGroup x:Name="HasPhoneStates">
+							<VisualState x:Name="HasPhone"/>
+							<VisualState x:Name="HasNoPhone">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button_Copy">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+						</VisualStateGroup>
+					</VisualStateManager.VisualStateGroups>
+					<VisualStateManager.CustomVisualStateManager>
+						<ei:ExtendedVisualStateManager/>
+					</VisualStateManager.CustomVisualStateManager>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+					<Image Source="person.png" Stretch="None" d:LayoutOverrides="Width" VerticalAlignment="Center"/>
+					<TextBlock HorizontalAlignment="Left" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="{Binding Name}" FontSize="29.333" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
+					<StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" d:LayoutOverrides="Height">
+						<Button x:Name="button_Copy" Style="{StaticResource ButtonStyle_iPhone}" Width="44" Height="44" Padding="2" Background="{StaticResource iPhoneButtonRed}" Click="Button_RemovePlayer_Click" Margin="2,0" Visibility="Collapsed">
+							<i:Interaction.Behaviors>
+								<ei:DataStateBehavior Binding="{Binding HasPhone, Mode=OneWay}" Value="True" TrueState="HasPhone" FalseState="HasNoPhone"/>
+							</i:Interaction.Behaviors>
+							<Path Data="M1.7080065,4.75 L1.7080065,21.75 L12.708007,21.75 L12.708007,4.75 z M3.0832741,0.5 C4.4163427,0.5 9.1660061,0.5 11.165822,0.5 C13.165638,0.5 14.041,2.4164476 14.041,3.0830371 C14.041,3.7496281 14.041,22.416985 14.041,23.417 C14.041,24.417015 12.541367,26.125 11.458062,26.125 C10.374757,26.125 4.2915754,26.125 3.2499378,26.125 C2.2082934,26.125 0.5,24.791666 0.50000006,23.333334 C0.5,21.875 0.5,4.541667 0.50000006,3.375 C0.5,2.2083335 1.7502056,0.5 3.0832741,0.5 z" Fill="White" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Height="32">
+								<Path.RenderTransform>
+									<CompositeTransform Rotation="-15.307"/>
+								</Path.RenderTransform>
+							</Path>
+						</Button>
+						<Button x:Name="button" Style="{StaticResource ButtonStyle_iPhone}" Content="X" Width="44" Height="44" Padding="2" Background="{StaticResource iPhoneButtonRed}" Click="Button_RemovePlayer_Click" Margin="2,0" d:LayoutOverrides="Height">
+							<i:Interaction.Behaviors>
+								<ei:DataStateBehavior Binding="{Binding IsHost}" Value="True" TrueState="IsHost" FalseState="IsNotHost"/>
+							</i:Interaction.Behaviors>
+						</Button>
+					</StackPanel>
+				</Grid>
+			</DataTemplate>
+			<DataTemplate x:Key="PlayersListNotHostDataTemplate">
+				<Grid Margin="2">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+					<Image Source="person.png" Stretch="None" d:LayoutOverrides="Width" VerticalAlignment="Center"/>
+					<TextBlock HorizontalAlignment="Left" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="{Binding Name}" FontSize="29.333" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
+				</Grid>
+			</DataTemplate>
+			<DataTemplate x:Key="PlayerResultsDataTemplate">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.87*"/>
+						<ColumnDefinition Width="0.13*"/>
+					</Grid.ColumnDefinitions>
+					<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="{Binding Score}" d:LayoutOverrides="Height" Grid.Column="1" FontSize="26.667"/>
+					<TextBlock HorizontalAlignment="Right" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="{Binding ResultLine, Mode=OneWay}" d:LayoutOverrides="Height" FontSize="26.667"/>
+				</Grid>
+			</DataTemplate>
+		</ResourceDictionary>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" d:DataContext="{Binding Speaker, Source={StaticResource VMDataSource}}">
+		<i:Interaction.Behaviors>
+			<ei:DataStateBehavior Binding="{Binding IsSpeaker, Mode=OneWay}" Value="True" TrueState="IsSpeaker" FalseState="IsNotSpeaker"/>
+			<ei:DataStateBehavior Binding="{Binding IsHost}" Value="True" TrueState="IsHost" FalseState="IsNotHost"/>
+		</i:Interaction.Behaviors>
+					<VisualStateManager.VisualStateGroups>
+						<VisualStateGroup x:Name="PhoneStates">
+							<VisualStateGroup.Transitions>
+								<VisualTransition From="Initial" GeneratedDuration="0" To="AddPlayers">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_Randomizer">
+											<DiscreteObjectKeyFrame KeyTime="0">
+												<DiscreteObjectKeyFrame.Value>
+													<Visibility>Visible</Visibility>
+												</DiscreteObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="stackPanel">
+											<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+											<EasingDoubleKeyFrame KeyTime="0:0:2.1" Value="-2863.6">
+												<EasingDoubleKeyFrame.EasingFunction>
+													<ExponentialEase EasingMode="EaseOut" Exponent="5"/>
+												</EasingDoubleKeyFrame.EasingFunction>
+											</EasingDoubleKeyFrame>
+											<EasingDoubleKeyFrame KeyTime="0:0:3" Value="-2887">
+												<EasingDoubleKeyFrame.EasingFunction>
+													<ElasticEase EasingMode="EaseOut" Springiness="5"/>
+												</EasingDoubleKeyFrame.EasingFunction>
+											</EasingDoubleKeyFrame>
+										</DoubleAnimationUsingKeyFrames>
+										<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" Storyboard.TargetName="textBlock">
+											<EasingColorKeyFrame KeyTime="0:0:2.4" Value="Black"/>
+											<EasingColorKeyFrame KeyTime="0:0:2.6" Value="White"/>
+											<EasingColorKeyFrame KeyTime="0:0:2.8" Value="Black"/>
+											<EasingColorKeyFrame KeyTime="0:0:3" Value="White"/>
+											<EasingColorKeyFrame KeyTime="0:0:3.2" Value="Black"/>
+											<EasingColorKeyFrame KeyTime="0:0:3.4" Value="White"/>
+											<EasingColorKeyFrame KeyTime="0:0:3.6" Value="Black"/>
+											<EasingColorKeyFrame KeyTime="0:0:3.8" Value="White"/>
+											<EasingColorKeyFrame KeyTime="0:0:4.6" Value="White"/>
+										</ColorAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_Initial">
+											<DiscreteObjectKeyFrame KeyTime="0">
+												<DiscreteObjectKeyFrame.Value>
+													<Visibility>Collapsed</Visibility>
+												</DiscreteObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_AddPlayers">
+											<DiscreteObjectKeyFrame KeyTime="0">
+												<DiscreteObjectKeyFrame.Value>
+													<Visibility>Collapsed</Visibility>
+												</DiscreteObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+											<DiscreteObjectKeyFrame KeyTime="0:0:4.6">
+												<DiscreteObjectKeyFrame.Value>
+													<Visibility>Collapsed</Visibility>
+												</DiscreteObjectKeyFrame.Value>
+											</DiscreteObjectKeyFrame>
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualTransition>
+							</VisualStateGroup.Transitions>
+							<VisualState x:Name="Initial">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_Initial">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="AddPlayers">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_AddPlayers">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="SpeakerChooses">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_SpeakerChooses">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="SpeakerReads">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_SpeakerReads">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="ListenersVote">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_ListenersVote">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="WaitForResults">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_WaitForResults">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="Results">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_Results">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+						</VisualStateGroup>
+						<VisualStateGroup x:Name="PlayersReadyStates">
+							<VisualState x:Name="PlayersReadyFalse"/>
+							<VisualState x:Name="PlayersReadyTrue">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Control.IsEnabled)" Storyboard.TargetName="button">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<System:Boolean>True</System:Boolean>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+						</VisualStateGroup>
+						<VisualStateGroup x:Name="HostStates">
+							<VisualState x:Name="IsHost"/>
+							<VisualState x:Name="IsNotHost">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Collapsed</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lst_PlayersNonHost">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lst_PlayersHost">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Collapsed</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+						</VisualStateGroup>
+						<VisualStateGroup x:Name="SpeakerStates">
+							<VisualState x:Name="IsSpeaker"/>
+							<VisualState x:Name="IsNotSpeaker">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_SpeakerChooses_L">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_SpeakerChooses_S">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Collapsed</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_ListenesVote_L">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_ListenersVote_S">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Collapsed</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button1">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Collapsed</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+						</VisualStateGroup>
+					</VisualStateManager.VisualStateGroups>
+		<Button Style="{StaticResource iPhone}">
+			<Grid Background="White">
+				<Grid x:Name="pnl_Initial" Visibility="Collapsed">
+					<Image Height="130" Source="FrennzyFullNameLogo.png" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10"/>
+					<Button Margin="8,213,8,209" Style="{StaticResource ButtonStyle_iPhone}" d:LayoutOverrides="Height" Visibility="Collapsed">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<ei:GoToStateAction StateName="AddPlayers"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Play!" Foreground="White" FontFamily="Arial" FontSize="29.333" d:LayoutOverrides="Width"/>
+							<Path Data="M1.7080065,4.75 L1.7080065,21.75 L12.708007,21.75 L12.708007,4.75 z M3.0832741,0.5 C4.4163427,0.5 9.1660061,0.5 11.165822,0.5 C13.165638,0.5 14.041,2.4164476 14.041,3.0830371 C14.041,3.7496281 14.041,22.416985 14.041,23.417 C14.041,24.417015 12.541367,26.125 11.458062,26.125 C10.374757,26.125 4.2915754,26.125 3.2499378,26.125 C2.2082934,26.125 0.5,24.791666 0.50000006,23.333334 C0.5,21.875 0.5,4.541667 0.50000006,3.375 C0.5,2.2083335 1.7502056,0.5 3.0832741,0.5 z" Fill="White" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Stretch="Uniform" Height="32">
+								<Path.RenderTransform>
+									<CompositeTransform Rotation="-15.307"/>
+								</Path.RenderTransform>
+							</Path>
+						</StackPanel>
+					</Button>
+					<Button Margin="8,0,8,120" Style="{StaticResource ButtonStyle_iPhone}" VerticalAlignment="Bottom" IsEnabled="False" Visibility="Collapsed">
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Play!" Foreground="White" FontFamily="Arial" FontSize="29.333" d:LayoutOverrides="Width"/>
+							<Path Data="M1.7080065,4.75 L1.7080065,21.75 L12.708007,21.75 L12.708007,4.75 z M3.0832741,0.5 C4.4163427,0.5 9.1660061,0.5 11.165822,0.5 C13.165638,0.5 14.041,2.4164476 14.041,3.0830371 C14.041,3.7496281 14.041,22.416985 14.041,23.417 C14.041,24.417015 12.541367,26.125 11.458062,26.125 C10.374757,26.125 4.2915754,26.125 3.2499378,26.125 C2.2082934,26.125 0.5,24.791666 0.50000006,23.333334 C0.5,21.875 0.5,4.541667 0.50000006,3.375 C0.5,2.2083335 1.7502056,0.5 3.0832741,0.5 z" Fill="White" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0" Stretch="Uniform" Height="32">
+								<Path.RenderTransform>
+									<CompositeTransform Rotation="-15.307"/>
+								</Path.RenderTransform>
+							</Path>
+							<Path Data="M1.7080065,4.75 L1.7080065,21.75 L12.708007,21.75 L12.708007,4.75 z M3.0832741,0.5 C4.4163427,0.5 9.1660061,0.5 11.165822,0.5 C13.165638,0.5 14.041,2.4164476 14.041,3.0830371 C14.041,3.7496281 14.041,22.416985 14.041,23.417 C14.041,24.417015 12.541367,26.125 11.458062,26.125 C10.374757,26.125 4.2915754,26.125 3.2499378,26.125 C2.2082934,26.125 0.5,24.791666 0.50000006,23.333334 C0.5,21.875 0.5,4.541667 0.50000006,3.375 C0.5,2.2083335 1.7502056,0.5 3.0832741,0.5 z" Fill="White" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" Margin="3,0,0,0" Stretch="Uniform" Height="32">
+								<Path.RenderTransform>
+									<CompositeTransform Rotation="-15.307"/>
+								</Path.RenderTransform>
+							</Path>
+							<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="+" Foreground="White" FontFamily="Arial" FontSize="29.333" Margin="2,0,0,0"/>
+						</StackPanel>
+					</Button>
+					<toolkit:WrapPanel Margin="10,171,10,10" HorizontalAlignment="Center">
+						<Button Style="{StaticResource ButtonStyle_iPhone}" Width="72" Content="NU" Height="72" Margin="10">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="Click">
+									<ei:GoToStateAction StateName="AddPlayers" UseTransitions="False"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Button>
+						<Button Style="{StaticResource ButtonStyle_iPhone}" Width="72" Content="HP" Height="72" Margin="10" IsEnabled="False"/>
+						<Button Style="{StaticResource ButtonStyle_iPhone}" Width="72" Content="OK" Height="72" Margin="10" IsEnabled="False"/>
+						<Button Style="{StaticResource ButtonStyle_iPhone}" Width="72" Content="??" Height="72" Margin="10" IsEnabled="False"/>
+						<Button Style="{StaticResource ButtonStyle_iPhone}" Width="72" Height="72" Margin="10" Padding="5">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="Click">
+									<ei:GoToStateAction StateName="AddPlayers"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<Image Source="package_games_board.png"/>
+						</Button>
+						<Button Style="{StaticResource ButtonStyle_iPhone}" Width="72" Content="??" Height="72" Margin="10" IsEnabled="False"/>
+						<Button Style="{StaticResource ButtonStyle_iPhone}" Width="72" Content="??" Height="72" Margin="10" IsEnabled="False"/>
+						<Button Style="{StaticResource ButtonStyle_iPhone}" Width="72" Content="??" Height="72" Margin="10" IsEnabled="False"/>
+						<Button Style="{StaticResource ButtonStyle_iPhone}" Width="72" Content="??" Height="72" Margin="10" IsEnabled="False"/>
+					</toolkit:WrapPanel>
+				</Grid>
+				<Grid x:Name="pnl_Randomizer" Visibility="Collapsed">
+					<Border Height="200" BorderThickness="0,2" BorderBrush="#FF858585" Background="{StaticResource DarkBlueGloss}" Margin="0,150,0,0" VerticalAlignment="Top">
+						<Border BorderThickness="2" CornerRadius="5" Margin="10">
+							<Border.BorderBrush>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="Black" Offset="0"/>
+									<GradientStop Color="White" Offset="0.486"/>
+									<GradientStop Color="#FF5E5E5E" Offset="1"/>
+								</LinearGradientBrush>
+							</Border.BorderBrush>
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FF696971" Offset="0"/>
+									<GradientStop Color="White" Offset="0.714"/>
+									<GradientStop Color="#FF76767C" Offset="1"/>
+									<GradientStop Color="White" Offset="0.199"/>
+								</LinearGradientBrush>
+							</Border.Background>
+							<Grid>
+								<Rectangle Height="44" Margin="-3,0">
+									<Rectangle.Effect>
+										<DropShadowEffect Opacity="0.5" Direction="270"/>
+									</Rectangle.Effect>
+									<Rectangle.Stroke>
+										<SolidColorBrush Color="Black" Opacity="0.6"/>
+									</Rectangle.Stroke>
+									<Rectangle.Fill>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.3">
+											<GradientStop Color="#FF2A2937" Offset="1"/>
+											<GradientStop Color="#FFA0A3AA"/>
+											<GradientStop Color="#FF4D4C5A" Offset="0.453"/>
+											<GradientStop Color="#FF252734" Offset="0.464"/>
+										</LinearGradientBrush>
+									</Rectangle.Fill>
+								</Rectangle>
+								<ScrollViewer VerticalScrollBarVisibility="Hidden">
+									<StackPanel x:Name="stackPanel" Width="296" RenderTransformOrigin="0.5,0.5">
+										<StackPanel.RenderTransform>
+											<CompositeTransform/>
+										</StackPanel.RenderTransform>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock x:Name="textBlock" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Ninja Business" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Shoo Fly" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Rock 'Em" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+										<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nick Named" Foreground="Black" FontFamily="Arial" FontWeight="Bold" FontSize="29.333" HorizontalAlignment="Center" Margin="1"/>
+									</StackPanel>
+								</ScrollViewer>
+							</Grid>
+						</Border>
+					</Border>
+					<Rectangle Fill="#FFF4F4F5" Height="150" VerticalAlignment="Top" StrokeThickness="0"/>
+					<Rectangle Fill="#FFF4F4F5" Height="130" VerticalAlignment="Bottom" StrokeThickness="0"/>
+					<Image Height="130" Source="FrennzyFullNameLogo.png" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,10,10,0"/>
+				</Grid>
+				<Grid x:Name="pnl_AddPlayers" Visibility="Collapsed">
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<ScrollViewer x:Name="lst_PlayersHost" Margin="10,96,10,5" VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}">
+						<ItemsControl ItemsSource="{Binding VM.Players}" ItemTemplate="{StaticResource PlayerListDataTemplate}"/>
+					</ScrollViewer>
+					<ScrollViewer x:Name="lst_PlayersNonHost" Margin="10,96,10,5" VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}" Visibility="Collapsed">
+						<ItemsControl ItemsSource="{Binding VM.Players}" ItemTemplate="{StaticResource PlayersListNotHostDataTemplate}"/>
+					</ScrollViewer>
+					<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" VerticalAlignment="Top" FontSize="48"/>
+					<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="2-8 Players" VerticalAlignment="Top" FontSize="29.333" Margin="0,56,0,0"/>
+					<StackPanel Orientation="Vertical" Grid.Row="1" d:LayoutOverrides="Height" Margin="5,0">
+						<Button Style="{StaticResource ButtonStyle_iPhone}" Content="Add Player" Margin="5" Padding="5" Background="{StaticResource iPhoneButtonBlue}">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="Click">
+									<ei:CallMethodAction MethodName="AddPlayer" TargetObject="{Binding VM.AddPlayer, ElementName=userControl, Mode=OneWay}"/>
+									<ei:CallMethodAction MethodName="AddPlayer" TargetObject="{Binding VM}"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Button>
+						<Button x:Name="button" Style="{StaticResource ButtonStyle_iPhone}" Content="Play!" Margin="5" IsEnabled="False" Padding="5">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="Click">
+									<ei:CallMethodAction MethodName="StartRound" TargetObject="{Binding VM}"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<i:Interaction.Behaviors>
+								<ei:DataStateBehavior Binding="{Binding VM.Players.Count, Mode=OneWay}" Value="1" TrueState="PlayersReadyFalse" FalseState="PlayersReadyTrue"/>
+							</i:Interaction.Behaviors>
+						</Button>
+					</StackPanel>
+				</Grid>
+				<Grid x:Name="pnl_SpeakerChooses" Visibility="Collapsed">
+					<Grid x:Name="pnl_SpeakerChooses_S" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480">
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Choose Your Assertion!" VerticalAlignment="Top" FontSize="32" Margin="0,8,0,0" d:LayoutOverrides="Width" HorizontalAlignment="Center"/>
+						<ItemsControl Margin="10,96,10,10" ItemsSource="{Binding VM.SpeakerOptions}" ItemTemplate="{StaticResource ChoiceDataTemplate}"/>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" VerticalAlignment="Top" FontSize="16" Margin="0,52,0,0" d:LayoutOverrides="Width" HorizontalAlignment="Center"><Run Text="+1 point if they don't believe the truth."/><LineBreak/><Run Text="+2 points if they believe your lie!"/></TextBlock>
+					</Grid>
+					<Grid x:Name="pnl_SpeakerChooses_L" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480" Visibility="Collapsed">
+						<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Listen Up!" Margin="0,8,0,0"/>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="32" d:LayoutOverrides="Width" HorizontalAlignment="Center"><Run Text="See if you can tell whether or not "/><Run FontStyle="Italic" Text="{Binding VM.Speaker.Name}"/><Run Text=" is telling the truth..."/></TextBlock>
+					</Grid>
+				</Grid>
+				<Grid x:Name="pnl_SpeakerReads" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480" Visibility="Collapsed">
+					<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Read Your Statement!" VerticalAlignment="Top" FontSize="48" Margin="10" d:LayoutOverrides="Width" TextWrapping="Wrap" TextAlignment="Center"/>
+					<TextBlock x:Name="txt_StatementText" Style="{StaticResource BasicTextBlock-Sketch}" Text="{Binding VM.ChoiceText, Mode=OneWay}" FontSize="32" Margin="10,133,10,67" TextWrapping="Wrap"/>
+					<Button Style="{StaticResource ButtonStyle_iPhone}" VerticalAlignment="Bottom" Background="{StaticResource iPhoneButtonBlue}" Content="Done">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<ei:CallMethodAction MethodName="StartVoting" TargetObject="{Binding VM}"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+						<VisualStateManager.CustomVisualStateManager>
+							<ei:ExtendedVisualStateManager/>
+						</VisualStateManager.CustomVisualStateManager>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="TruthStates">
+								<VisualState x:Name="True"/>
+								<VisualState x:Name="False"/>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Button>
+				</Grid>
+				<Grid x:Name="pnl_ListenersVote" Visibility="Collapsed">
+					<Grid x:Name="pnl_ListenersVote_S" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480">
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Now we wait..." VerticalAlignment="Top" FontSize="48" Margin="0,8,0,0" d:LayoutOverrides="Width" HorizontalAlignment="Center"/>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" VerticalAlignment="Center" FontSize="32" Margin="10" TextWrapping="Wrap" Text="Tallying votes..." HorizontalAlignment="Center"/>
+						<WebBrowser x:Name="web_MoreInfo" Margin="0,70,0,0" Source="http://www.google.com" Visibility="Collapsed"/>
+					</Grid>
+					<Grid x:Name="pnl_ListenesVote_L" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480" Visibility="Collapsed">
+						<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Is that true?" Margin="0,8,0,0"/>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" FontSize="32" Text="{Binding VM.ChoiceText, Mode=OneWay}" d:LayoutOverrides="Width" Margin="10,99,10,140"/>
+						<Button Style="{StaticResource ButtonStyle_iPhone}" VerticalAlignment="Bottom" Margin="5,0,5,5" Content="Nuh-Uh!!" Click="Button_GuessLie_Click">
+							<Button.Background>
+								<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+									<GradientStop Color="#FF6A0000" Offset="0.514"/>
+									<GradientStop Color="#FFFFA6A6"/>
+									<GradientStop Color="#FFCA1A1A" Offset="0.478"/>
+									<GradientStop Color="#FF770303" Offset="1"/>
+									<GradientStop Color="#FF911313" Offset="0.891"/>
+								</LinearGradientBrush>
+							</Button.Background>
+							<VisualStateManager.CustomVisualStateManager>
+								<ei:ExtendedVisualStateManager/>
+							</VisualStateManager.CustomVisualStateManager>
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="TruthStates1">
+									<VisualState x:Name="True1"/>
+									<VisualState x:Name="False1"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+						</Button>
+						<Button Style="{StaticResource ButtonStyle_iPhone}" VerticalAlignment="Bottom" Content="It's the Truth!" Margin="5,5,5,71" Click="Button_GuessTrue_Click">
+							<VisualStateManager.CustomVisualStateManager>
+								<ei:ExtendedVisualStateManager/>
+							</VisualStateManager.CustomVisualStateManager>
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="TruthStates2">
+									<VisualState x:Name="True2"/>
+									<VisualState x:Name="False2"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+						</Button>
+					</Grid>
+				</Grid>
+				<Grid x:Name="pnl_WaitForResults" Visibility="Collapsed">
+					<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Now we wait..." VerticalAlignment="Top" FontSize="48" Margin="0,8,0,0" HorizontalAlignment="Center"/>
+					<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" VerticalAlignment="Center" FontSize="32" Margin="10" TextWrapping="Wrap" Text="Tallying votes..." HorizontalAlignment="Center"/>
+				</Grid>
+				<Grid x:Name="pnl_Results" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480" Visibility="Collapsed">
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<StackPanel Margin="8,8,7,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Round #" FontSize="48" HorizontalAlignment="Center"/>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="{Binding VM.RoundNum}" FontSize="48" HorizontalAlignment="Center"/>
+					</StackPanel>
+					<Button x:Name="button1" Style="{StaticResource ButtonStyle_iPhone}" Content="Next Round!" Background="{StaticResource iPhoneButtonBlue}" Grid.Row="1" d:LayoutOverrides="Height">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<pi:ActivateStateAction TargetState="On"/>
+								<ei:CallMethodAction MethodName="SetUpNextRound" TargetObject="{Binding VM}"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+						<VisualStateManager.CustomVisualStateManager>
+							<ei:ExtendedVisualStateManager/>
+						</VisualStateManager.CustomVisualStateManager>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="TruthStates3">
+								<VisualState x:Name="True3"/>
+								<VisualState x:Name="False3"/>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Button>
+					<ItemsControl Margin="10,71,10,5" ItemsSource="{Binding VM.Players}" ItemTemplate="{StaticResource PlayerResultsDataTemplate}"/>
+				</Grid>
+			</Grid>
+		</Button>
+	</Grid>
+</UserControl>

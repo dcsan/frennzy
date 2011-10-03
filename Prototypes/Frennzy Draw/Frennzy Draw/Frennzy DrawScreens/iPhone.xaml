@@ -1,0 +1,16 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:MouseEffect01="clr-namespace:MouseEffect01;assembly=MouseEffect01"
+	mc:Ignorable="d"
+	x:Class="Frennzy_DrawScreens.iPhone" d:DesignHeight="743" Width="380">
+
+	<Viewbox x:Name="Phone01">
+		<Grid Height="743" Width="380">
+			<Image Source="iPhone.png" VerticalAlignment="Top" Stretch="None" HorizontalAlignment="Center"/>
+			<MouseEffect01:Page Margin="32,133,28,130"/>
+		</Grid>
+	</Viewbox>
+</UserControl>

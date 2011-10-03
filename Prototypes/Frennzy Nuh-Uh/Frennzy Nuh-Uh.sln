@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frennzy Nuh-Uh", "Frennzy Nuh-Uh\Frennzy Nuh-Uh.csproj", "{de11b3ee-29ef-4846-81ad-a1c5a1915e86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frennzy Nuh-UhScreens", "Frennzy Nuh-Uh\Frennzy Nuh-UhScreens\Frennzy Nuh-UhScreens.csproj", "{892e4801-4c0f-46f0-a931-5a472b386a44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE11B3EE-29EF-4846-81AD-A1C5A1915E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE11B3EE-29EF-4846-81AD-A1C5A1915E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE11B3EE-29EF-4846-81AD-A1C5A1915E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE11B3EE-29EF-4846-81AD-A1C5A1915E86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{892E4801-4C0F-46F0-A931-5A472B386A44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{892E4801-4C0F-46F0-A931-5A472B386A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{892E4801-4C0F-46F0-A931-5A472B386A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{892E4801-4C0F-46F0-A931-5A472B386A44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
