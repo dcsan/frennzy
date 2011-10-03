@@ -1,0 +1,16 @@
+{
+    "name": "gaframework"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express": "2.4.6"
+    , "jade": ">= 0.0.1"
+    , "ejs": ">= 0.4.3"
+    , "mongodb": ">= 0.9.6"
+    , "hooks": ">= 0.1.9"
+    , "colors": ">= 0.5.0"
+    , "socket.io": ">= 0.7.11"
+    , "redis": ">= 0.6.6"
+    , "socket.io-client": ">= 0.8.4"
+  }
+}

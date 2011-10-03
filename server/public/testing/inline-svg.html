@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="cond-svg.xsl" type="text/xsl"?>
+<html xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns:dr="http://documenta.rudolphina.org/"
+	xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+		<title>SVG embedded inline in XHTML</title>
+    </head>
+	<body>
+
+<div class="cont">
+			<svg:svg version="1.1" baseProfile="full" width="100px" height="100px">
+				<svg:defs>
+					<svg:radialGradient id="r_grad" cx="20%" cy="50%" r="50%" fx="50%" fy="50%">
+						<svg:stop offset="0%"/>
+						<svg:stop offset="100%"/>
+					</svg:radialGradient>
+				</svg:defs>
+				<svg:ellipse cx="50" cy="50" rx="35" ry="49"/>
+			</svg:svg>
+</div>
+
+</body>
+</html>

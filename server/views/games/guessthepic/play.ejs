@@ -1,0 +1,11 @@
+<script type="text/javascript"  src="http://www.html5canvastutorials.com/libraries/kinetic2d-v1.0.2.js"></script>
+<script type="text/javascript"  src="/games/guessthepic/game.js" ></script>
+draw your picture<br/>
+
+
+<div id='container' style="width:380px; height:300px;position:absolute;top:0;left:0;border:1px solid #000000;">
+<canvas id='drawing' width='380' height='300'></canvas>
+</div>
+<div style='position:absolute;top:300px;'>
+<button onclick="send({'type':'toRoom','action':'endround'});">Someone got it!</button>
+</div>

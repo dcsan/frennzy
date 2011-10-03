@@ -1,1 +1,13 @@
-/**/**/.idea/*
+.DS_Store
+*/.DS_Store
+*/**/.DS_Store
+*/node_modules
+**/**/node_modules
+
+.idea
+**/.idea
+**/**/.idea
+
+**/*.log
+**/**/*.log
+**/**/**/*.log
