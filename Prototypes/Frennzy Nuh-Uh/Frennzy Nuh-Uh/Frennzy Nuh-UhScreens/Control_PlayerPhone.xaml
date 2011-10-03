@@ -43,7 +43,17 @@
 							<VisualState x:Name="IsNotHost"/>
 						</VisualStateGroup>
 						<VisualStateGroup x:Name="HasPhoneStates">
-							<VisualState x:Name="HasPhone"/>
+							<VisualState x:Name="HasPhone">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button_Copy">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Collapsed</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
 							<VisualState x:Name="HasNoPhone">
 								<Storyboard>
 									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button_Copy">
@@ -68,7 +78,7 @@
 					<Image Source="person.png" Stretch="None" d:LayoutOverrides="Width" VerticalAlignment="Center"/>
 					<TextBlock HorizontalAlignment="Left" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="{Binding Name}" FontSize="29.333" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
 					<StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" d:LayoutOverrides="Height">
-						<Button x:Name="button_Copy" Style="{StaticResource ButtonStyle_iPhone}" Width="44" Height="44" Padding="2" Background="{StaticResource iPhoneButtonRed}" Click="Button_RemovePlayer_Click" Margin="2,0" Visibility="Collapsed">
+						<Button x:Name="button_Copy" Style="{StaticResource ButtonStyle_iPhone}" Width="44" Height="44" Padding="2" Background="{StaticResource iPhoneButtonRed}" Click="Button_AddPhone_Click" Margin="2,0">
 							<i:Interaction.Behaviors>
 								<ei:DataStateBehavior Binding="{Binding HasPhone, Mode=OneWay}" Value="True" TrueState="HasPhone" FalseState="HasNoPhone"/>
 							</i:Interaction.Behaviors>
@@ -250,6 +260,17 @@
 									</ObjectAnimationUsingKeyFrames>
 								</Storyboard>
 							</VisualState>
+							<VisualState x:Name="AddPhone">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_AddPlayers_Copy">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
 						</VisualStateGroup>
 						<VisualStateGroup x:Name="PlayersReadyStates">
 							<VisualState x:Name="PlayersReadyFalse"/>
@@ -284,6 +305,13 @@
 										</DiscreteObjectKeyFrame>
 									</ObjectAnimationUsingKeyFrames>
 									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="lst_PlayersHost">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Collapsed</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button2">
 										<DiscreteObjectKeyFrame KeyTime="0">
 											<DiscreteObjectKeyFrame.Value>
 												<Visibility>Collapsed</Visibility>
@@ -332,6 +360,37 @@
 											</DiscreteObjectKeyFrame.Value>
 										</DiscreteObjectKeyFrame>
 									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+						</VisualStateGroup>
+						<VisualStateGroup x:Name="InviteTabStates">
+							<VisualStateGroup.Transitions>
+								<VisualTransition GeneratedDuration="0:0:0.3">
+									<VisualTransition.GeneratedEasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</VisualTransition.GeneratedEasingFunction>
+								</VisualTransition>
+							</VisualStateGroup.Transitions>
+							<VisualState x:Name="Invite_SMS"/>
+							<VisualState x:Name="Invite_Contacts">
+								<Storyboard>
+									<DoubleAnimation Duration="0" To="66" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+									<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pnl_Contacts" d:IsOptimized="True"/>
+									<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pnl_SMSInvite" d:IsOptimized="True"/>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="Invite_Facebook">
+								<Storyboard>
+									<DoubleAnimation Duration="0" To="132" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+									<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pnl_SMSInvite" d:IsOptimized="True"/>
+									<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pnl_Contacts" d:IsOptimized="True"/>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="Invite_Twitter">
+								<Storyboard>
+									<DoubleAnimation Duration="0" To="195" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="rectangle" d:IsOptimized="True"/>
+									<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pnl_Contacts" d:IsOptimized="True"/>
+									<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pnl_SMSInvite" d:IsOptimized="True"/>
 								</Storyboard>
 							</VisualState>
 						</VisualStateGroup>
@@ -549,7 +608,7 @@
 					<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Nuh-Uh!" VerticalAlignment="Top" FontSize="48"/>
 					<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="2-8 Players" VerticalAlignment="Top" FontSize="29.333" Margin="0,56,0,0"/>
 					<StackPanel Orientation="Vertical" Grid.Row="1" d:LayoutOverrides="Height" Margin="5,0">
-						<Button Style="{StaticResource ButtonStyle_iPhone}" Content="Add Player" Margin="5" Padding="5" Background="{StaticResource iPhoneButtonBlue}">
+						<Button x:Name="button2" Style="{StaticResource ButtonStyle_iPhone}" Content="Add Player" Margin="5" Padding="5" Background="{StaticResource iPhoneButtonBlue}">
 							<i:Interaction.Triggers>
 								<i:EventTrigger EventName="Click">
 									<ei:CallMethodAction MethodName="AddPlayer" TargetObject="{Binding VM.AddPlayer, ElementName=userControl, Mode=OneWay}"/>
@@ -673,6 +732,89 @@
 						</VisualStateManager.VisualStateGroups>
 					</Button>
 					<ItemsControl Margin="10,71,10,5" ItemsSource="{Binding VM.Players}" ItemTemplate="{StaticResource PlayerResultsDataTemplate}"/>
+				</Grid>
+				<Grid x:Name="pnl_AddPlayers_Copy" Visibility="Collapsed">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="52"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<Grid Grid.Row="4">
+						<Grid.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FF0E1420" Offset="0"/>
+								<GradientStop Color="#FF192337" Offset="1"/>
+							</LinearGradientBrush>
+						</Grid.Background>
+						<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Width="68" Margin="28,-6,0,0" Fill="White" StrokeThickness="0" RadiusX="5" RadiusY="5" RenderTransformOrigin="0.5,0.5">
+							<Rectangle.RenderTransform>
+								<CompositeTransform/>
+							</Rectangle.RenderTransform>
+							<Rectangle.Stroke>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="Black" Offset="1"/>
+									<GradientStop Color="#FF858585"/>
+								</LinearGradientBrush>
+							</Rectangle.Stroke>
+						</Rectangle>
+						<StackPanel Orientation="Horizontal" d:LayoutOverrides="Height" HorizontalAlignment="Center" Margin="0,4,0,0">
+							<StackPanel.Effect>
+								<DropShadowEffect Direction="270" Opacity="0.6"/>
+							</StackPanel.Effect>
+							<Image Source="iphone_messages_icon.png" Width="56" Height="56" Margin="4">
+								<i:Interaction.Triggers>
+									<i:EventTrigger EventName="MouseLeftButtonDown">
+										<ei:GoToStateAction StateName="Invite_SMS"/>
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
+							</Image>
+							<Image x:Name="image" Source="Contacts.png" Width="68" Height="68">
+								<i:Interaction.Triggers>
+									<i:EventTrigger EventName="MouseLeftButtonDown">
+										<ei:GoToStateAction StateName="Invite_Contacts"/>
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
+							</Image>
+							<Image Height="60" Source="facebook-icon.png" Width="60" Margin="2">
+								<i:Interaction.Triggers>
+									<i:EventTrigger EventName="MouseLeftButtonDown">
+										<ei:GoToStateAction StateName="Invite_Facebook"/>
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
+							</Image>
+							<Image Height="60" Source="twitter-icon.png" Width="60" Margin="2">
+								<i:Interaction.Triggers>
+									<i:EventTrigger EventName="MouseLeftButtonDown">
+										<ei:GoToStateAction StateName="Invite_Twitter"/>
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
+							</Image>
+						</StackPanel>
+					</Grid>
+					<Button Style="{StaticResource ButtonStyle_iPhone}" Content="Send Invite" Padding="5" Background="{StaticResource iPhoneButtonBlue}" Grid.Row="3" VerticalAlignment="Bottom" Margin="5,0,5,5" Height="48">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<ei:CallMethodAction MethodName="AddNewPhone" TargetObject="{Binding VM}"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</Button>
+					<Grid x:Name="pnl_Contacts" Grid.Row="2" Margin="0,0,0,10" Opacity="0">
+						<Image Source="iphonecontact.png" VerticalAlignment="Bottom" Stretch="UniformToFill"/>
+					</Grid>
+					<Grid x:Name="pnl_SMSInvite" Grid.Row="2">
+						<Image Source="dialpad.png" VerticalAlignment="Top" Margin="0,52,0,10"/>
+						<Grid Margin="10,0" Grid.Row="1" VerticalAlignment="Top">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="0.25*"/>
+								<ColumnDefinition Width="0.75*"/>
+							</Grid.ColumnDefinitions>
+							<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Cell #:" FontSize="29.333" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+							<TextBox Style="{StaticResource BasicTextBox-Sketch}" TextWrapping="Wrap" Text="867-5309" d:LayoutOverrides="Width, Height" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="29.333"/>
+						</Grid>
+					</Grid>
+					<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="{Binding VM.NewPhone.Owner.Name}" FontSize="48" Margin="0,0,0,-9" d:LayoutOverrides="Height"/>
 				</Grid>
 			</Grid>
 		</Button>

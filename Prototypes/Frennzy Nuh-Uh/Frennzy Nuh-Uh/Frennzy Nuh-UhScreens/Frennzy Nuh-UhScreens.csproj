@@ -97,13 +97,24 @@
     <Compile Include="..\Properties\Version.cs">
       <Link>Properties\Version.cs</Link>
     </Compile>
+    <Resource Include="108425284.png" />
+    <Resource Include="1317681572_user_48.png" />
+    <Resource Include="1317681613_user_32.png" />
+    <Resource Include="1317681649_user.png" />
+    <Resource Include="Contacts.png" />
+    <Resource Include="facebook-icon.png" />
     <Resource Include="Fonts\BuxtonSketch.ttf" />
     <Resource Include="Fonts\SketchFlow Print.ttf" />
     <Resource Include="Fonts\SegoeMarker.ttf" />
     <Resource Include="FrennzyFullNameLogo.png" />
+    <Resource Include="dialpad.png" />
+    <Resource Include="Image1.png" />
     <Resource Include="iPhone.png" />
+    <Resource Include="iphonecontact.png" />
+    <Resource Include="iphone_messages_icon.png" />
     <Resource Include="package_games_board.png" />
     <Resource Include="Sketch.Flow" />
+    <Resource Include="twitter-icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="person.png" />

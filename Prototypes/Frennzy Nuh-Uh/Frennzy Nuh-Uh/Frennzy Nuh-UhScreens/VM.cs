@@ -157,6 +157,15 @@ namespace Frennzy_Nuh_UhScreens
             }
         }
 
+        private VM_Player GetHost()
+        {
+            foreach (VM_Player player in Players)
+                if (player.IsHost)
+                    return player;
+
+            return null;
+        }
+
         private int _roundNum = 0;
         public int RoundNum
         {
@@ -264,6 +273,32 @@ namespace Frennzy_Nuh_UhScreens
                 player.State = GameStates.SpeakerChooses;
         }
 
+        public void GoTo_AddPhone(VM_Player player)
+        {
+            NewPhone = new VM_Phone(player);
+            GetHost().State = GameStates.AddPhone;
+        }
+
+        private VM_Phone _newPhone = new VM_Phone(new VM_Player("New Phone Guy", GameStates.AddPlayers, null));
+        public VM_Phone NewPhone
+        {
+            get { return _newPhone; }
+            set
+            {
+                if (_newPhone != value)
+                {
+                    _newPhone = value;
+                    PropertyChanged.Notify(() => NewPhone);
+                }
+            }
+        }
+
+        public void AddNewPhone()
+        {
+            Phones.Add(NewPhone);
+            Speaker.State = GameStates.AddPlayers;
+        }
+
         public void MakeChoice(VM_Statement choice)
         {
             SpeakerChoice = choice;
@@ -331,9 +366,32 @@ namespace Frennzy_Nuh_UhScreens
 
         public void RemovePlayer(VM_Player player)
         {
+            RemovePhone(player);
             Players.Remove(player);
         }
 
+        private void RemovePhone(VM_Player player)
+        {
+            VM_Phone playersPhone = GetPlayerPhone(player);
+
+            if (playersPhone != null)
+                Phones.Remove(playersPhone);
+        }
+
+        private VM_Phone GetPlayerPhone(VM_Player player)
+        {
+            foreach (VM_Phone phone in Phones)
+                if (phone.Owner == player)
+                    return phone;
+
+            return null;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public void AddPhone(VM_Player player)
+        {
+            Phones.Add(new VM_Phone(player));
+        }
     }
 }

@@ -40,7 +40,14 @@ namespace Frennzy_Nuh_UhScreens
         {
             FrameworkElement button = (FrameworkElement)sender;
             VM_Player player = (VM_Player)button.DataContext;
-            VM.StaticVM.RemovePlayer(player);
+            VM.RemovePlayer(player);
+        }
+
+        private void Button_AddPhone_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            FrameworkElement button = (FrameworkElement)sender;
+            VM_Player player = (VM_Player)button.DataContext;
+            VM.GoTo_AddPhone(player);
         }
 
         private void PlayerStateChanged(VM_Player player)
@@ -50,12 +57,12 @@ namespace Frennzy_Nuh_UhScreens
 
         private void Button_GuessTrue_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            VM.StaticVM.EnterVote(_vm_Player, true);
+            VM.EnterVote(_vm_Player, true);
         }
 
         private void Button_GuessLie_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            VM.StaticVM.EnterVote(_vm_Player, false);
+            VM.EnterVote(_vm_Player, false);
         }
 	}
 }

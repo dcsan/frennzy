@@ -16,6 +16,7 @@ namespace Frennzy_Nuh_UhScreens
     {
         Initial,
         AddPlayers,
+        AddPhone,
         SpeakerChooses,
         SpeakerReads,
         ListenersVote,
@@ -29,10 +30,14 @@ namespace Frennzy_Nuh_UhScreens
         {
             Name = name;
             State = state;
-            _vm = vm;
-            _vm.SubscribeToChange(() => _vm.Speaker, SpeakerChanged);
-            _vm.SubscribeToChange(() => _vm.SpeakerChoice, SpeakerChoiceChanged);
-            _vm.Phones.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Phones_CollectionChanged);
+
+            if (vm != null)
+            {
+                _vm = vm;
+                _vm.SubscribeToChange(() => _vm.Speaker, SpeakerChanged);
+                _vm.SubscribeToChange(() => _vm.SpeakerChoice, SpeakerChoiceChanged);
+                _vm.Phones.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Phones_CollectionChanged);
+            }
         }
 
         public VM_Player(string name, GameStates state, VM vm, bool isHost)

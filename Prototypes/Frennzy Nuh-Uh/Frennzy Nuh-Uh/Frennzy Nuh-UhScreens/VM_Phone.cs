@@ -10,9 +10,10 @@ namespace Frennzy_Nuh_UhScreens
 {
     public class VM_Phone : INotifyPropertyChanged
     {
-        public VM_Phone(VM_Player host)
+        public VM_Phone(VM_Player owner)
         {
-            Owner = host;
+            Owner = owner;
+            Players.Add(owner);
         }
 
         private VM_Player _owner;
