@@ -623,7 +623,7 @@
 								</i:EventTrigger>
 							</i:Interaction.Triggers>
 							<i:Interaction.Behaviors>
-								<ei:DataStateBehavior Binding="{Binding VM.Players.Count, Mode=OneWay}" Value="1" TrueState="PlayersReadyFalse" FalseState="PlayersReadyTrue"/>
+								<ei:DataStateBehavior Binding="{Binding VM.PlayersReady, Mode=OneWay}" Value="True" TrueState="PlayersReadyTrue" FalseState="PlayersReadyFalse"/>
 							</i:Interaction.Behaviors>
 						</Button>
 					</StackPanel>

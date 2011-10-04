@@ -24,7 +24,7 @@ namespace Frennzy_Nuh_UhScreens
             Phones.Add(new VM_Phone(host));
             Players.Add(host);
 
-            Players.Add(new VM_Player("Hiro", GameStates.AddPlayers, this));
+            //Players.Add(new VM_Player("Hiro", GameStates.AddPlayers, this));
             //Players.Add(new VM_Player("n00b"));
 
             Speaker = Players[0];
@@ -59,6 +59,13 @@ namespace Frennzy_Nuh_UhScreens
             StatementDB.Add(new VM_Statement(false, "The Titanic was the first ship to send the 'SOS' distress call.", "http://www.snopes.com/history/titanic/sos.asp"));
             StatementDB.Add(new VM_Statement(false, "There is a sanctuary for dogs named 'Dog Island' off the coast of Florida.", "http://www.snopes.com/critters/crusader/dogisland.asp"));
             StatementDB.Add(new VM_Statement(false, "Coating the edges of an audio CD with a green marker notably improves the sound.", "http://www.snopes.com/music/media/marker.asp"));
+
+            Players.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Players_CollectionChanged);
+        }
+
+        void Players_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            PropertyChanged.Notify(() => PlayersReady);
         }
 
         private ObservableCollection<VM_Player> _players = new ObservableCollection<VM_Player>();
@@ -71,6 +78,7 @@ namespace Frennzy_Nuh_UhScreens
                 {
                     _players = value;
                     PropertyChanged.Notify(() => Players);
+                    PropertyChanged.Notify(() => PlayersReady);
                 }
             }
         }
@@ -85,6 +93,7 @@ namespace Frennzy_Nuh_UhScreens
                 {
                     _phones = value;
                     PropertyChanged.Notify(() => Phones);
+                    PropertyChanged.Notify(() => PlayersReady);
                 }
             }
         }
@@ -127,6 +136,27 @@ namespace Frennzy_Nuh_UhScreens
             }
         }
 
+        public bool PlayersReady
+        {
+            get
+            {
+                if (Players.Count < 2)
+                    return false;
+
+                bool ready = true;
+
+                foreach (VM_Player player in Players)
+                    if (!player.HasPhone)
+                        ready = false;
+
+                return ready;
+            }
+        }
+
+        public void CheckPlayersReady()
+        {
+            PropertyChanged.Notify(() => PlayersReady);
+        }
 
         private VM_Statement _speakerChoice;
         public VM_Statement SpeakerChoice
@@ -387,11 +417,13 @@ namespace Frennzy_Nuh_UhScreens
             return null;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public void AddPhone(VM_Player player)
         {
             Phones.Add(new VM_Phone(player));
         }
+
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

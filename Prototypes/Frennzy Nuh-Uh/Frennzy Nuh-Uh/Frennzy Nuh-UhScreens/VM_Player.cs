@@ -60,6 +60,8 @@ namespace Frennzy_Nuh_UhScreens
         private void Phones_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             PropertyChanged.Notify(() => HasPhone);
+            PropertyChanged.Notify(() => IsReady);
+            VM.CheckPlayersReady();
         }
 
         private string _name = "player name";
@@ -118,6 +120,8 @@ namespace Frennzy_Nuh_UhScreens
                 return false;
             }
         }
+
+        public bool IsReady { get { return HasPhone; } }
 
         public Control Visual;
 
