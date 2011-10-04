@@ -19,7 +19,7 @@ var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCStri
 document.cookie=c_name + "=" + c_value;
 }
 
-function checkUser(){
+function setup(){
 var username=getCookie("username");
 if (username!=null && username!="")
   {
