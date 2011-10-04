@@ -4,9 +4,6 @@
     FRENNZY [LOGO]
 </div>
 
-<% f = 77*3 %>
-<%= f %>
-
 <div class="roundbox">
     <div class="boxtitle">
         Free games
