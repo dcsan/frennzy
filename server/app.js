@@ -73,7 +73,7 @@ function init(app){
 
     function showPage(req, res, locals) {
         var url = req.url.slice(1); // remove leading
-        if (url=="/") { url = "top"}
+        if (url=="/") { url = "/top"}
         url = url.split("?")[0];    // remove any params for matching
         if (locals == null) {
             locals = {};
