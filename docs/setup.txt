@@ -1,0 +1,37 @@
+
+how go get setup with heroku git
+
+http://devcenter.heroku.com/articles/heroku-command
+
+# on mac/linux
+
+gem install heroku
+heroku keys:add
+# create a new ssh key when prompted if you dont have one
+
+# then create a dir to checkout the project
+
+cd dev
+mkdir frennzy
+
+# checkout the app from git
+# first time it will ask you to OK a bunch of stuff
+git clone -o heroku git@heroku.com:smooth-fire-1350.git
+
+# check its the right app!
+heroku info
+
+# edit some stuff
+# static html files are editable in /public dir
+
+# commit to git
+git commit -a -m "some message"
+
+# then push back to heroku
+sc/deploy.sh
+
+# deploy is a quick script i made in sc/ folder
+# check its updated 
+
+http://smooth-fire-1350.herokuapp.com/
+

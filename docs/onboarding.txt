@@ -1,0 +1,43 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww33100\viewh18840\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Tasks to bring new users onto the team:\
+\
+*** ADD TO REDMINE ***\
+TBD\
+\
+*** ADD TO GOOGLEGROUPS ***\
+TBD\
+\
+*** ADD TO GITHUB ***\
+TBD\
+\
+*** SET UP GITHUB APP (MAC) ***\
+TBD\
+\
+*** SET UP GITHUB (PC) ***\
+TBD\
+\
+*** SET UP NODE (MAC) ***\
+d/l node .dmg with npm:\
+{\field{\*\fldinst{HYPERLINK "http://code.google.com/p/rudix/downloads/detail?name=node-0.3.4-0.i386.dmg&can=2&q="}}{\fldrslt https://sites.google.com/site/nodejsmacosx/}}\
+Run pkg installer for latest stable version\
+\
+Open a terminal window:\
+confirm you have python\
+(type "which python" - should return something like /usr/local/bin/python)\
+confirm the node install ran\
+(type "node", and the terminal should echo "> ". If so, you're good. Hit CTRL-D to exit node)\
+\
+Install express:\
+npm install express\
+\
+install additional modules:\
+npm install mongodb\
+npm install mongoose\
+npm install ejs\
+npm install jade\
+npm install socket.io}

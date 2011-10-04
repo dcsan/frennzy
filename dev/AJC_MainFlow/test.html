@@ -1,0 +1,26 @@
+// JavaScript Document
+<html>
+<head>
+<title>Untitled</title>
+<script type="text/javascript">
+<!--
+function nav(f){
+  var theUrl = f.jump.options[f.jump.selectedIndex].value ;
+  if (theUrl != ""){
+      location.href = theUrl ;
+  }
+}
+//-->
+</script>
+</head>
+<body>
+<form action="no_value">
+<select name="jump" onchange="nav(this.form)">
+<option value="">----- Select A Page -----</option>
+<option value="index.html">Home</option>
+<option value="page2.html">Page 2</option>
+<option value="page3.html">Page 3</option>
+</select>
+</form>
+</body>
+</html>

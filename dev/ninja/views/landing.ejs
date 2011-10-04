@@ -1,0 +1,84 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2/jquery.min.js"></script>
+<script src='/socket.io/socket.io.js'></script>
+<script src="http://www.html5canvastutorials.com/libraries/kinetic2d-v1.0.2.js"></script>
+<script>
+var socket=io.connect();
+var myRole="";
+var drawx=[];
+var drawy=[];
+var mousedown=false;
+
+function initialize(){
+	socket.emit('initial');
+}
+socket.on('count',function(count){
+	document.getElementById('counting').innerHTML=count;
+});
+socket.on('setup',function(title,nick,role){
+	if(document.getElementById('title').innerHTML.length<4){
+	document.getElementById('title').innerHTML=title;
+	document.getElementById('nick').innerHTML=nick+" "+role;
+	myRole=role;}
+});
+socket.on('clear',function(){
+	drawx=[];
+	drawy=[];
+})
+
+function draw(e){
+if(myRole=='drawer'){
+	document.onmousedown=function(event){
+		mousedown=true;
+	};
+	setInterval(function(){
+	document.onmousemove= function(event){
+		if(mousedown==true){
+	socket.emit('draw',event.pageX,event.pageY-100);}}
+	},200);
+	document.onmouseup= function(event){
+		mousedown=false;
+		socket.emit('clear');
+	};
+	setInterval(function(){
+	document.ontouchmove= function(event){
+			socket.emit('draw',event.touches[0].pageX,event.touches[0].pageY-100);}
+	},200);
+	document.ontouchend= function(event){
+		mousedown=false;
+		socket.emit('clear');
+	};
+
+document.ontouchmove = function(e){ e.preventDefault(); }
+document.ontouchstart = function(e){ e.preventDefault(); }
+	};
+};
+
+function canvas(){
+        var kin = new Kinetic_2d("drawing");
+        var canvas = kin.getCanvas();
+        var context = kin.getContext();
+socket.on('drawit',function(x,y){
+		drawx.push(x);
+		drawy.push(y);
+		if(drawx.length>1){
+			i=drawx.length-1;
+ 			context.moveTo(drawx[i-1],drawy[i-1]);
+        	context.lineTo(drawx[i],drawy[i]);
+        	context.stroke();
+    };
+});
+};
+</script>
+</head>
+
+<body onload='initialize();canvas();'>
+<h1 id='title'><h1>
+<h2 id='nick'></h2>
+<div id='container' style="width:400; height:400;position:fixed;top:100px;left:0;border:1px solid #000000;" ontouchstart="draw();" onmousedown='draw(event);'onmouseup='cleardraw(event);'>
+<canvas id='drawing' width='400' height='400'></canvas>
+</div>
+</body>
+</html>

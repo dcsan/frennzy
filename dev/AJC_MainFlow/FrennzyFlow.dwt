@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="apple-touch-icon" href="images/Springboard_Icon.png"/>
+<link rel="apple-touch-startup-image" href="startup.png" />
+
+<title>Frennzy!Flow</title>
+<link href="./FrennzyFlow.css" rel="stylesheet" type="text/css" media="screen, mobile" title="main" charset="utf-8">
+</head>
+
+<body >
+
+<div class="container">
+<a href="FrennzyMainMenu.html">
+  <div class="logo">
+<img src="./images/FrennzyFullNameLogo.png" />
+  </div>
+</a>
+</div>
+</body>
+</html>

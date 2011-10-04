@@ -1,0 +1,11 @@
+# from within your heroku git checkout directory you can do:
+
+# push your work up to heroku, this will also deploy
+sc/push.sh 
+
+# get the latest from everyone else
+sc/pull.sh
+
+# commit everything and deploy it
+sc/all-deploy.sh
+
