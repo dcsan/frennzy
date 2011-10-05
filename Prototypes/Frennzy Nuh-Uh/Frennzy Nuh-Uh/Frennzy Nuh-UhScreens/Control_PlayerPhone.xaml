@@ -8,7 +8,7 @@
 	xmlns:System="clr-namespace:System;assembly=mscorlib" 
 	xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
 	xmlns:local="clr-namespace:Frennzy_Nuh_UhScreens" 
-	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" x:Name="userControl"
+	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Name="userControl"
 	x:Class="Frennzy_Nuh_UhScreens.Control_PlayerPhone" 
 	mc:Ignorable="d"
 	d:DesignWidth="380" d:DesignHeight="743">
@@ -26,12 +26,145 @@
 			</LinearGradientBrush>
 			<DataTemplate x:Key="PlayerListDataTemplate">
 				<Grid Margin="2">
+					<Grid.Resources>
+						<Storyboard x:Name="Storyboard_AddPhone" RepeatBehavior="Forever">
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="btn_AddPhone">
+								<EasingDoubleKeyFrame KeyTime="0" Value="0.8">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1.151">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.8">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1.151">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.8">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1.151">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.8">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="btn_AddPhone">
+								<EasingDoubleKeyFrame KeyTime="0" Value="0.8">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1.151">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.8">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1.151">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.8">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="1.151">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:3" Value="0.8">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="btn_AddPhone">
+								<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+								<EasingDoubleKeyFrame KeyTime="0:0:3" Value="360">
+									<EasingDoubleKeyFrame.EasingFunction>
+										<SineEase EasingMode="EaseInOut"/>
+									</EasingDoubleKeyFrame.EasingFunction>
+								</EasingDoubleKeyFrame>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Name="StoryboardClock" RepeatBehavior="Forever">
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="path">
+								<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+								<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="360"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+					</Grid.Resources>
+					<i:Interaction.Triggers>
+						<i:EventTrigger>
+							<ei:ControlStoryboardAction Storyboard="{StaticResource StoryboardClock}"/>
+							<ei:ControlStoryboardAction Storyboard="{StaticResource Storyboard_AddPhone}"/>
+						</i:EventTrigger>
+						<i:EventTrigger>
+							<i:Interaction.Behaviors>
+								<ei:ConditionBehavior>
+									<ei:ConditionalExpression>
+										<ei:ComparisonCondition LeftOperand="{Binding HasPhone, Mode=OneWay}" RightOperand="False"/>
+									</ei:ConditionalExpression>
+								</ei:ConditionBehavior>
+							</i:Interaction.Behaviors>
+							<ei:GoToStateAction StateName="NeedPhone"/>
+						</i:EventTrigger>
+						<i:EventTrigger>
+							<i:Interaction.Behaviors>
+								<ei:ConditionBehavior>
+									<ei:ConditionalExpression>
+										<ei:ComparisonCondition LeftOperand="{Binding IsReady, Mode=OneWay}" RightOperand="False"/>
+										<ei:ComparisonCondition LeftOperand="{Binding HasPhone, Mode=OneWay}" RightOperand="True"/>
+									</ei:ConditionalExpression>
+								</ei:ConditionBehavior>
+							</i:Interaction.Behaviors>
+							<ei:GoToStateAction StateName="ConnectingPhone"/>
+						</i:EventTrigger>
+						<i:EventTrigger>
+							<i:Interaction.Behaviors>
+								<ei:ConditionBehavior>
+									<ei:ConditionalExpression>
+										<ei:ComparisonCondition LeftOperand="{Binding IsReady, Mode=OneWay}" RightOperand="True"/>
+									</ei:ConditionalExpression>
+								</ei:ConditionBehavior>
+							</i:Interaction.Behaviors>
+							<ei:GoToStateAction StateName="PhoneReady"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
 					<VisualStateManager.VisualStateGroups>
 						<VisualStateGroup x:Name="IsHostStates">
 							<VisualState x:Name="IsHost">
 								<Storyboard>
-									<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="button" d:IsOptimized="True"/>
-									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Control.IsEnabled)" Storyboard.TargetName="button">
+									<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btn_RemovePlayer" d:IsOptimized="True"/>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Control.IsEnabled)" Storyboard.TargetName="btn_RemovePlayer">
 										<DiscreteObjectKeyFrame KeyTime="0">
 											<DiscreteObjectKeyFrame.Value>
 												<System:Boolean>False</System:Boolean>
@@ -43,26 +176,20 @@
 							<VisualState x:Name="IsNotHost"/>
 						</VisualStateGroup>
 						<VisualStateGroup x:Name="HasPhoneStates">
-							<VisualState x:Name="HasPhone">
+							<VisualStateGroup.Transitions>
+								<VisualTransition GeneratedDuration="0:0:0.2"/>
+							</VisualStateGroup.Transitions>
+							<VisualState x:Name="NeedPhone"/>
+							<VisualState x:Name="ConnectingPhone">
 								<Storyboard>
-									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button_Copy">
-										<DiscreteObjectKeyFrame KeyTime="0">
-											<DiscreteObjectKeyFrame.Value>
-												<Visibility>Collapsed</Visibility>
-											</DiscreteObjectKeyFrame.Value>
-										</DiscreteObjectKeyFrame>
-									</ObjectAnimationUsingKeyFrames>
+									<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btn_AddPhone" d:IsOptimized="True"/>
+									<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pnl_WaitingClock" d:IsOptimized="True"/>
 								</Storyboard>
 							</VisualState>
-							<VisualState x:Name="HasNoPhone">
+							<VisualState x:Name="PhoneReady">
 								<Storyboard>
-									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="button_Copy">
-										<DiscreteObjectKeyFrame KeyTime="0">
-											<DiscreteObjectKeyFrame.Value>
-												<Visibility>Visible</Visibility>
-											</DiscreteObjectKeyFrame.Value>
-										</DiscreteObjectKeyFrame>
-									</ObjectAnimationUsingKeyFrames>
+									<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btn_AddPhone" d:IsOptimized="True"/>
+									<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="image" d:IsOptimized="True"/>
 								</Storyboard>
 							</VisualState>
 						</VisualStateGroup>
@@ -78,21 +205,55 @@
 					<Image Source="person.png" Stretch="None" d:LayoutOverrides="Width" VerticalAlignment="Center"/>
 					<TextBlock HorizontalAlignment="Left" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="{Binding Name}" FontSize="29.333" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" Grid.Column="1"/>
 					<StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" d:LayoutOverrides="Height">
-						<Button x:Name="button_Copy" Style="{StaticResource ButtonStyle_iPhone}" Width="44" Height="44" Padding="2" Background="{StaticResource iPhoneButtonRed}" Click="Button_AddPhone_Click" Margin="2,0">
-							<i:Interaction.Behaviors>
-								<ei:DataStateBehavior Binding="{Binding HasPhone, Mode=OneWay}" Value="True" TrueState="HasPhone" FalseState="HasNoPhone"/>
-							</i:Interaction.Behaviors>
-							<Path Data="M1.7080065,4.75 L1.7080065,21.75 L12.708007,21.75 L12.708007,4.75 z M3.0832741,0.5 C4.4163427,0.5 9.1660061,0.5 11.165822,0.5 C13.165638,0.5 14.041,2.4164476 14.041,3.0830371 C14.041,3.7496281 14.041,22.416985 14.041,23.417 C14.041,24.417015 12.541367,26.125 11.458062,26.125 C10.374757,26.125 4.2915754,26.125 3.2499378,26.125 C2.2082934,26.125 0.5,24.791666 0.50000006,23.333334 C0.5,21.875 0.5,4.541667 0.50000006,3.375 C0.5,2.2083335 1.7502056,0.5 3.0832741,0.5 z" Fill="White" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Height="32">
-								<Path.RenderTransform>
-									<CompositeTransform Rotation="-15.307"/>
-								</Path.RenderTransform>
-							</Path>
-						</Button>
-						<Button x:Name="button" Style="{StaticResource ButtonStyle_iPhone}" Content="X" Width="44" Height="44" Padding="2" Background="{StaticResource iPhoneButtonRed}" Click="Button_RemovePlayer_Click" Margin="2,0" d:LayoutOverrides="Height">
-							<i:Interaction.Behaviors>
-								<ei:DataStateBehavior Binding="{Binding IsHost}" Value="True" TrueState="IsHost" FalseState="IsNotHost"/>
-							</i:Interaction.Behaviors>
-						</Button>
+						<Grid x:Name="grid" Width="44">
+							<i:Interaction.Triggers>
+								<ei:DataTrigger Binding="{Binding HasPhone, Mode=OneWay}" Value="True">
+									<ei:GoToStateAction StateName="ConnectingPhone"/>
+								</ei:DataTrigger>
+								<ei:DataTrigger Binding="{Binding IsReady, Mode=OneWay}" Value="True">
+									<ei:GoToStateAction StateName="PhoneReady"/>
+								</ei:DataTrigger>
+							</i:Interaction.Triggers>
+							<Button x:Name="btn_AddPhone" Style="{StaticResource ButtonStyle_iPhone}" Height="44" Padding="2" Background="{StaticResource iPhoneButtonRed}" Click="Button_AddPhone_Click" Margin="0" RenderTransformOrigin="0.5,0.5">
+								<Button.RenderTransform>
+									<CompositeTransform/>
+								</Button.RenderTransform>
+								<Path Data="M1.7080065,4.75 L1.7080065,21.75 L12.708007,21.75 L12.708007,4.75 z M3.0832741,0.5 C4.4163427,0.5 9.1660061,0.5 11.165822,0.5 C13.165638,0.5 14.041,2.4164476 14.041,3.0830371 C14.041,3.7496281 14.041,22.416985 14.041,23.417 C14.041,24.417015 12.541367,26.125 11.458062,26.125 C10.374757,26.125 4.2915754,26.125 3.2499378,26.125 C2.2082934,26.125 0.5,24.791666 0.50000006,23.333334 C0.5,21.875 0.5,4.541667 0.50000006,3.375 C0.5,2.2083335 1.7502056,0.5 3.0832741,0.5 z" Fill="White" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Height="32">
+									<Path.RenderTransform>
+										<CompositeTransform Rotation="-15.307"/>
+									</Path.RenderTransform>
+								</Path>
+							</Button>
+							<Grid x:Name="pnl_WaitingClock" Opacity="0" Width="42" Height="42" IsHitTestVisible="False">
+								<Ellipse x:Name="ellipse" StrokeThickness="4">
+									<Ellipse.Fill>
+										<RadialGradientBrush GradientOrigin="0.499,0.093" RadiusY="1.464" RadiusX="1.652" Center="0.499,0.75">
+											<GradientStop Color="#FF888900" Offset="1"/>
+											<GradientStop Color="#FFFFFFC2"/>
+										</RadialGradientBrush>
+									</Ellipse.Fill>
+									<Ellipse.Stroke>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="#FF686E00" Offset="1"/>
+											<GradientStop Color="#FFF8FF82"/>
+										</LinearGradientBrush>
+									</Ellipse.Stroke>
+								</Ellipse>
+								<Path x:Name="path" Data="M23.96093,7.2666693 L22.019712,26.533348 L25.450352,26.485107 z" Margin="19.667,3.667,19.031,19.667" Stretch="Fill" StrokeThickness="4" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.897">
+									<Path.Fill>
+										<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+											<GradientStop Color="Black" Offset="1"/>
+											<GradientStop Color="#FFB1B1B1"/>
+										</LinearGradientBrush>
+									</Path.Fill>
+									<Path.RenderTransform>
+										<CompositeTransform/>
+									</Path.RenderTransform>
+								</Path>
+							</Grid>
+							<Image x:Name="image" Source="1317801490_Tasks.png" Width="32" Height="32" Opacity="0" IsHitTestVisible="False"/>
+						</Grid>
+						<Button x:Name="btn_RemovePlayer" Style="{StaticResource ButtonStyle_iPhone}" Content="X" Width="44" Height="44" Padding="2" Background="{StaticResource iPhoneButtonRed}" Click="Button_RemovePlayer_Click" Margin="2,0" d:LayoutOverrides="Height"/>
 					</StackPanel>
 				</Grid>
 			</DataTemplate>
@@ -117,6 +278,16 @@
 					<TextBlock HorizontalAlignment="Right" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="{Binding ResultLine, Mode=OneWay}" d:LayoutOverrides="Height" FontSize="26.667"/>
 				</Grid>
 			</DataTemplate>
+			<Storyboard x:Name="Storyboard_InstallBalloonBounce" AutoReverse="True" RepeatBehavior="Forever">
+				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid">
+					<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+					<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-34">
+						<EasingDoubleKeyFrame.EasingFunction>
+							<SineEase EasingMode="EaseOut"/>
+						</EasingDoubleKeyFrame.EasingFunction>
+					</EasingDoubleKeyFrame>
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
 		</ResourceDictionary>
 	</UserControl.Resources>
 
@@ -262,7 +433,54 @@
 							</VisualState>
 							<VisualState x:Name="AddPhone">
 								<Storyboard>
-									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_AddPlayers_Copy">
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_AddPhone">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="JoinGame">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_JoinGame">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="JoinGame2">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_JoinGame">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_AddMenu">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="JoinGame3">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_JoinGame">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_TapApp">
 										<DiscreteObjectKeyFrame KeyTime="0">
 											<DiscreteObjectKeyFrame.Value>
 												<Visibility>Visible</Visibility>
@@ -365,9 +583,9 @@
 						</VisualStateGroup>
 						<VisualStateGroup x:Name="InviteTabStates">
 							<VisualStateGroup.Transitions>
-								<VisualTransition GeneratedDuration="0:0:0.3">
+								<VisualTransition GeneratedDuration="0:0:0.2">
 									<VisualTransition.GeneratedEasingFunction>
-										<SineEase EasingMode="EaseInOut"/>
+										<SineEase EasingMode="EaseOut"/>
 									</VisualTransition.GeneratedEasingFunction>
 								</VisualTransition>
 							</VisualStateGroup.Transitions>
@@ -733,7 +951,7 @@
 					</Button>
 					<ItemsControl Margin="10,71,10,5" ItemsSource="{Binding VM.Players}" ItemTemplate="{StaticResource PlayerResultsDataTemplate}"/>
 				</Grid>
-				<Grid x:Name="pnl_AddPlayers_Copy" Visibility="Collapsed">
+				<Grid x:Name="pnl_AddPhone" Visibility="Collapsed">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="52"/>
 						<RowDefinition Height="Auto"/>
@@ -815,6 +1033,77 @@
 						</Grid>
 					</Grid>
 					<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="{Binding VM.NewPhone.Owner.Name}" FontSize="48" Margin="0,0,0,-9" d:LayoutOverrides="Height"/>
+				</Grid>
+				<Grid x:Name="pnl_JoinGame" Visibility="Collapsed">
+					<Grid x:Name="pnl_InstallRequest">
+						<Grid.Background>
+							<ImageBrush ImageSource="photo.PNG" Stretch="None"/>
+						</Grid.Background>
+						<i:Interaction.Triggers>
+							<i:EventTrigger>
+								<ei:ControlStoryboardAction Storyboard="{StaticResource Storyboard_InstallBalloonBounce}"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+						<Grid x:Name="grid" Height="118" Margin="28,0,35,92" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
+							<Grid.RenderTransform>
+								<CompositeTransform/>
+							</Grid.RenderTransform>
+							<Grid.Effect>
+								<DropShadowEffect Direction="280" BlurRadius="10" Opacity="0.6" ShadowDepth="2"/>
+							</Grid.Effect>
+							<Border Background="White" CornerRadius="20">
+								<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" FontSize="24" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" VerticalAlignment="Center" Text="1. Click this button 2. Tap 'Add to Home Screen' 3. Tap new 'Frennzy' App"/>
+							</Border>
+							<ed:BlockArrow Fill="#FFF4F4F5" Height="58" Margin="102,0,101,-42.5" Orientation="Down" UseLayoutRounding="False" VerticalAlignment="Bottom"/>
+						</Grid>
+						<Grid Height="31" Margin="142,0,138,8" VerticalAlignment="Bottom" Background="#00000000">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<ei:GoToStateAction StateName="JoinGame2"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Grid>
+					</Grid>
+					<Grid x:Name="pnl_AddMenu" Visibility="Collapsed">
+						<Grid.Background>
+							<ImageBrush ImageSource="photo2.PNG"/>
+						</Grid.Background>
+						<Grid Margin="18,186,19,19" Background="#00000000">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<ei:GoToStateAction StateName="JoinGame"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Grid>
+						<Grid Height="48" Margin="19,0,19,192" VerticalAlignment="Bottom" Background="#00FF0000">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<ei:GoToStateAction StateName="JoinGame3"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Grid>
+					</Grid>
+					<Grid x:Name="pnl_TapApp" Visibility="Collapsed">
+						<Grid.Background>
+							<ImageBrush ImageSource="/photo3.PNG"/>
+						</Grid.Background>
+						<Border HorizontalAlignment="Left" Height="58" MouseLeftButtonDown="JoinGame_PhoneApp_Click" Margin="17,33,0,0" VerticalAlignment="Top" Width="57" CornerRadius="10">
+							<Border.Background>
+								<RadialGradientBrush RadiusY="1.069" RadiusX="2.313" Center="0.535,-0.033" GradientOrigin="0.535,-0.033">
+									<GradientStop Color="#FFB4B4B4" Offset="1"/>
+									<GradientStop Color="White"/>
+									<GradientStop Color="#FFFAFAFA" Offset="0.449"/>
+									<GradientStop Color="#FFEBEBEB" Offset="0.692"/>
+									<GradientStop Color="#FFD0D0D0" Offset="0.478"/>
+								</RadialGradientBrush>
+							</Border.Background>
+							<Image Source="Frennzy_Icon.png" VerticalAlignment="Center" HorizontalAlignment="Center" IsHitTestVisible="False">
+								<Image.Effect>
+									<DropShadowEffect Direction="270" Opacity="0.6" ShadowDepth="2"/>
+								</Image.Effect>
+							</Image>
+						</Border>
+					</Grid>
 				</Grid>
 			</Grid>
 		</Button>

@@ -17,6 +17,7 @@ namespace Frennzy_Nuh_UhScreens
         Initial,
         AddPlayers,
         AddPhone,
+        JoinGame,
         SpeakerChooses,
         SpeakerReads,
         ListenersVote,
@@ -89,6 +90,7 @@ namespace Frennzy_Nuh_UhScreens
                 {
                     _state = value;
                     PropertyChanged.Notify(() => State);
+                    PropertyChanged.Notify(() => IsReady);
                 }
             }
         }
@@ -121,7 +123,17 @@ namespace Frennzy_Nuh_UhScreens
             }
         }
 
-        public bool IsReady { get { return HasPhone; } }
+        public bool IsReady { get { return HasPhone && (State == GameStates.AddPlayers || IsHost); } }
+
+
+        private VM_Phone GetPhone()
+        {
+            foreach (VM_Phone phone in VM.Phones)
+                if (phone.Owner == this)
+                    return phone;
+
+            return null;
+        }
 
         public Control Visual;
 

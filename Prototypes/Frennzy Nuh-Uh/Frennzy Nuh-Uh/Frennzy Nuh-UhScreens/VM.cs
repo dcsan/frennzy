@@ -146,7 +146,7 @@ namespace Frennzy_Nuh_UhScreens
                 bool ready = true;
 
                 foreach (VM_Player player in Players)
-                    if (!player.HasPhone)
+                    if (!player.IsReady)
                         ready = false;
 
                 return ready;
@@ -303,32 +303,6 @@ namespace Frennzy_Nuh_UhScreens
                 player.State = GameStates.SpeakerChooses;
         }
 
-        public void GoTo_AddPhone(VM_Player player)
-        {
-            NewPhone = new VM_Phone(player);
-            GetHost().State = GameStates.AddPhone;
-        }
-
-        private VM_Phone _newPhone = new VM_Phone(new VM_Player("New Phone Guy", GameStates.AddPlayers, null));
-        public VM_Phone NewPhone
-        {
-            get { return _newPhone; }
-            set
-            {
-                if (_newPhone != value)
-                {
-                    _newPhone = value;
-                    PropertyChanged.Notify(() => NewPhone);
-                }
-            }
-        }
-
-        public void AddNewPhone()
-        {
-            Phones.Add(NewPhone);
-            Speaker.State = GameStates.AddPlayers;
-        }
-
         public void MakeChoice(VM_Statement choice)
         {
             SpeakerChoice = choice;
@@ -391,7 +365,7 @@ namespace Frennzy_Nuh_UhScreens
         public void AddPlayer()
         {
             if (Players.Count < 8)
-                Players.Add(new VM_Player("Player " + (Players.Count + 1).ToString(), GameStates.AddPlayers, VM.StaticVM));
+                Players.Add(new VM_Player("Player " + (Players.Count + 1).ToString(), GameStates.JoinGame, VM.StaticVM));
         }
 
         public void RemovePlayer(VM_Player player)
@@ -420,6 +394,32 @@ namespace Frennzy_Nuh_UhScreens
         public void AddPhone(VM_Player player)
         {
             Phones.Add(new VM_Phone(player));
+        }
+
+        public void GoTo_AddPhone(VM_Player player)
+        {
+            NewPhone = new VM_Phone(player);
+            GetHost().State = GameStates.AddPhone;
+        }
+
+        private VM_Phone _newPhone = new VM_Phone(new VM_Player("New Phone Guy", GameStates.AddPlayers, null));
+        public VM_Phone NewPhone
+        {
+            get { return _newPhone; }
+            set
+            {
+                if (_newPhone != value)
+                {
+                    _newPhone = value;
+                    PropertyChanged.Notify(() => NewPhone);
+                }
+            }
+        }
+
+        public void AddNewPhone()
+        {
+            Phones.Add(NewPhone);
+            Speaker.State = GameStates.AddPlayers;
         }
 
 

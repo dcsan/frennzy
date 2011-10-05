@@ -42,6 +42,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Expression.Drawing" />
     <Reference Include="mscorlib" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
@@ -68,6 +69,9 @@
     <Compile Include="Control_PlayerPhone.xaml.cs">
       <DependentUpon>Control_PlayerPhone.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataStore\DataStore\DataStore.xaml.cs">
+      <DependentUpon>DataStore.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frennzy_Flow.xaml.cs">
       <DependentUpon>Frennzy_Flow.xaml</DependentUpon>
     </Compile>
@@ -77,6 +81,10 @@
     <Compile Include="VM_Player.cs" />
     <Compile Include="VM_Statement.cs" />
     <Page Include="Control_PlayerPhone.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataStore\DataStore\DataStore.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -101,6 +109,8 @@
     <Resource Include="1317681572_user_48.png" />
     <Resource Include="1317681613_user_32.png" />
     <Resource Include="1317681649_user.png" />
+    <Resource Include="1317801318_001_06.png" />
+    <Resource Include="1317801490_Tasks.png" />
     <Resource Include="Contacts.png" />
     <Resource Include="facebook-icon.png" />
     <Resource Include="Fonts\BuxtonSketch.ttf" />
@@ -108,16 +118,27 @@
     <Resource Include="Fonts\SegoeMarker.ttf" />
     <Resource Include="FrennzyFullNameLogo.png" />
     <Resource Include="dialpad.png" />
+    <Resource Include="Frennzy_Icon.png" />
     <Resource Include="Image1.png" />
     <Resource Include="iPhone.png" />
     <Resource Include="iphonecontact.png" />
     <Resource Include="iphone_messages_icon.png" />
     <Resource Include="package_games_board.png" />
+    <Resource Include="photo.PNG" />
+    <Resource Include="photo2.PNG" />
     <Resource Include="Sketch.Flow" />
     <Resource Include="twitter-icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="photo3.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <DesignTimeOnly Include="DataStore\DataStore\DataStore.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

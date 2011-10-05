@@ -64,5 +64,13 @@ namespace Frennzy_Nuh_UhScreens
         {
             VM.EnterVote(_vm_Player, false);
         }
+
+        private void JoinGame_PhoneApp_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            FrameworkElement button = (FrameworkElement)sender;
+            VM_Player player = (VM_Player)button.DataContext;
+            player.State = GameStates.AddPlayers;
+            VM.CheckPlayersReady();
+        }
 	}
 }
