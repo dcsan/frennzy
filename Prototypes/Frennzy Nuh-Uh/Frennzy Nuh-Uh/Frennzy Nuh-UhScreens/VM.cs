@@ -187,13 +187,16 @@ namespace Frennzy_Nuh_UhScreens
             }
         }
 
-        private VM_Player GetHost()
+        public VM_Player Host
         {
-            foreach (VM_Player player in Players)
-                if (player.IsHost)
-                    return player;
+            get
+            {
+                foreach (VM_Player player in Players)
+                    if (player.IsHost)
+                        return player;
 
-            return null;
+                return null;
+            }
         }
 
         private int _roundNum = 0;
@@ -399,7 +402,7 @@ namespace Frennzy_Nuh_UhScreens
         public void GoTo_AddPhone(VM_Player player)
         {
             NewPhone = new VM_Phone(player);
-            GetHost().State = GameStates.AddPhone;
+            Host.State = GameStates.AddPhone;
         }
 
         private VM_Phone _newPhone = new VM_Phone(new VM_Player("New Phone Guy", GameStates.AddPlayers, null));

@@ -120,12 +120,16 @@
     <Resource Include="dialpad.png" />
     <Resource Include="Frennzy_Icon.png" />
     <Resource Include="Image1.png" />
+    <Resource Include="Image2.png" />
+    <Resource Include="Image3.png" />
     <Resource Include="iPhone.png" />
     <Resource Include="iphonecontact.png" />
     <Resource Include="iphone_messages_icon.png" />
+    <Resource Include="iphone_messages_screen.PNG" />
     <Resource Include="package_games_board.png" />
     <Resource Include="photo.PNG" />
     <Resource Include="photo2.PNG" />
+    <Resource Include="photo4.PNG" />
     <Resource Include="Sketch.Flow" />
     <Resource Include="twitter-icon.png" />
   </ItemGroup>
@@ -134,6 +138,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="photo3.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="photo5.PNG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

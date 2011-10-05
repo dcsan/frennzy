@@ -451,6 +451,13 @@
 											</DiscreteObjectKeyFrame.Value>
 										</DiscreteObjectKeyFrame>
 									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_1_GetText">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
 								</Storyboard>
 							</VisualState>
 							<VisualState x:Name="JoinGame2">
@@ -462,7 +469,7 @@
 											</DiscreteObjectKeyFrame.Value>
 										</DiscreteObjectKeyFrame>
 									</ObjectAnimationUsingKeyFrames>
-									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_AddMenu">
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_2_ClickTextLink">
 										<DiscreteObjectKeyFrame KeyTime="0">
 											<DiscreteObjectKeyFrame.Value>
 												<Visibility>Visible</Visibility>
@@ -480,7 +487,43 @@
 											</DiscreteObjectKeyFrame.Value>
 										</DiscreteObjectKeyFrame>
 									</ObjectAnimationUsingKeyFrames>
-									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_TapApp">
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_3_InstallRequest">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="JoinGame4">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_JoinGame">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_4_AddMenu">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
+							<VisualState x:Name="JoinGame5">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_JoinGame">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_5_TapApp">
 										<DiscreteObjectKeyFrame KeyTime="0">
 											<DiscreteObjectKeyFrame.Value>
 												<Visibility>Visible</Visibility>
@@ -1035,7 +1078,47 @@
 					<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="{Binding VM.NewPhone.Owner.Name}" FontSize="48" Margin="0,0,0,-9" d:LayoutOverrides="Height"/>
 				</Grid>
 				<Grid x:Name="pnl_JoinGame" Visibility="Collapsed">
-					<Grid x:Name="pnl_InstallRequest">
+					<Grid x:Name="pnl_5_TapApp" Visibility="Collapsed">
+						<Grid.Background>
+							<ImageBrush ImageSource="/photo3.PNG"/>
+						</Grid.Background>
+						<Border HorizontalAlignment="Left" Height="58" MouseLeftButtonDown="JoinGame_PhoneApp_Click" Margin="17,33,0,0" VerticalAlignment="Top" Width="57" CornerRadius="10">
+							<Border.Background>
+								<RadialGradientBrush RadiusY="1.069" RadiusX="2.313" Center="0.535,-0.033" GradientOrigin="0.535,-0.033">
+									<GradientStop Color="#FFB4B4B4" Offset="1"/>
+									<GradientStop Color="White"/>
+									<GradientStop Color="#FFFAFAFA" Offset="0.449"/>
+									<GradientStop Color="#FFEBEBEB" Offset="0.692"/>
+									<GradientStop Color="#FFD0D0D0" Offset="0.478"/>
+								</RadialGradientBrush>
+							</Border.Background>
+							<Image Source="Frennzy_Icon.png" VerticalAlignment="Center" HorizontalAlignment="Center" IsHitTestVisible="False">
+								<Image.Effect>
+									<DropShadowEffect Direction="270" Opacity="0.6" ShadowDepth="2"/>
+								</Image.Effect>
+							</Image>
+						</Border>
+					</Grid>
+					<Grid x:Name="pnl_4_AddMenu" Visibility="Collapsed">
+						<Grid.Background>
+							<ImageBrush ImageSource="photo2.PNG"/>
+						</Grid.Background>
+						<Grid Margin="18,186,19,19" Background="#00000000">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<ei:GoToStateAction StateName="JoinGame3"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Grid>
+						<Grid Height="48" Margin="19,0,19,192" VerticalAlignment="Bottom" Background="#00FF0000">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<ei:GoToStateAction StateName="JoinGame5"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Grid>
+					</Grid>
+					<Grid x:Name="pnl_3_InstallRequest" Visibility="Collapsed">
 						<Grid.Background>
 							<ImageBrush ImageSource="photo.PNG" Stretch="None"/>
 						</Grid.Background>
@@ -1059,23 +1142,16 @@
 						<Grid Height="31" Margin="142,0,138,8" VerticalAlignment="Bottom" Background="#00000000">
 							<i:Interaction.Triggers>
 								<i:EventTrigger EventName="MouseLeftButtonDown">
-									<ei:GoToStateAction StateName="JoinGame2"/>
+									<ei:GoToStateAction StateName="JoinGame4"/>
 								</i:EventTrigger>
 							</i:Interaction.Triggers>
 						</Grid>
 					</Grid>
-					<Grid x:Name="pnl_AddMenu" Visibility="Collapsed">
+					<Grid x:Name="pnl_2_ClickTextLink" Visibility="Collapsed">
 						<Grid.Background>
-							<ImageBrush ImageSource="photo2.PNG"/>
+							<ImageBrush Stretch="Fill" ImageSource="photo4.PNG"/>
 						</Grid.Background>
-						<Grid Margin="18,186,19,19" Background="#00000000">
-							<i:Interaction.Triggers>
-								<i:EventTrigger EventName="MouseLeftButtonDown">
-									<ei:GoToStateAction StateName="JoinGame"/>
-								</i:EventTrigger>
-							</i:Interaction.Triggers>
-						</Grid>
-						<Grid Height="48" Margin="19,0,19,192" VerticalAlignment="Bottom" Background="#00FF0000">
+						<Grid Height="63" Margin="18,151,8,0" VerticalAlignment="Top" Background="#00000000">
 							<i:Interaction.Triggers>
 								<i:EventTrigger EventName="MouseLeftButtonDown">
 									<ei:GoToStateAction StateName="JoinGame3"/>
@@ -1083,26 +1159,76 @@
 							</i:Interaction.Triggers>
 						</Grid>
 					</Grid>
-					<Grid x:Name="pnl_TapApp" Visibility="Collapsed">
+					<Grid x:Name="pnl_1_GetText" Visibility="Collapsed">
 						<Grid.Background>
-							<ImageBrush ImageSource="/photo3.PNG"/>
+							<ImageBrush Stretch="Fill" ImageSource="/photo5.PNG"/>
 						</Grid.Background>
-						<Border HorizontalAlignment="Left" Height="58" MouseLeftButtonDown="JoinGame_PhoneApp_Click" Margin="17,33,0,0" VerticalAlignment="Top" Width="57" CornerRadius="10">
+						<Border BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="279" CornerRadius="15" Visibility="Collapsed">
+							<Border.Effect>
+								<DropShadowEffect Direction="280" BlurRadius="10" Opacity="0.7"/>
+							</Border.Effect>
 							<Border.Background>
-								<RadialGradientBrush RadiusY="1.069" RadiusX="2.313" Center="0.535,-0.033" GradientOrigin="0.535,-0.033">
-									<GradientStop Color="#FFB4B4B4" Offset="1"/>
-									<GradientStop Color="White"/>
-									<GradientStop Color="#FFFAFAFA" Offset="0.449"/>
-									<GradientStop Color="#FFEBEBEB" Offset="0.692"/>
-									<GradientStop Color="#FFD0D0D0" Offset="0.478"/>
+								<RadialGradientBrush RadiusX="3.574" RadiusY="0.967" Center="0.495,-0.031" GradientOrigin="0.495,-0.031" Opacity="0.7">
+									<GradientStop Color="#FF000F37" Offset="1"/>
+									<GradientStop Color="#FF7C8499"/>
+									<GradientStop Color="#FF263355" Offset="0.293"/>
+									<GradientStop Color="#FF001038" Offset="0.312"/>
 								</RadialGradientBrush>
 							</Border.Background>
-							<Image Source="Frennzy_Icon.png" VerticalAlignment="Center" HorizontalAlignment="Center" IsHitTestVisible="False">
-								<Image.Effect>
-									<DropShadowEffect Direction="270" Opacity="0.6" ShadowDepth="2"/>
-								</Image.Effect>
-							</Image>
+							<Border.BorderBrush>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFB2B7C3" Offset="1"/>
+									<GradientStop Color="#FFE5E8EE"/>
+								</LinearGradientBrush>
+							</Border.BorderBrush>
+							<Grid>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="Auto"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="0.5*"/>
+									<ColumnDefinition Width="0.5*"/>
+								</Grid.ColumnDefinitions>
+								<Button Margin="5" Style="{StaticResource ButtonStyle_iPhone}" Content="Close" VerticalAlignment="Bottom" d:LayoutOverrides="Width" Grid.Row="2" FontSize="24" BorderThickness="0">
+									<Button.Background>
+										<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" Opacity="0.5">
+											<GradientStop Color="#FF162C6A" Offset="0.514"/>
+											<GradientStop Color="#FF838A9D"/>
+											<GradientStop Color="#FF45588D" Offset="0.478"/>
+											<GradientStop Color="#FF1A2E64" Offset="1"/>
+											<GradientStop Color="#FF112456" Offset="0.736"/>
+										</LinearGradientBrush>
+									</Button.Background>
+								</Button>
+								<Button Margin="5" Style="{StaticResource ButtonStyle_iPhone}" Content="View" VerticalAlignment="Bottom" Grid.Row="2" d:LayoutOverrides="Width" Grid.Column="1" FontSize="24" BorderThickness="0">
+									<i:Interaction.Triggers>
+										<i:EventTrigger EventName="Click">
+											<ei:GoToStateAction StateName="JoinGame2"/>
+										</i:EventTrigger>
+									</i:Interaction.Triggers>
+									<Button.Background>
+										<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" Opacity="0.5">
+											<GradientStop Color="#FF00416A" Offset="0.514"/>
+											<GradientStop Color="#FFA6DCFF"/>
+											<GradientStop Color="#FF1A85CA" Offset="0.478"/>
+											<GradientStop Color="#FF034A77" Offset="1"/>
+											<GradientStop Color="#FF135A91" Offset="0.891"/>
+										</LinearGradientBrush>
+									</Button.Background>
+								</Button>
+								<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" FontFamily="Arial" FontSize="18.667" Foreground="White" Grid.ColumnSpan="2" Margin="5" d:LayoutOverrides="Height, GridBox" Grid.Row="1"><Run Text="Join my Frennzy game!"/><LineBreak/><Run Text="http://frennzy.com/join?5rUZ0ALK"/></TextBlock>
+								<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="{Binding VM.Host.Name}" FontWeight="Bold" FontFamily="Arial" FontSize="21.333" Foreground="White" Grid.ColumnSpan="2" Margin="5,10,5,5" d:LayoutOverrides="Height, GridBox"/>
+							</Grid>
 						</Border>
+						<Grid Height="54" Margin="21,0,20,22" VerticalAlignment="Bottom" Background="#00000000">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<ei:GoToStateAction StateName="JoinGame2"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Grid>
 					</Grid>
 				</Grid>
 			</Grid>
