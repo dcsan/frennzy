@@ -13,6 +13,18 @@ a {
     font-size: 18px;
 }
 
+.multi{
+	display:none;
+}
+
+.single{
+	display:none;
+}
+
+.team{
+	display:none;
+}
+
 .navbar {
     position: absolute;
     bottom: 20px;
@@ -63,3 +75,51 @@ a {
     visibility: hidden;
 }
 
+p { color: blue; }
+h3{ color: red; }
+
+.pagetitle {
+    text-align: center;
+    font-size: 24px;
+    background-color: #ffff66;
+    padding: 10px;
+}
+
+.roundbox {
+    border:  1px solid #808080;
+    background-color: white;
+    margin: 5px;
+    -webkit-border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.boxtitle {
+    text-align: center;
+}
+
+.button {
+    border:  1px solid black;
+    background-color: white;
+    margin: 5px;
+    -webkit-border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.greenbutton {
+    border:  1px solid black;
+    background-color: #99ff99;
+    margin: 5px;
+    -webkit-border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.imagebox {
+    text-align: center;
+}

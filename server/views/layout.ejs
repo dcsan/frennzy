@@ -33,11 +33,11 @@
 <link rel="apple-touch-startup-image" href="/images/startup.png" />
 
 <script>
+    var options=readCookies();
     var socket=io.connect();
 $(document).ready(function () {
     //TODO check if the page responds to this?
     init();
-    setup();
 });
 </script>
 
@@ -45,19 +45,33 @@ $(document).ready(function () {
 </head>
 <body>
 
+<div id="header">
 <% if(showPagename==true) { %>
     <h3><%= pagename %></h3>
 <% } %>
+</div>
 
+<div id="body">
 <%- body %>
+<div>
 
+<div id="footer">
 <div class="navbar">
     <a href="/top">top</a> |
     <a href="/games">games</a> |
     <a href="/feed">feed</a> |
     <a href="javascript:toggleDebug()">debug</a>
 </div>
+</div>
 
-
+<script>
+writeCookies(options);
+document.addEventListener('click',function(){
+  $('.multi').hide();
+  $('.single').hide();
+  $('.team').hide();
+  $('.'+options.players).show();
+});
+</script>
 </body>
 </html>

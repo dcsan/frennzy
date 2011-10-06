@@ -73,7 +73,7 @@ function init(app){
 
     function showPage(req, res, locals) {
         var url = req.url.slice(1); // remove leading
-        if (url=="/") { url = "/top"}
+        if (url=="/") { url = "/index"}
         url = url.split("?")[0];    // remove any params for matching
         if (locals == null) {
             locals = {};
@@ -90,7 +90,8 @@ function init(app){
         var defaults = {
             nickname: "alphaman",
             pagename: pagename,
-            showPagename: showPagename
+            showPagename: showPagename,
+            includes: ''
         };
         locals = extend(locals, defaults);
         // log(locals);
@@ -210,7 +211,6 @@ var io = sio.listen(app);
 var sockets=[];
 io.sockets.on('connection',function(socket){
    	sockets.push(socket.id);
-   	console.log('connected');
    	socket.on('data',function(json){
    		if(json.valid){
     	switch(json.type){
@@ -225,7 +225,10 @@ io.sockets.on('connection',function(socket){
     			break;
     		case 'toRoom':
     			console.log(json);
-    			io.sockets.emit(json.action,json);
+    			var action=json.action;
+    			delete json.action;
+    			delete json.type;
+    			io.sockets.emit(action,json);
     			break;
     		default:
     			console.log('error in socket data packets'+json);

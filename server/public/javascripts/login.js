@@ -19,21 +19,31 @@ var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCStri
 document.cookie=c_name + "=" + c_value;
 }
 
-function setup(){
-var username=getCookie("username");
-if (username!=null && username!="")
+function readCookies(){
+  var json={};
+  json.username=getCookie("username");
+  json.players=getCookie("players");
+  json.platform=getCookie("platform");
+  return json;
+}
+
+function writeCookies(json){
+if (json.username!=null && json.username!="")
   {
-  alert("Welcome again " + username);
-  send({'type':'toDb','action':username});
-  window.location.assign('/top');
+    setCookie("username",json.username,365);
+    setCookie("players",json.players,365);
+    setCookie("platform",json.platform,365);
   }
-else 
+else
   {
-  username=prompt("Please enter a nickname:","");
-  if (username!=null && username!="")
+  var json={};
+  json.username=prompt("Please enter a nickname:","");
+  if (json.username!=null && json.username!="")
     {
-    setCookie("username",username,365);
-    send({'type':'toDb','action':username});
+    setCookie("username",json.username,365);
+    send({'type':'toDb','action':json.username});
+    setCookie("players","",365);
+    setCookie("platform","",365);
     window.location.assign('/top');
     }
   }
