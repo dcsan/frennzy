@@ -1,0 +1,22 @@
+Directions to Interface with the Database
+
+interfacing with the database is done through sockets.  to interact with the database in any way we can use the send() function.  When we want to send something to the database it must be contained within an associative array.  This array must have a type that is either 'toDb' or 'fromDb' for database interaction.
+
+'toDb' will send information to be stored in the database.
+'fromDb' will send a request to get information from the database.
+
+The queries that you wish to be run should be included in the array as the action.  An example array is shown below.
+
+json={};
+json.type='toDb';
+json.action=query;
+
+in the case of the 'toDb' type the query will run and there will be no return.  In the case of the 'fromDb' type there will be a return with the resutls of the query.  When listening for the data to be returned on the 'fromDb' command you must use the socket.on() function.
+
+socket.on('fromDb',function(json){
+//javascript
+});
+
+the function at the end of the socket.on() function will execute any javascript when anything is received from the database. If there are multiple database calls in the page then there must be a differentiator for those calls using if statements or switch/case.
+
+the database system is not yet ready.

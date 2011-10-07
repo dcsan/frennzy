@@ -1,0 +1,43 @@
+Directions to use the options variable
+
+The options variable is where the information that is driving the page is stored.  for example the room name is under options.room.  This can be used to either display text in certain areas, have cutoffs at certain values, or designate if the player should see something.
+
+to control what the player views based on host/paid/type of game you can put the options in the class of anything.
+the class should be written as follows to have something displayed when options.host=='host':
+
+<div class='option host'>hosting</div>
+
+
+
+this is how to have something displayed if options.host=='host' or options.phones=='single'
+
+<div class='option host single'>if i'm using one phone the i must be the host!</div>
+
+
+
+this is how to have something displayed if options.host=='host' and options.phones=='mutli'
+
+<div class='option host'><div class='option multi'>I'm the host of a multiphone game!</div></div>
+
+
+The nesting creates an AND while the inline options creat an or.  This currently applies to only the options.phones, options.host, and options.paid classes.  There is no limitation on what the class name can be.  for example if options.phones=='dlafhsornudccnlkdnal' then you could have this display a div:
+<div class='option dlafhsornudccnlkdnal'>anything works!</div>
+
+along similar lines if the options are overlapping they will overlap displays.  for example if options.phones=='multi' and options.paid=='multi' then <div class='options multi> would be displayed when either of the two are 'multi'(even if options.phones=='single')
+
+options can be changed by calling the function setOptions(option,value).  for example:
+setOptions('phones','multi');
+would set options.phones to multi and cause all multi classes to be displayed.
+since the values in options are being stored in a cookie the options will follow a person through pages until they are changed.
+
+
+
+To have an option displayed you can use jquery calls to anything with a specific id. for example if you wanted the options.credits to be diplayed in a location you could write the following:
+
+<h1 id='credits'></h1>
+<script>
+$('#credits').html(options.credits);
+</script>
+
+This will cause the html in the h1 tag between >< to become the value that is stored in options.credits
+WARNING!!!- this will delete any other html that is between the ><.

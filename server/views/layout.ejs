@@ -22,7 +22,7 @@
 <script type="text/javascript" src="/javascripts/jquery.transform.js"></script>
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="/javascripts/io.js"></script>
-<script type="text/javascript" src="/javascripts/login.js"></script>
+<script type="text/javascript" src="/javascripts/cookies.js"></script>
 
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -33,11 +33,12 @@
 <link rel="apple-touch-startup-image" href="/images/startup.png" />
 
 <script>
+    var options=readCookies();
+    options.room='alpha';
     var socket=io.connect();
 $(document).ready(function () {
     //TODO check if the page responds to this?
     init();
-    setup();
 });
 </script>
 
@@ -45,19 +46,28 @@ $(document).ready(function () {
 </head>
 <body>
 
+<div id="header">
 <% if(showPagename==true) { %>
     <h3><%= pagename %></h3>
 <% } %>
+</div>
 
+<div id="body">
 <%- body %>
+<div>
 
+<div id="footer">
 <div class="navbar">
     <a href="/top">top</a> |
     <a href="/games">games</a> |
     <a href="/feed">feed</a> |
     <a href="javascript:toggleDebug()">debug</a>
 </div>
+</div>
 
 
+<script>
+writeCookies(options);
+</script>
 </body>
 </html>

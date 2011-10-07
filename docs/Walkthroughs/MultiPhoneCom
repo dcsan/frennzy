@@ -1,0 +1,63 @@
+Directions to Use the Multi Phone communication
+
+The multi-phone communication is run by sockets.  These sockets interface with the server and do not directly interface with other phones.  The reason we do this is that to interface directly with other phones we could use bluetooth(limited to 2 devices) or we could use local wireless(this is unreliable and is not available on nearly all devices, in the future this will be the way to do things).
+
+to send things to people in the same room use an associative array that is to be sent to the server.  This associative array should have 'type':'toRoom'.  an example is shown below:
+
+json={'type':'toRoom'};
+OR
+json={};
+json.type='toRoom';
+
+the above associative array will only ping the server and will not actually do anything.  To have the array do something we give it an action.
+
+json.action='write';
+
+now that our array has an action we must actually send it to the server.
+
+send(json);
+
+Once the server gets the array it will see that it is supposed to be sent back to everyone in the room and will send it with the action tag.  To listen for the action tag coming back use the following syntax:
+
+socket.on('write',function(json){
+//javascript
+});
+
+The fucntion at the end of the socket.on will execute anything you want when the page recieves the 'write' action.  The json variable being passed to the array is anything that was part of the original json being sent 'toRoom'.  Below is a full example.
+
+<script>
+function helloWorld(){
+json={};
+json.type='toRoom';
+json.actin='write';
+json.write='hello world';
+send(json);
+}
+socket.on('write',function(json){
+alert(json.write);
+});
+</script>
+<button onclick='helloWorld'>Click Me!</button>
+
+The output of this page will be a button that says "Click Me!".  When it is clicked an alert box will display with the text "hello world".
+
+any information can be contained in the json array when sent and recieved(x,y location, the name of a div that has been clicked, or the location of a drop on a drag and drop).  Anything can be used to trigger the function(button click, mousemove, mouseup, keypress).
+
+
+
+
+To manage a room use the joinRoom() and leaveRoom() functions.  To kick a player from a room use the leaveRoom() function.  to join a room use the following syntax:
+
+roomName='abc';
+joinRoom(roomName);
+
+to leave a room use the following syntax:
+
+leaveRoom();
+
+to kick a player from a room use the following syntax:
+
+playerNickname='Aaron';
+leaveRoom(playerNickname);
+
+The room management system is not yet ready.
