@@ -5,8 +5,9 @@
     <title>frennzy</title>
 </head>
 <body>
+<h2 id='credits'></h2>
 <script>
-setOption('phones','single');
+$('#credits').html(options.credits);
 </script>
 
 
@@ -15,6 +16,7 @@ setOption('phones','single');
 </div>
 
 <button onclick="setOption('phones','multi');">multi</button>
+<button onclick="setOption('phones','single');">single</button>
 
 </body>
 </html>

@@ -209,6 +209,7 @@ function init(app){
 
 var io = sio.listen(app);
 var sockets=[];
+var rooms={};
 io.sockets.on('connection',function(socket){
    	sockets.push(socket.id);
    	socket.on('data',function(json){
@@ -220,15 +221,17 @@ io.sockets.on('connection',function(socket){
     		case 'fromDb':
     			break;
     		case 'joinRoom':
+    			if(rooms[json.room]!=null&&roms[json.room]!=""){
+    				rooms[json.room].push(socket.id);
+    			}
+    			else{
+    				rooms[json.room]=[socket.id]
+    			}
     			break;
     		case 'leaveRoom':
     			break;
     		case 'toRoom':
     			console.log(json);
-    			var action=json.action;
-    			delete json.action;
-    			delete json.type;
-    			io.sockets.emit(action,json);
     			break;
     		default:
     			console.log('error in socket data packets'+json);
