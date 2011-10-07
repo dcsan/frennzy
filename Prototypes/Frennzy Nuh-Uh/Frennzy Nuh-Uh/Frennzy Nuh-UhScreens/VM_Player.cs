@@ -21,8 +21,9 @@ namespace Frennzy_Nuh_UhScreens
         SpeakerChooses,
         SpeakerReads,
         ListenersVote,
+        WaitForResults,
         Results,
-        WaitForResults
+        FinalResults
     }
 
     public class VM_Player : INotifyPropertyChanged
@@ -35,8 +36,8 @@ namespace Frennzy_Nuh_UhScreens
             if (vm != null)
             {
                 _vm = vm;
-                _vm.SubscribeToChange(() => _vm.Speaker, SpeakerChanged);
-                _vm.SubscribeToChange(() => _vm.SpeakerChoice, SpeakerChoiceChanged);
+                //_vm.SubscribeToChange(() => _vm.CurrentGame.CurrentRound.Speaker, SpeakerChanged);
+                //_vm.SubscribeToChange(() => _vm.CurrentGame.CurrentRound.Choice, SpeakerChoiceChanged);
                 _vm.Phones.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Phones_CollectionChanged);
             }
         }
@@ -47,7 +48,7 @@ namespace Frennzy_Nuh_UhScreens
             IsHost = isHost;
         }
 
-        private void SpeakerChanged(VM vm)
+        public void SpeakerChanged()
         {
             PropertyChanged.Notify(() => IsSpeaker);
             PropertyChanged.Notify(() => ResultLine);
@@ -91,6 +92,8 @@ namespace Frennzy_Nuh_UhScreens
                     _state = value;
                     PropertyChanged.Notify(() => State);
                     PropertyChanged.Notify(() => IsReady);
+                    PropertyChanged.Notify(() => IsSpeaker);
+                    PropertyChanged.Notify(() => ResultLine);
                 }
             }
         }
@@ -109,7 +112,16 @@ namespace Frennzy_Nuh_UhScreens
             }
         }
 
-        public bool IsSpeaker { get { return VM.Speaker == this; } }
+        public bool IsSpeaker
+        {
+            get
+            {
+                if (VM.CurrentGame != null && VM.CurrentGame.CurrentRound != null)
+                    return VM.CurrentGame.CurrentRound.Speaker == this;
+
+                return false;
+            }
+        }
         
         public bool HasPhone 
         {
@@ -142,22 +154,27 @@ namespace Frennzy_Nuh_UhScreens
 
         public string ResultLine
         {
-            get 
+            get
             {
-                if (VM.StaticVM.Speaker == this)
+                if (VM.CurrentGame.CurrentRound.Choice != null)
                 {
-                    if (VM.StaticVM.SpeakerChoice.IsTrue)
-                        return Name + " was honest!";
+                    if (VM.CurrentGame.CurrentRound.Speaker == this)
+                    {
+                        if (VM.CurrentGame.CurrentRound.Choice.IsTrue)
+                            return Name + " was honest!";
+                        else
+                            return Name + " flat out lied!";
+                    }
                     else
-                        return Name + " flat out lied!";
+                    {
+                        if (VM.CurrentGame.CurrentRound.Choice.IsTrue == Vote)
+                            return Name + " guessed right!";
+                        else
+                            return Name + " guessed wrong.";
+                    }
                 }
-                else
-                {
-                    if (VM.StaticVM.SpeakerChoice.IsTrue == Vote)
-                        return Name + " guessed right!";
-                    else
-                        return Name + " guessed wrong.";
-                }
+
+                return "";
             }
         }
 
