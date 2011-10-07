@@ -24,8 +24,6 @@ namespace Frennzy_Nuh_UhScreens
             PlayGame();
         }
 
-
-
         private int _numberOfRounds = 0;
         public int NumberOfRounds
         {
@@ -90,7 +88,9 @@ namespace Frennzy_Nuh_UhScreens
         {
             if (CurrentRoundNum < NumberOfRounds)
             {
-                VM_Round newRound = new VM_Round(GetNextSpeaker(), ChooseSpeakerOptions());
+                VM_Player nextSpeaker = GetNextSpeaker();
+                VM_Round newRound = new VM_Round(nextSpeaker, ChooseSpeakerOptions());
+
                 Rounds.Add(newRound);
                 newRound.GoTo_SpeakerChooses();
             }

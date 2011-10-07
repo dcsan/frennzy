@@ -48,7 +48,7 @@ namespace Frennzy_Nuh_UhScreens
             IsHost = isHost;
         }
 
-        private void SpeakerChanged(VM vm)
+        public void SpeakerChanged()
         {
             PropertyChanged.Notify(() => IsSpeaker);
             PropertyChanged.Notify(() => ResultLine);

@@ -169,6 +169,9 @@ namespace Frennzy_Nuh_UhScreens
         public void StartGame()
         {
             Games.Add(new VM_Game(StatementDB, _r));
+            PropertyChanged.Notify(() => CurrentGame);
+            foreach (VM_Player player in Players)
+                player.SpeakerChanged();
         }
 
         public void CheckPlayersReady()
