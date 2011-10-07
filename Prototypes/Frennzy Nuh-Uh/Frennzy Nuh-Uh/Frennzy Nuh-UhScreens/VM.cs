@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 
 namespace Frennzy_Nuh_UhScreens
 {
@@ -18,17 +19,21 @@ namespace Frennzy_Nuh_UhScreens
     {
         static public VM StaticVM = new VM();
 
+
+
         public VM()
         {
             VM_Player host = new VM_Player("HostBoy", GameStates.Initial, this, true);
             Phones.Add(new VM_Phone(host));
             Players.Add(host);
-            CurrentGame = new VM_Game(StatementDB);
 
-            //Players.Add(new VM_Player("Hiro", GameStates.AddPlayers, this));
+            Games.CollectionChanged += new NotifyCollectionChangedEventHandler(Games_CollectionChanged);
+
+            VM_Player hiro = new VM_Player("Hiro", GameStates.AddPlayers, this);
+            Phones.Add(new VM_Phone(hiro));
+            Players.Add(hiro);
+
             //Players.Add(new VM_Player("n00b"));
-
-            Speaker = Players[0];
 
             StatementDB.Add(new VM_Statement(true, "The Nobel Peace Prize medal depicts 3 naked men with their hands on each others shoulders.", "http://www.weirdfacts.com/facts/3118-nobel-prize.html"));
             StatementDB.Add(new VM_Statement(true, "Fortune cookies were actually invented in America.", "http://www.weirdfacts.com/facts/3119-fortune-cookies.html"));
@@ -61,10 +66,15 @@ namespace Frennzy_Nuh_UhScreens
             StatementDB.Add(new VM_Statement(false, "There is a sanctuary for dogs named 'Dog Island' off the coast of Florida.", "http://www.snopes.com/critters/crusader/dogisland.asp"));
             StatementDB.Add(new VM_Statement(false, "Coating the edges of an audio CD with a green marker notably improves the sound.", "http://www.snopes.com/music/media/marker.asp"));
 
-            Players.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Players_CollectionChanged);
+            Players.CollectionChanged += new NotifyCollectionChangedEventHandler(Players_CollectionChanged);
         }
 
-        void Players_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        void Games_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            PropertyChanged.Notify(() => CurrentGame);
+        }
+
+        void Players_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             PropertyChanged.Notify(() => PlayersReady);
         }
@@ -113,21 +123,17 @@ namespace Frennzy_Nuh_UhScreens
             }
         }
 
-        private VM_Game _currentGame;
         public VM_Game CurrentGame
         {
-            get { return _currentGame; }
-            set
+            get
             {
-                if (_currentGame != value)
-                {
-                    _currentGame = value;
-                    PropertyChanged.Notify(() => CurrentGame);
-                }
+                if (Games.Count > 0)
+                    return Games[Games.Count - 1];
+
+                return null;
             }
         }
         
-
         private ObservableCollection<VM_Game> _games = new ObservableCollection<VM_Game>();
         public ObservableCollection<VM_Game> Games
         {
@@ -142,33 +148,6 @@ namespace Frennzy_Nuh_UhScreens
             }
         }
         
-
-
-
-
-        private ObservableCollection<VM_Statement> _speakerOptions = new ObservableCollection<VM_Statement>();
-        public ObservableCollection<VM_Statement> SpeakerOptions
-        {
-            get { return _speakerOptions; }
-            set
-            {
-                if (_speakerOptions != value)
-                {
-                    _speakerOptions = value;
-                    PropertyChanged.Notify(() => SpeakerOptions);
-                }
-            }
-        }
-
-        public string ChoiceText
-        {
-            get {
-                if (SpeakerChoice != null)
-                    return SpeakerChoice.Text;
-                else
-                    return "Not yet defined.";
-            }
-        }
 
         public bool PlayersReady
         {
@@ -187,38 +166,14 @@ namespace Frennzy_Nuh_UhScreens
             }
         }
 
+        public void StartGame()
+        {
+            Games.Add(new VM_Game(StatementDB, _r));
+        }
+
         public void CheckPlayersReady()
         {
             PropertyChanged.Notify(() => PlayersReady);
-        }
-
-        private VM_Statement _speakerChoice;
-        public VM_Statement SpeakerChoice
-        {
-            get { return _speakerChoice; }
-            set
-            {
-                if (_speakerChoice != value)
-                {
-                    _speakerChoice = value;
-                    PropertyChanged.Notify(() => SpeakerChoice);
-                    PropertyChanged.Notify(() => ChoiceText);
-                }
-            }
-        }
-
-        private VM_Player _speaker;
-        public VM_Player Speaker
-        {
-            get { return _speaker; }
-            set
-            {
-                if (_speaker != value)
-                {
-                    _speaker = value;
-                    PropertyChanged.Notify(() => Speaker);
-                }
-            }
         }
 
         public VM_Player Host
@@ -233,171 +188,7 @@ namespace Frennzy_Nuh_UhScreens
             }
         }
 
-        private int _roundNum = 0;
-        public int RoundNum
-        {
-            get { return _roundNum; }
-            set
-            {
-                if (_roundNum != value)
-                {
-                    _roundNum = value;
-                    PropertyChanged.Notify(() => RoundNum);
-                }
-            }
-        }
-        
-
-        private List<VM_Statement> TrueStatements
-        {
-            get
-            {
-                List<VM_Statement> trueStatements = new List<VM_Statement>();
-
-                foreach (VM_Statement statement in StatementDB)
-                    if (statement.IsTrue && !_usedTrueStatements.Contains(statement))
-                        trueStatements.Add(statement);
-
-                if (trueStatements.Count < 2)
-                {
-                    _usedTrueStatements.Clear();
-                    return TrueStatements;
-                }
-
-                return trueStatements;
-            }
-        }
-
-        private List<VM_Statement> FalseStatements
-        {
-            get
-            {
-                List<VM_Statement> falseStatements = new List<VM_Statement>();
-                foreach (VM_Statement statement in StatementDB)
-                    if (!statement.IsTrue && !_usedFalseStatements.Contains(statement))
-                        falseStatements.Add(statement);
-
-                if (falseStatements.Count < 1)
-                {
-                    _usedFalseStatements.Clear();
-                    return FalseStatements;
-                }
-
-                return falseStatements;
-            }
-        }
-
-        private List<VM_Statement> _usedTrueStatements = new List<VM_Statement>();
-        private List<VM_Statement> _usedFalseStatements = new List<VM_Statement>();
-
         private Random _r = new Random();
-        private List<VM_Player> _votedList = new List<VM_Player>();
-
-        private void ChooseSpeakerOptions()
-        {
-            int falseSpot = _r.Next(3);
-
-            SpeakerOptions.Clear();
-
-            if (falseSpot == 0)
-                SpeakerOptions.Add(GetRandomFalse(_r));
-            else
-                SpeakerOptions.Add(GetRandomTrue(_r));
-
-            if (falseSpot == 1)
-                SpeakerOptions.Add(GetRandomFalse(_r));
-            else
-                SpeakerOptions.Add(GetRandomTrue(_r));
-
-            if (falseSpot == 2)
-                SpeakerOptions.Add(GetRandomFalse(_r));
-            else
-                SpeakerOptions.Add(GetRandomTrue(_r));
-
-            for (int i = 0; i < SpeakerOptions.Count; i++)
-                SpeakerOptions[i].ChoiceNumber = i + 1;
-        }
-
-        private VM_Statement GetRandomTrue(Random r)
-        {
-            VM_Statement s = TrueStatements[r.Next(TrueStatements.Count)];
-            _usedTrueStatements.Add(s);
-            return s;
-        }
-
-        private VM_Statement GetRandomFalse(Random r)
-        {
-            VM_Statement s = FalseStatements[r.Next(FalseStatements.Count)];
-            _usedFalseStatements.Add(s);
-            return s;
-        }
-
-        public void StartRound()
-        {
-            RoundNum++;
-            ChooseSpeakerOptions();
-            foreach (VM_Player player in Players)
-                player.State = GameStates.SpeakerChooses;
-        }
-
-        public void MakeChoice(VM_Statement choice)
-        {
-            SpeakerChoice = choice;
-            Speaker.State = GameStates.SpeakerReads;
-        }
-
-        public void StartVoting()
-        {
-            foreach (VM_Player player in Players)
-                player.State = GameStates.ListenersVote;
-        }
-
-        public void EnterVote(VM_Player player, bool vote)
-        {
-            player.Vote = vote;
-            player.State = GameStates.WaitForResults;
-            _votedList.Add(player);
-            EndRound();
-        }
-
-        public void EndRound()
-        {
-            if (_votedList.Count >= Players.Count - 1)
-            {
-                foreach (VM_Player player in Players)
-                {
-                    if (!player.IsSpeaker)
-                    {
-                        if (player.Vote == SpeakerChoice.IsTrue)
-                            player.Score++;
-                        else if (SpeakerChoice.IsTrue)
-                            Speaker.Score++;
-                        else
-                            Speaker.Score += 2;
-                    }
-
-                    player.State = GameStates.Results;
-                }
-            }
-        }
-
-        public void SetUpNextRound()
-        {
-            _votedList.Clear();
-            SetNextSpeaker();
-            StartRound();
-        }
-
-        private void SetNextSpeaker()
-        {
-            int speakerNum = Players.IndexOf(Speaker);
-            speakerNum++;
-            
-            if (speakerNum >= Players.Count)
-                speakerNum = 0;
-
-            Speaker = Players[speakerNum];
-        }
 
         public void AddPlayer()
         {
@@ -456,7 +247,7 @@ namespace Frennzy_Nuh_UhScreens
         public void AddNewPhone()
         {
             Phones.Add(NewPhone);
-            Speaker.State = GameStates.AddPlayers;
+            Host.State = GameStates.AddPlayers;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

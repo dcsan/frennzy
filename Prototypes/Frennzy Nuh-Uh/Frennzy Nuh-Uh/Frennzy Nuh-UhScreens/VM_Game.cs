@@ -11,15 +11,20 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 
 namespace Frennzy_Nuh_UhScreens
 {
     public class VM_Game : INotifyPropertyChanged
     {
-        public VM_Game(List<VM_Statement> statementDB)
+        public VM_Game(List<VM_Statement> statementDB, Random r)
         {
+            _r = r;
             _statementDB = statementDB;
+            PlayGame();
         }
+
+
 
         private int _numberOfRounds = 0;
         public int NumberOfRounds
@@ -51,13 +56,20 @@ namespace Frennzy_Nuh_UhScreens
 
         public int CurrentRoundNum { get { return Rounds.Count; } }
 
-        public VM_Round CurrentRound { get { return Rounds[Rounds.Count - 1]; } }
+        public VM_Round CurrentRound
+        {
+            get
+            {
+                if (Rounds.Count > 0)
+                    return Rounds[Rounds.Count - 1];
+
+                return null;
+            }
+        }
 
         private Random _r;
-        public void PlayGame(Random r)
+        private void PlayGame()
         {
-            _r = r;
-
             Rounds.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Rounds_CollectionChanged);
 
             if (VM.StaticVM.Players.Count >= 5)
@@ -76,8 +88,22 @@ namespace Frennzy_Nuh_UhScreens
 
         public void NextRound()
         {
-            Rounds.Add(new VM_Round(GetNextSpeaker(), ChooseSpeakerOptions()));
+            if (CurrentRoundNum < NumberOfRounds)
+            {
+                VM_Round newRound = new VM_Round(GetNextSpeaker(), ChooseSpeakerOptions());
+                Rounds.Add(newRound);
+                newRound.GoTo_SpeakerChooses();
+            }
+            else
+                GoTo_FinalResults();
         }
+
+        private void GoTo_FinalResults()
+        {
+            foreach (VM_Player player in VM.StaticVM.Players)
+                player.State = GameStates.FinalResults;
+        }
+
 
         private int _lastSpeaker = -1;
         private VM_Player GetNextSpeaker()

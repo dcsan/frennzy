@@ -291,7 +291,7 @@
 		</ResourceDictionary>
 	</UserControl.Resources>
 
-	<Grid x:Name="LayoutRoot" d:DataContext="{Binding Speaker, Source={StaticResource VMDataSource}}">
+	<Grid x:Name="LayoutRoot" d:DataContext="{Binding CurrentGame.CurrentRound.Speaker, Source={StaticResource VMDataSource}}">
 		<i:Interaction.Behaviors>
 			<ei:DataStateBehavior Binding="{Binding IsSpeaker, Mode=OneWay}" Value="True" TrueState="IsSpeaker" FalseState="IsNotSpeaker"/>
 			<ei:DataStateBehavior Binding="{Binding IsHost}" Value="True" TrueState="IsHost" FalseState="IsNotHost"/>
@@ -534,7 +534,7 @@
 							</VisualState>
 							<VisualState x:Name="FinalResults">
 								<Storyboard>
-									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_Results">
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_FinalResults">
 										<DiscreteObjectKeyFrame KeyTime="0">
 											<DiscreteObjectKeyFrame.Value>
 												<Visibility>Visible</Visibility>
@@ -891,7 +891,7 @@
 						<Button x:Name="button" Style="{StaticResource ButtonStyle_iPhone}" Content="Play!" Margin="5" IsEnabled="False" Padding="5">
 							<i:Interaction.Triggers>
 								<i:EventTrigger EventName="Click">
-									<ei:CallMethodAction MethodName="StartRound" TargetObject="{Binding VM}"/>
+									<ei:CallMethodAction TargetObject="{Binding VM, Mode=OneWay}" MethodName="StartGame"/>
 								</i:EventTrigger>
 							</i:Interaction.Triggers>
 							<i:Interaction.Behaviors>
@@ -903,21 +903,21 @@
 				<Grid x:Name="pnl_SpeakerChooses" Visibility="Collapsed">
 					<Grid x:Name="pnl_SpeakerChooses_S" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480">
 						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Choose Your Assertion!" VerticalAlignment="Top" FontSize="32" Margin="0,8,0,0" d:LayoutOverrides="Width" HorizontalAlignment="Center"/>
-						<ItemsControl Margin="10,96,10,10" ItemsSource="{Binding VM.SpeakerOptions}" ItemTemplate="{StaticResource ChoiceDataTemplate}"/>
+						<ItemsControl Margin="10,96,10,10" ItemsSource="{Binding VM.CurrentGame.CurrentRound.Options}" ItemTemplate="{StaticResource ChoiceDataTemplate}"/>
 						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" VerticalAlignment="Top" FontSize="16" Margin="0,52,0,0" d:LayoutOverrides="Width" HorizontalAlignment="Center"><Run Text="+1 point if they don't believe the truth."/><LineBreak/><Run Text="+2 points if they believe your lie!"/></TextBlock>
 					</Grid>
 					<Grid x:Name="pnl_SpeakerChooses_L" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480" Visibility="Collapsed">
 						<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Listen Up!" Margin="0,8,0,0"/>
-						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="32" d:LayoutOverrides="Width" HorizontalAlignment="Center"><Run Text="See if you can tell whether or not "/><Run FontStyle="Italic" Text="{Binding VM.Speaker.Name}"/><Run Text=" is telling the truth..."/></TextBlock>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="32" d:LayoutOverrides="Width" HorizontalAlignment="Center" Margin="10"><Run Text="See if you can tell whether or not "/><Run FontStyle="Italic" Text="{Binding VM.CurrentGame.CurrentRound.Speaker.Name}"/><Run Text=" is telling the truth..."/></TextBlock>
 					</Grid>
 				</Grid>
 				<Grid x:Name="pnl_SpeakerReads" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480" Visibility="Collapsed">
 					<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Read Your Statement!" VerticalAlignment="Top" FontSize="48" Margin="10" d:LayoutOverrides="Width" TextWrapping="Wrap" TextAlignment="Center"/>
-					<TextBlock x:Name="txt_StatementText" Style="{StaticResource BasicTextBlock-Sketch}" Text="{Binding VM.ChoiceText, Mode=OneWay}" FontSize="32" Margin="10,133,10,67" TextWrapping="Wrap"/>
+					<TextBlock x:Name="txt_StatementText" Style="{StaticResource BasicTextBlock-Sketch}" Text="{Binding VM.CurrentGame.CurrentRound.ChoiceText, Mode=OneWay}" FontSize="32" Margin="10,133,10,67" TextWrapping="Wrap"/>
 					<Button Style="{StaticResource ButtonStyle_iPhone}" VerticalAlignment="Bottom" Background="{StaticResource iPhoneButtonBlue}" Content="Done">
 						<i:Interaction.Triggers>
 							<i:EventTrigger EventName="Click">
-								<ei:CallMethodAction MethodName="StartVoting" TargetObject="{Binding VM}"/>
+								<ei:CallMethodAction MethodName="StartVoting" TargetObject="{Binding VM.CurrentGame.CurrentRound}"/>
 							</i:EventTrigger>
 						</i:Interaction.Triggers>
 						<VisualStateManager.CustomVisualStateManager>
@@ -939,7 +939,7 @@
 					</Grid>
 					<Grid x:Name="pnl_ListenesVote_L" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480" Visibility="Collapsed">
 						<TextBlock HorizontalAlignment="Center" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Text="Is that true?" Margin="0,8,0,0"/>
-						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" FontSize="32" Text="{Binding VM.ChoiceText, Mode=OneWay}" d:LayoutOverrides="Width" Margin="10,99,10,140"/>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" FontSize="32" Text="{Binding VM.CurrentGame.CurrentRound.ChoiceText, Mode=OneWay}" d:LayoutOverrides="Width" Margin="10,99,10,140"/>
 						<Button Style="{StaticResource ButtonStyle_iPhone}" VerticalAlignment="Bottom" Margin="5,0,5,5" Content="Nuh-Uh!!" Click="Button_GuessLie_Click">
 							<Button.Background>
 								<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -983,13 +983,16 @@
 						<RowDefinition Height="Auto"/>
 					</Grid.RowDefinitions>
 					<StackPanel Margin="8,8,7,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
-						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Final Results" FontSize="48" HorizontalAlignment="Center"/>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Round " FontSize="48" HorizontalAlignment="Center"/>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="{Binding VM.CurrentGame.CurrentRoundNum, Mode=OneWay}" FontSize="48" HorizontalAlignment="Center"/>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="/" FontSize="48" HorizontalAlignment="Center"/>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="{Binding VM.CurrentGame.NumberOfRounds}" FontSize="48" HorizontalAlignment="Center"/>
 					</StackPanel>
-					<Button x:Name="button1" Style="{StaticResource ButtonStyle_iPhone}" Content="Next Round!" Background="{StaticResource iPhoneButtonBlue}" Grid.Row="1" d:LayoutOverrides="Height">
+					<Button x:Name="button1" Style="{StaticResource ButtonStyle_iPhone}" Content="Next Round" Background="{StaticResource iPhoneButtonBlue}" Grid.Row="1" d:LayoutOverrides="Height">
 						<i:Interaction.Triggers>
 							<i:EventTrigger EventName="Click">
 								<pi:ActivateStateAction TargetState="On"/>
-								<ei:CallMethodAction MethodName="SetUpNextRound" TargetObject="{Binding VM}"/>
+								<ei:CallMethodAction MethodName="NextRound" TargetObject="{Binding VM.CurrentGame}"/>
 							</i:EventTrigger>
 						</i:Interaction.Triggers>
 						<VisualStateManager.CustomVisualStateManager>
@@ -1238,6 +1241,33 @@
 							</i:Interaction.Triggers>
 						</Grid>
 					</Grid>
+				</Grid>
+				<Grid x:Name="pnl_FinalResults" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480" Visibility="Collapsed">
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<StackPanel Margin="8,8,7,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Final Results" FontSize="48" HorizontalAlignment="Center"/>
+					</StackPanel>
+					<Button x:Name="button3" Style="{StaticResource ButtonStyle_iPhone}" Content="Next Game" Background="{StaticResource iPhoneButtonBlue}" Grid.Row="1" d:LayoutOverrides="Height">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<pi:ActivateStateAction TargetState="On"/>
+								<ei:CallMethodAction MethodName="NextRound" TargetObject="{Binding VM.CurrentGame}"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+						<VisualStateManager.CustomVisualStateManager>
+							<ei:ExtendedVisualStateManager/>
+						</VisualStateManager.CustomVisualStateManager>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="TruthStates4">
+								<VisualState x:Name="True4"/>
+								<VisualState x:Name="False4"/>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Button>
+					<ItemsControl Margin="10,71,10,5" ItemsSource="{Binding VM.Players}" ItemTemplate="{StaticResource PlayerResultsDataTemplate}"/>
 				</Grid>
 			</Grid>
 		</Button>

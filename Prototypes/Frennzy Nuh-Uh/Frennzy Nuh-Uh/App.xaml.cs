@@ -74,7 +74,7 @@ namespace Frennzy_Nuh_Uh
 		private void Button_Choice_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
             FrameworkElement button = (FrameworkElement)sender;
-            VM.StaticVM.MakeChoice((VM_Statement)button.DataContext);
+            VM.StaticVM.CurrentGame.CurrentRound.GoTo_SpeakerReads((VM_Statement)button.DataContext);
 		}
 	}
 }

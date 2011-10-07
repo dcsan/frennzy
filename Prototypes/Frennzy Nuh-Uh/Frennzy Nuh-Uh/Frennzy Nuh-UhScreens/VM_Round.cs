@@ -38,7 +38,6 @@ namespace Frennzy_Nuh_UhScreens
             }
         }
         
-
         private VM_Player _speaker;
         public VM_Player Speaker
         {
@@ -91,6 +90,76 @@ namespace Frennzy_Nuh_UhScreens
                 else
                     return "Not yet defined.";
             }
+        }
+
+        private List<VM_Player> _votedList = new List<VM_Player>();
+
+        public void StartVoting()
+        {
+            foreach (VM_Player player in VM.StaticVM.Players)
+                player.State = GameStates.ListenersVote;
+        }
+
+        public void EnterVote(VM_Player player, bool vote)
+        {
+            player.Vote = vote;
+            player.State = GameStates.WaitForResults;
+            _votedList.Add(player);
+            EndRound();
+        }
+
+        public void EndRound()
+        {
+            if (_votedList.Count >= VM.StaticVM.Players.Count - 1)
+            {
+                foreach (VM_Player player in VM.StaticVM.Players)
+                {
+                    if (!player.IsSpeaker)
+                    {
+                        if (player.Vote == Choice.IsTrue)
+                            player.Score++;
+                        else if (Choice.IsTrue)
+                            Speaker.Score++;
+                        else
+                            Speaker.Score += 2;
+                    }
+
+                    player.State = GameStates.Results;
+                }
+            }
+        }
+
+
+        public void GoTo_SpeakerChooses()
+        {
+            foreach (VM_Player player in VM.StaticVM.Players)
+                player.State = GameStates.SpeakerChooses;
+        }
+
+        public void GoTo_SpeakerReads(VM_Statement choice)
+        {
+            Choice = choice;
+            Speaker.State = GameStates.SpeakerReads;
+            //foreach (VM_Player player in VM.StaticVM.Players)
+            //    player.State = GameStates.SpeakerReads;
+        }
+
+        private void GoTo_ListenersVote()
+        {
+            foreach (VM_Player player in VM.StaticVM.Players)
+                player.State = GameStates.ListenersVote;
+        }
+
+        private void GoTo_WaitForResults()
+        {
+            foreach (VM_Player player in VM.StaticVM.Players)
+                player.State = GameStates.WaitForResults;
+        }
+
+        private void GoTo_Results()
+        {
+            foreach (VM_Player player in VM.StaticVM.Players)
+                player.State = GameStates.Results;
         }
 
 

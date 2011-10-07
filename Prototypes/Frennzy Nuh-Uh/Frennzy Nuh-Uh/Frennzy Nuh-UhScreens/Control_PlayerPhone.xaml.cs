@@ -57,12 +57,12 @@ namespace Frennzy_Nuh_UhScreens
 
         private void Button_GuessTrue_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            VM.EnterVote(_vm_Player, true);
+            VM.CurrentGame.CurrentRound.EnterVote(_vm_Player, true);
         }
 
         private void Button_GuessLie_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            VM.EnterVote(_vm_Player, false);
+            VM.CurrentGame.CurrentRound.EnterVote(_vm_Player, false);
         }
 
         private void JoinGame_PhoneApp_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
