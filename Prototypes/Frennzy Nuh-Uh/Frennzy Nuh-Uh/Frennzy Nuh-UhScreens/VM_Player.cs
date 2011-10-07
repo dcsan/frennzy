@@ -21,8 +21,9 @@ namespace Frennzy_Nuh_UhScreens
         SpeakerChooses,
         SpeakerReads,
         ListenersVote,
+        WaitForResults,
         Results,
-        WaitForResults
+        FinalResults
     }
 
     public class VM_Player : INotifyPropertyChanged

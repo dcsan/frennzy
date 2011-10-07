@@ -23,6 +23,7 @@ namespace Frennzy_Nuh_UhScreens
             VM_Player host = new VM_Player("HostBoy", GameStates.Initial, this, true);
             Phones.Add(new VM_Phone(host));
             Players.Add(host);
+            CurrentGame = new VM_Game(StatementDB);
 
             //Players.Add(new VM_Player("Hiro", GameStates.AddPlayers, this));
             //Players.Add(new VM_Player("n00b"));
@@ -111,6 +112,39 @@ namespace Frennzy_Nuh_UhScreens
                 }
             }
         }
+
+        private VM_Game _currentGame;
+        public VM_Game CurrentGame
+        {
+            get { return _currentGame; }
+            set
+            {
+                if (_currentGame != value)
+                {
+                    _currentGame = value;
+                    PropertyChanged.Notify(() => CurrentGame);
+                }
+            }
+        }
+        
+
+        private ObservableCollection<VM_Game> _games = new ObservableCollection<VM_Game>();
+        public ObservableCollection<VM_Game> Games
+        {
+            get { return _games; }
+            set
+            {
+                if (_games != value)
+                {
+                    _games = value;
+                    PropertyChanged.Notify(() => Games);
+                }
+            }
+        }
+        
+
+
+
 
         private ObservableCollection<VM_Statement> _speakerOptions = new ObservableCollection<VM_Statement>();
         public ObservableCollection<VM_Statement> SpeakerOptions
@@ -424,8 +458,6 @@ namespace Frennzy_Nuh_UhScreens
             Phones.Add(NewPhone);
             Speaker.State = GameStates.AddPlayers;
         }
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

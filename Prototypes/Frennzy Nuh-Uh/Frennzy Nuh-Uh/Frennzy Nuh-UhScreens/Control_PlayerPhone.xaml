@@ -532,6 +532,17 @@
 									</ObjectAnimationUsingKeyFrames>
 								</Storyboard>
 							</VisualState>
+							<VisualState x:Name="FinalResults">
+								<Storyboard>
+									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="pnl_Results">
+										<DiscreteObjectKeyFrame KeyTime="0">
+											<DiscreteObjectKeyFrame.Value>
+												<Visibility>Visible</Visibility>
+											</DiscreteObjectKeyFrame.Value>
+										</DiscreteObjectKeyFrame>
+									</ObjectAnimationUsingKeyFrames>
+								</Storyboard>
+							</VisualState>
 						</VisualStateGroup>
 						<VisualStateGroup x:Name="PlayersReadyStates">
 							<VisualState x:Name="PlayersReadyFalse"/>
@@ -972,8 +983,7 @@
 						<RowDefinition Height="Auto"/>
 					</Grid.RowDefinitions>
 					<StackPanel Margin="8,8,7,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
-						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Round #" FontSize="48" HorizontalAlignment="Center"/>
-						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="{Binding VM.RoundNum}" FontSize="48" HorizontalAlignment="Center"/>
+						<TextBlock Style="{StaticResource BasicTextBlock-Sketch}" Text="Final Results" FontSize="48" HorizontalAlignment="Center"/>
 					</StackPanel>
 					<Button x:Name="button1" Style="{StaticResource ButtonStyle_iPhone}" Content="Next Round!" Background="{StaticResource iPhoneButtonBlue}" Grid.Row="1" d:LayoutOverrides="Height">
 						<i:Interaction.Triggers>
@@ -1160,9 +1170,7 @@
 						</Grid>
 					</Grid>
 					<Grid x:Name="pnl_1_GetText" Visibility="Collapsed">
-						<Grid.Background>
-							<ImageBrush Stretch="Fill" ImageSource="/photo5.PNG"/>
-						</Grid.Background>
+						<Image Source="/photo5.PNG" Stretch="Fill"/>
 						<Border BorderThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="279" CornerRadius="15" Visibility="Collapsed">
 							<Border.Effect>
 								<DropShadowEffect Direction="280" BlurRadius="10" Opacity="0.7"/>

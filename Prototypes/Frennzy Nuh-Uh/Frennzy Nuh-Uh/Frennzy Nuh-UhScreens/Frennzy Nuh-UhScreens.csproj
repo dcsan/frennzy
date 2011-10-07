@@ -77,8 +77,10 @@
     </Compile>
     <Compile Include="NotificationExtensions.cs" />
     <Compile Include="VM.cs" />
+    <Compile Include="VM_Game.cs" />
     <Compile Include="VM_Phone.cs" />
     <Compile Include="VM_Player.cs" />
+    <Compile Include="VM_Round.cs" />
     <Compile Include="VM_Statement.cs" />
     <Page Include="Control_PlayerPhone.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
@@ -146,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <DesignTimeOnly Include="DataStore\DataStore\DataStore.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Feedback Files\Aaron_NUFB.feedback" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>
