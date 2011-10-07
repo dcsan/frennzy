@@ -33,8 +33,9 @@
 <link rel="apple-touch-startup-image" href="/images/startup.png" />
 
 <script>
-    var options=readCookies();
-    options.room='alpha';
+    var fz=readCookies();
+    fz.room='alpha';
+    alert(fz.players);
     var socket=io.connect();
 $(document).ready(function () {
     //TODO check if the page responds to this?
@@ -67,7 +68,7 @@ $(document).ready(function () {
 
 
 <script>
-writeCookies(options);
+writeCookies(fz);
 </script>
 </body>
 </html>

@@ -22,48 +22,66 @@ document.cookie=c_name + "=" + c_value;
 function readCookies(){
   var json={};
   var raw = [];
-  cookieValue=getCookie("options");
-if (cookieValue!=null && cookieValue!="")
+  var players=[];
+  optionsCookie=getCookie("fz");
+  playersCookie=getCookie("players");
+if (optionsCookie!=null && optionsCookie!="")
   {
-  raw=cookieValue.split("<^>");
+  raw=optionsCookie.split("<^>");
+  players=playersCookie.split("<^>");
   json.username=raw[0];
-  json.players=raw[1];
+  json.numPlayers=raw[1];
   json.paid=raw[2];
   json.credits=raw[3];
   json.phones=raw[4];
   json.freePlayers=raw[5];
   json.host=raw[6];
+  json.players=players;
   }
 else
   {
   var json={};
-  json.username=prompt("Enter a nickname:","");
-  if (json.username!=null && json.username!="")
-    {
-    json.players='1';
+    json.username='alphaman';
+    json.numPlayers='1';
     json.paid='notPaid';
     json.credits='0';
     json.phones='single';
     json.freePlayers='1';
     json.host='host';
-    raw=json.username+"<^>"+json.players+"<^>"+json.paid+"<^>"+json.credits+"<^>"+json.phones+"<^>"+json.freePlayers+"<^>"+json.host;
-    setCookie("options",raw,365);
-    window.location.assign('/top');
+    json.players=['alphaman','player2','player3','player4','player5','player6'];
+    raw=json.username+"<^>"+json.numPlayers+"<^>"+json.paid+"<^>"+json.credits+"<^>"+json.phones+"<^>"+json.freePlayers+"<^>"+json.host;
+    setCookie("fz",raw,365);
+    raw='';
+    for(i=1;i<=json.players.length;i++){
+    raw+=json.players[i-1];
+    if(i!=json.players.length){
+    raw+='<^>';
+    alert(raw);
+    }
+    setCookie("players",raw,365);
     }
   }
   return json;
 }
 
 function setOption(optionToSet,value){
-  options[optionToSet]=value;
-  writeCookies(options);
+  fz[optionToSet]=value;
+  writeCookies(fz);
 }
 
 function writeCookies(json){
-  $('.option').hide();
-  $('.'+json.phones).show();
-  $('.'+json.paid).show();
-  $('.'+json.host).show();
-  raw=json.username+"<^>"+json.players+"<^>"+json.paid+"<^>"+json.credits+"<^>"+json.phones+"<^>"+json.freePlayers+"<^>"+json.host;
-  setCookie("options",raw,365);
+//  $('.option').hide();
+//  $('.'+json.phones).show();
+//  $('.'+json.paid).show();
+//  $('.'+json.host).show();
+  var raw=json.username+"<^>"+json.numPlayers+"<^>"+json.paid+"<^>"+json.credits+"<^>"+json.phones+"<^>"+json.freePlayers+"<^>"+json.host;
+  setCookie("fz",raw,365);
+  raw='';
+  for(i=1;i<=fz.players.length;i++){
+    raw+=fz.players[i-1];
+    if(i!=fz.players.length){
+    raw+='<^>';
+    }
+  }
+  setCookie("players",raw,365);
 }
