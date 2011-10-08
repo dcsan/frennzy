@@ -36,6 +36,7 @@ if (optionsCookie!=null && optionsCookie!="")
   json.phones=raw[4];
   json.freePlayers=raw[5];
   json.host=raw[6];
+  json.game=raw[7];
   json.players=players;
   }
 else
@@ -48,8 +49,9 @@ else
     json.phones='single';
     json.freePlayers='1';
     json.host='host';
+    json.game='none';
     json.players=['alphaman','player2','player3','player4','player5','player6'];
-    raw=json.username+"<^>"+json.numPlayers+"<^>"+json.paid+"<^>"+json.credits+"<^>"+json.phones+"<^>"+json.freePlayers+"<^>"+json.host;
+    raw=json.username+"<^>"+json.numPlayers+"<^>"+json.paid+"<^>"+json.credits+"<^>"+json.phones+"<^>"+json.freePlayers+"<^>"+json.host+"<^>"+json.game;
     setCookie("fz",raw,365);
     raw='';
     for(i=1;i<=json.players.length;i++){
@@ -73,7 +75,7 @@ function writeCookies(json){
 //  $('.'+json.phones).show();
 //  $('.'+json.paid).show();
 //  $('.'+json.host).show();
-  var raw=json.username+"<^>"+json.numPlayers+"<^>"+json.paid+"<^>"+json.credits+"<^>"+json.phones+"<^>"+json.freePlayers+"<^>"+json.host;
+  var raw=json.username+"<^>"+json.numPlayers+"<^>"+json.paid+"<^>"+json.credits+"<^>"+json.phones+"<^>"+json.freePlayers+"<^>"+json.host+"<^>"+json.game;
   setCookie("fz",raw,365);
   raw='';
   for(i=1;i<=fz.players.length;i++){

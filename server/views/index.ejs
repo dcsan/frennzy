@@ -3,8 +3,11 @@ if (navigator.standalone) {
 	window.location.assign('/landing');
 }
 else{
-	alert('you are in a browser');
+}
+function init(){
+$('#footer').hide();
 }
 </script>
 <h1>Welcome to Frennzy!!!!</h1>
+<p>Hello!  Frennzy is a platform for in person social games.  This means that you play with your friends who are right in front of you.  When wanted to have fun when we go out to eat, to a bar, or if we are just waiting around.  Frennzy lets you do that.  It is a combination of a board game and a console system that sits right here on your phone!  Just click the load to homescreen button below (this doesn't download anything) and start playing.  You can also just test it out with the just play button, but it won't be as much fun.</p>
 <button onclick="window.location.assign('/landing');">go to game anyway</button>

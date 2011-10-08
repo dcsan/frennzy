@@ -66,7 +66,11 @@ $(document).ready(function () {
 </div>
 
 
+<div class='bottom center' id='install'>click to install on home screen</div>
 <script>
+if (navigator.standalone) {
+	$('#install').hide();
+}
 writeCookies(fz);
 </script>
 </body>

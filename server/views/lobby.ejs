@@ -1,23 +1,59 @@
 <script>
 function init(){
+$('.hide').hide();
 for(i=1;i<=fz.players.length;i++){
-$('#player'+i).html(fz.players[i-1]);
-}
+	$('#player'+i).html(fz.players[i-1]);
+	$('#player'+i).show();
+	$('#edit'+i).show();
+	$('#delete'+i).show();
+	} 
+	if(fz.players.length>=8){
+		$('#addPlayer').hide();
+	}
+	$('#gameName').html(fz.game);
+	$('#playButton').html('play '+fz.game);
 }
 function editPlayer(edit){
-$('#editPlayerName').html(fz.players[player-1]);
-$('#configure').show();
+	$('#editPlayerName').html(fz.players[edit-1]);
+	$('#configure').show();
+	fz.editing=edit-1;
+}
+function deletePlayer(edit){
+	fz.players.splice((edit-1),1);
+	writeCookies(fz);
+	init();
 }
 function changeName(){
-fz.players[edit]
+	fz.players[fz.editing]=prompt('new nickname','');
+	writeCookies(fz);
+	$('#player'+(fz.editing+1)).html(fz.players[fz.editing]);
+	$('#editPlayerName').html(fz.players[fz.editing]);
+}
+function addPlayer(){
+	newName=('Player'+(fz.players.length+1));
+	fz.players.push(newName);
+	init();
+	writeCookies(fz);
+}
+function openGame(){
+	window.location.assign('/games/'+fz.game+'/rules');
 }
 </script>
 
-<% for(i=1;i<=8;i++){%>
-<div id='player<%= i %>' onclick='editPlayer(<%= i %>);'></div>
-<%}%>
 
-<div id='configure'>
-<div id='editPlayerName' style='display:none'></div>
-<button onclick='exitEdit();'>done</button>
+
+<h2 id='gameName'></h2>
+<table>
+<% for(i=1;i<=8;i++){%>
+<tr><td><div class='hide' id='player<%= i %>'></div></td>
+<td><button class='hide' id='edit<%= i %>' onclick='editPlayer(<%= i %>);'>edit</button></td>
+<td><button class='hide' id='delete<%= i %>' onclick='deletePlayer(<%= i %>);'>remove</button></td></tr>
+<%}%>
+</table>
+<button id='addPlayer' onclick='addPlayer()'>add player</button>
+<button id='playButton' onclick='openGame();'></button>
+
+<div id='configure' style="display: none;">
+<div id='editPlayerName' onclick='changeName();'></div>
+<button class='bottom right button' onclick="$('#configure').hide()">done</button>
 </div>
