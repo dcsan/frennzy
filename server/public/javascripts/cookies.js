@@ -57,7 +57,7 @@ else
     if(i!=json.players.length){
     raw+='<^>';
     }
-    setCookie("players",raw,365);
+        setCookie("players",raw,365);
     }
   }
   return json;
