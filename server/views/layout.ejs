@@ -35,7 +35,6 @@
 <script>
     var fz=readCookies();
     fz.room='alpha';
-    alert(fz.players);
     var socket=io.connect();
 $(document).ready(function () {
     //TODO check if the page responds to this?
@@ -59,9 +58,9 @@ $(document).ready(function () {
 
 <div id="footer">
 <div class="navbar">
-    <a href="/top">top</a> |
-    <a href="/games">games</a> |
-    <a href="/feed">feed</a> |
+    <a href="/share">share</a> |
+    <a href="/top_up">top up</a> |
+    <a href="/lobby">lobby</a> |
     <a href="javascript:toggleDebug()">debug</a>
 </div>
 </div>

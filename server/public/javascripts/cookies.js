@@ -56,7 +56,6 @@ else
     raw+=json.players[i-1];
     if(i!=json.players.length){
     raw+='<^>';
-    alert(raw);
     }
     setCookie("players",raw,365);
     }

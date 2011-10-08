@@ -108,16 +108,28 @@ function init(app){
     app.get('/', function(req, res){
                 showPage(req, res);
             });
-
-    app.get('/top', function(req, res) {
+    app.get('/landing', function(req, res) {
                 showPage(req, res);
             })
-
-    app.get('/list', function(req, res) {
+    app.get('/lobby', function(req, res) {
                 showPage(req, res); 
             })
-
-    app.get('/home', function(req,res) {
+    app.get('/configure_player', function(req,res) {
+                showPage(req, res);
+            })
+    app.get('/offer_wall', function(req,res) {
+                showPage(req, res);
+            })
+    app.get('/score_screen', function(req,res) {
+                showPage(req, res);
+            })
+    app.get('/top_up', function(req,res) {
+                showPage(req, res);
+            })
+    app.get('/share', function(req,res) {
+                showPage(req, res);
+            })
+    app.get('/game_menu', function(req,res) {
                 showPage(req, res);
             })
 

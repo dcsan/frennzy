@@ -1,3 +1,10 @@
 <script>
-if (navigator.standalone) {}
+if (navigator.standalone) {
+	window.location.assign('/landing');
+}
+else{
+	alert('you are in a browser');
+}
 </script>
+<h1>Welcome to Frennzy!!!!</h1>
+<button onclick="window.location.assign('/landing');">go to game anyway</button>
