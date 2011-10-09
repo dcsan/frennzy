@@ -3,7 +3,6 @@
  */
 
 var USE_HEROKU = false;
-
 var mongoose = require('mongoose')
 //, db = require('./db-functions')
 , express = require('express')
@@ -114,9 +113,6 @@ function init(app){
     app.get('/lobby', function(req, res) {
                 showPage(req, res); 
             })
-    app.get('/configure_player', function(req,res) {
-                showPage(req, res);
-            })
     app.get('/offer_wall', function(req,res) {
                 showPage(req, res);
             })
@@ -130,13 +126,8 @@ function init(app){
                 showPage(req, res);
             })
     app.get('/game_menu', function(req,res) {
-                showPage(req, res);
-            })
-
-    // games menu
-    app.get('/games', function(req,res) {
-                var data = { games: ["hotpotato", "catchphrase", "simon", "tipper", "guessthepic", "hurling" ] };
-                showPage(req,res,data);
+                var locals={'games':['hotpotato','guessthepic','tipper']};
+                showPage(req, res, locals);
             })
 
     // single game

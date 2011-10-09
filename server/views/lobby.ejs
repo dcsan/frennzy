@@ -20,12 +20,12 @@ function editPlayer(edit){
 }
 function deletePlayer(edit){
 	fz.players.splice((edit-1),1);
-	writeCookies(fz);
+	fz.save();
 	init();
 }
 function changeName(){
 	fz.players[fz.editing]=prompt('new nickname','');
-	writeCookies(fz);
+	fz.save();
 	$('#player'+(fz.editing+1)).html(fz.players[fz.editing]);
 	$('#editPlayerName').html(fz.players[fz.editing]);
 }
@@ -33,7 +33,7 @@ function addPlayer(){
 	newName=('Player'+(fz.players.length+1));
 	fz.players.push(newName);
 	init();
-	writeCookies(fz);
+	fz.save();
 }
 function openGame(){
 	window.location.assign('/games/'+fz.game+'/rules');

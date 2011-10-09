@@ -1,3 +1,6 @@
+function defineFz(){
+var fz=readCookies();
+
 function getCookie(c_name){
 var i,x,y,ARRcookies=document.cookie.split(";");
 for (i=0;i<ARRcookies.length;i++)
@@ -50,8 +53,15 @@ else
     json.freePlayers='1';
     json.host='host';
     json.game='none';
-    json.players=['alphaman','player2','player3','player4','player5','player6'];
-    raw=json.username+"<^>"+json.numPlayers+"<^>"+json.paid+"<^>"+json.credits+"<^>"+json.phones+"<^>"+json.freePlayers+"<^>"+json.host+"<^>"+json.game;
+    json.players=['Ninja','DC','Aaron','Brian','Alex','John'];
+    raw=json.username+"<^>"
+    raw+=json.numPlayers+"<^>"
+    raw+=json.paid+"<^>"
+    raw+=json.credits+"<^>"
+    raw+=json.phones+"<^>"
+    raw+=json.freePlayers+"<^>"
+    raw+=json.host+"<^>"
+    raw+=json.game;
     setCookie("fz",raw,365);
     raw='';
     for(i=1;i<=json.players.length;i++){
@@ -70,12 +80,19 @@ function setOption(optionToSet,value){
   writeCookies(fz);
 }
 
-function writeCookies(json){
+fz.save=function writeCookies(){
 //  $('.option').hide();
 //  $('.'+json.phones).show();
 //  $('.'+json.paid).show();
 //  $('.'+json.host).show();
-  var raw=json.username+"<^>"+json.numPlayers+"<^>"+json.paid+"<^>"+json.credits+"<^>"+json.phones+"<^>"+json.freePlayers+"<^>"+json.host+"<^>"+json.game;
+  var raw=fz.username+"<^>"
+  raw+=fz.numPlayers+"<^>"
+  raw+=fz.paid+"<^>"
+  raw+=fz.credits+"<^>"
+  raw+=fz.phones+"<^>"
+  raw+=fz.freePlayers+"<^>"
+  raw+=fz.host+"<^>"
+  raw+=fz.game;
   setCookie("fz",raw,365);
   raw='';
   for(i=1;i<=fz.players.length;i++){
@@ -85,4 +102,35 @@ function writeCookies(json){
     }
   }
   setCookie("players",raw,365);
+}
+
+fz.send=function send(json){
+	json.valid=true;
+//	if(json.type=='toRoom'){//not finished
+//		json.room=fz.room;
+//	}
+	socket.emit('data',json);
+}
+
+function joinRoom(room){//not finished
+	json.nickname=fz.nickname;
+	json.playerId=fz.id;
+	json.type='joinRoom';
+	send(json);
+}
+
+function leaveRoom(nick){//not finished
+	json.nickname=nick;
+	json.room=fz.room;
+	json.type='leaveRoom';
+	send(json);
+}
+
+fz.view=function view(pageName){
+	$('.page').hide();
+	$('#'+pageName).show();
+}
+
+
+return fz;
 }

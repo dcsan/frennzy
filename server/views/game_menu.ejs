@@ -1,7 +1,7 @@
 <script>
 function chooseGame(gameName){
 	fz.game=gameName;
-	writeCookies(fz);
+	fz.save();
 	window.location.assign('/lobby');
 }
 </script>
@@ -10,7 +10,6 @@ function chooseGame(gameName){
 
 
 <h1>Choose a Game</h1>
-<% games=['hotpotato','guessthepic','tipper'];%>
 <% for(i=1;i<=games.length;i++){%>
 <div onclick="chooseGame('<%=games[i-1]%>')"><%=games[i-1]%></div>
 <%}%>
