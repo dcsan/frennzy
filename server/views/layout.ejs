@@ -34,8 +34,10 @@
 <script>
     var socket=io.connect();
     $(document).ready(function () {
-        //TODO check if the page responds to this?
-        init();
+        if (typeof init == 'function') {
+            init();
+        }
+
     });
 </script>
 

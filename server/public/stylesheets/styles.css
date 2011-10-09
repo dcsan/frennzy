@@ -95,6 +95,7 @@ h3{ color: red; }
     background-color: white;
     margin: 5px;
     -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
     padding: 10px;
     text-align: center;
 }

@@ -10,6 +10,11 @@ function chooseGame(gameName){
 
 
 <h1>Choose a Game</h1>
-<% for(i=1;i<=games.length;i++){%>
-<div onclick="chooseGame('<%=games[i-1]%>')"><%=games[i-1]%></div>
+<% for(i=0; i < games.length; i++){ %>
+
+<a class="button" href="javascript:chooseGame('<%=games[i]%>')">
+    <%=games[i]%>
+</a><br/>
+
+
 <%}%>
