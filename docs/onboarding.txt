@@ -1,12 +1,11 @@
 Tasks to bring new users onto the team:
 
-*** ADD TO REDMINE ***
-TBD
+################# Redmine ################# 
+our issue tracking system
 
-*** ADD TO GOOGLEGROUPS ***
-TBD
+################# GOOGLEGROUPS ################# 
 
-*** ADD TO GITHUB ***
+################# ADD TO GITHUB ################# 
 for people to add code, they need to create a github account
 and send me (dc) their account login info.
 i can then add them to our private repo so they can commit/checkout.
