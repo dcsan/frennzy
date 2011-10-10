@@ -39,7 +39,54 @@ npm install jade
 npm install socket.io
 
 
+
+################# setting up ssh keys  ################# 
+to do anything server related, you need keys installed on the server.
+to make a key:
+
+ssh-keygen
+
+# then just hit return for default paths
+
+cd ~/.ssh
+
+# then mail me the
+
+id_rsa.pub
+
+file. DONT open it in a text editor, or paste into email etc.
+send as an email attachment.
+its important that the file doesn't have any extra CR/LFs in it.
+
+you could also just check your key into:
+
+admin/keydir
+
+but be careful to rename the file since everyones key will be called id_rsa.pub
+i renamed mine my pubkey like user@host 
+(tho it doesnt really matter what the file is called)
+eg:
+
+dc@metroid.local.pub
+
+after the keys are setup, you need to "trust that host" the first time
+so just login using ssh
+
+# on DGs machine:
+ssh root@173.255.251.200
+
+The authenticity of host '173.255.251.200 (173.255.251.200)' can't be established.
+RSA key fingerprint is 38:a8:2b:a8:a4:3f:3f:ea:ca:7a:e3:18:b3:29:6a:aa.
+Are you sure you want to continue connecting (yes/no)? yes
+
+if that doesnt work, debug it with ssh -v
+
+
 ################# deploying  ################# 
+to do this you need to have your public key setup on the deploy
+server. DC or someone will have to do this for you.
+
+
 after editing a file, eg add something to know if stuff changed
 eg server/views/index.ejs
 just add some text to that page
