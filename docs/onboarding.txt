@@ -49,6 +49,9 @@ cd server
 sc/monopoly-deploy.sh
 
 and it should now be deployed
+check from a browser (this is DG's temp server) :
+
+http://prainz.com:8004/
 
 
 
