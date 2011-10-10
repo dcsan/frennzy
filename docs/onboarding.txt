@@ -88,9 +88,12 @@ server. DC or someone will have to do this for you.
 
 after editing a file, eg add something to know if stuff changed
 eg server/views/index.ejs
-just add some text to that page
-then sync with github
-then deploy:
+just add some text to that page, and save
+commit to your local git repository:
+git -a -m "<insert a commit comment here>"
+then sync with github using the github mac app or your preferred method
+
+to deploy from github to the development server:
 
      cd server
      sc/monopoly-deploy.sh
