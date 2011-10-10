@@ -15,7 +15,7 @@ TBD
 *** SET UP GITHUB (PC) ***
 TBD
 
-*** SET UP NODE (MAC) ***
+################# SET UP NODE (MAC) ################# 
 d/l node .dmg with npm:
 http://code.google.com/p/rudix/downloads/detail?name=node-0.3.4-0.i386.dmg&can=2&q=
 https://sites.google.com/site/nodejsmacosx/
@@ -37,6 +37,20 @@ npm install mongoose
 npm install ejs
 npm install jade
 npm install socket.io
+
+
+################# deploying  ################# 
+after editing a file, eg add something to know if stuff changed
+eg server/views/index.ejs
+just add some text to that page
+then:
+
+cd server
+sc/monopoly-deploy.sh
+
+and it should now be deployed
+
+
 
 ################# install mongoDB ################# 
 # http://shiftcommathree.com/articles/how-to-install-mongodb-on-os-x
