@@ -7,13 +7,20 @@ TBD
 TBD
 
 *** ADD TO GITHUB ***
-TBD
+for people to add code, they need to create a github account
+and send me (dc) their account login info.
+i can then add them to our private repo so they can commit/checkout.
 
 *** SET UP GITHUB APP (MAC) ***
 TBD
 
 *** SET UP GITHUB (PC) ***
 TBD
+
+################# Install Ubuntu ################# 
+if you're using a laptop that is running windows, it would be great if
+you can install Ubuntu.
+
 
 ################# SET UP NODE (MAC) ################# 
 d/l node .dmg with npm:
