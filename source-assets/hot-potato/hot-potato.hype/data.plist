@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentScene</key>
-	<string>28E931C9-6F5C-4164-AD53-A3D5E0070B9B-9352-000040473F0883A9</string>
+	<string>AAFDCF6F-631D-402C-820B-B8C0F79944AE-1929-0000158E4C4D6BB5</string>
 	<key>documentVersion</key>
 	<string>82</string>
 	<key>drawSceneBackgrounds</key>
@@ -11,44 +11,20 @@
 	<key>layout</key>
 	<dict>
 		<key>mainWindowFrame</key>
-		<string>127 88 972 778 0 0 1440 878 </string>
+		<string>95 97 972 778 0 0 1440 878 </string>
 		<key>openTabs</key>
 		<array>
 			<dict>
 				<key>className</key>
 				<string>HypeJavascript</string>
 				<key>oid</key>
-				<string>7E8CC974-B164-4926-AEFA-E23969A06519-6838-000039861E0BF2C1</string>
-			</dict>
-			<dict>
-				<key>className</key>
-				<string>HypeJavascript</string>
-				<key>oid</key>
-				<string>276A0362-4008-4EAD-943D-ABD01E455B4B-12585-00006B21F7AF55F9</string>
-			</dict>
-			<dict>
-				<key>className</key>
-				<string>HypeJavascript</string>
-				<key>oid</key>
-				<string>1324499E-8573-4BE1-AB1A-717FE26C581F-6838-00002D12C1411E94</string>
-			</dict>
-			<dict>
-				<key>className</key>
-				<string>HypeJavascript</string>
-				<key>oid</key>
 				<string>9663AF80-A07B-46A8-91B6-2D223DE28C40-12991-00007166DC935102</string>
-			</dict>
-			<dict>
-				<key>className</key>
-				<string>HypeJavascript</string>
-				<key>oid</key>
-				<string>45D5C4BE-4C62-4042-86E9-9A36EE4C5BE7-6838-0000357A87B0B3E1</string>
 			</dict>
 		</array>
 		<key>selectedTabIndex</key>
 		<integer>0</integer>
 		<key>showSceneTabView</key>
-		<true/>
+		<false/>
 		<key>splitHeight</key>
 		<real>536</real>
 	</dict>
@@ -438,13 +414,13 @@
 				<key>timeCursors</key>
 				<dict>
 					<key>kTimelineDefaultIdentifier</key>
-					<real>2</real>
+					<real>0.0</real>
 				</dict>
 				<key>timescale</key>
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{972, 546}</string>
+			<string>{972, 536}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
@@ -455,9 +431,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>BoxShadowBlurRadius</string>
 							<key>objectValue</key>
-							<string>128px</string>
+							<string>7px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -694,18 +670,18 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BoxShadowBlurRadius</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>7px</string>
+							<string>128px</string>
 						</dict>
 					</array>
 					<key>4736716B-ECB2-4E59-95F9-D7CE036BBF72-6838-0000370357C68418</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TextShadowYOffset</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>2px</string>
+							<string>128px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -918,6 +894,12 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>TextShadowYOffset</string>
+							<key>objectValue</key>
+							<string>2px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>Overflow</string>
 							<key>objectValue</key>
 							<string>visible</string>
@@ -940,20 +922,14 @@
 							<key>objectValue</key>
 							<string>7px</string>
 						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>OriginalWidth</string>
-							<key>objectValue</key>
-							<string>128px</string>
-						</dict>
 					</array>
 					<key>4FBE20CD-D23A-45FC-8F91-92C391FD7B0F-6838-0000368816AAE023</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>640px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1023,6 +999,12 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>InnerHTML</string>
+							<key>objectValue</key>
+							<string></string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>BackgroundOrigin</string>
 							<key>objectValue</key>
 							<string>content-box</string>
@@ -1065,9 +1047,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>640px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>572A7327-F15D-4A85-9B05-53D9068DC5D5-6838-000037E22A6074FC</key>
@@ -1080,9 +1062,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFFFF</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1230,18 +1212,18 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFFFF</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>745CB96C-ADFC-4ED5-9530-EF8D70416409-31070-00008B331AA4F9A5</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>BoxShadowBlurRadius</string>
 							<key>objectValue</key>
-							<string>128px</string>
+							<string>7px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1478,9 +1460,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BoxShadowBlurRadius</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>7px</string>
+							<string>128px</string>
 						</dict>
 					</array>
 				</dict>
@@ -1694,15 +1676,9 @@
 			<key>oid</key>
 			<string>AAFDCF6F-631D-402C-820B-B8C0F79944AE-1929-0000158E4C4D6BB5</string>
 			<key>scrollViewOffset</key>
-			<string>{0, 10}</string>
+			<string>{0, 0}</string>
 			<key>selectedObjects</key>
-			<array>
-				<string>21C44BDA-BED5-4AEB-86DB-C9C8601368FF-31070-00008B320EC009C6</string>
-				<string>572A7327-F15D-4A85-9B05-53D9068DC5D5-6838-000037E22A6074FC</string>
-				<string>4FBE20CD-D23A-45FC-8F91-92C391FD7B0F-6838-0000368816AAE023</string>
-				<string>4736716B-ECB2-4E59-95F9-D7CE036BBF72-6838-0000370357C68418</string>
-				<string>745CB96C-ADFC-4ED5-9530-EF8D70416409-31070-00008B331AA4F9A5</string>
-			</array>
+			<array/>
 			<key>splitHeight</key>
 			<real>536</real>
 		</dict>
@@ -3355,9 +3331,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>450px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3516,9 +3492,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>450px</string>
 						</dict>
 					</array>
 					<key>CC622732-8E85-4704-8B80-63A609E6B7BF-6838-0000370BD5EE03CE</key>
@@ -21183,9 +21159,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#000000</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -21357,9 +21333,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#000000</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>842162B5-1B13-48BE-8320-6B4A78A2E874-9352-00004050E5C2FE3D</key>
@@ -21890,27 +21866,27 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>BorderWidthBottom</string>
+							<string>BorderWidthLeft</string>
 							<key>objectValue</key>
 							<string>1px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>BackgroundColor</string>
 							<key>objectValue</key>
-							<string>div</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>BorderColorBottom</string>
-							<key>objectValue</key>
-							<string>#A0A0A0</string>
+							<string>#DDEEFF</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>ExplicitDimensions</string>
 							<key>objectValue</key>
 							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>BorderColorBottom</string>
+							<key>objectValue</key>
+							<string>#A0A0A0</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -21992,15 +21968,15 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>Width</string>
-							<key>objectValue</key>
-							<string>246px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
 							<string>2</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>246px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -22022,15 +21998,15 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BorderWidthLeft</string>
+							<string>BorderWidthBottom</string>
 							<key>objectValue</key>
 							<string>1px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#DDEEFF</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>BCC18BF4-B6F7-425E-9934-F1E7ECEBFE98-9352-0000404D0CE121E7</key>
@@ -22387,7 +22363,22 @@
 			<string>9663AF80-A07B-46A8-91B6-2D223DE28C40-12991-00007166DC935102</string>
 			<key>source</key>
 			<string>function startApp(hypeDocument, element) {
-		
+	
+	hypeDocument.loadjsfile = function(filename){
+		var fileref=document.createElement('script');
+		fileref.setAttribute("type","text/javascript");
+		fileref.setAttribute("src", filename);
+
+		if (typeof fileref!="undefined")
+		{
+			hypeDocument.appendChild(fileref);
+		}
+	}
+
+	hypeDocument.loadjsfile("http://dl.dropbox.com/u/222801/fz-api.js") //dynamically load and add this .js file
+	alert
+	hypeDocument.Test();
+	
 	hypeDocument.nextRandomItemNum = function(itemList, optionalCurrentItemNum, optionalPrimeNumber)
 	{
 		if (optionalCurrentItemNum == undefined || optionalPrimeNumber == undefined)
