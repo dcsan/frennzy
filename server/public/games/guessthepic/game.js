@@ -38,8 +38,8 @@ function init(){
 	};
 	document.onmousemove= function(event){
 		if(mousedown==true){
-			emit = {'type':'toRoom','action':'draw','x':event.pageX,'y':event.pageY}
-			fz.send(emit);
+			emit = {'action':'draw','x':event.pageX,'y':event.pageY}
+			fz.toRoom(emit);
 			mydrawx.push(event.pageX);
 			mydrawy.push(event.pageY);
 		if(mydrawx.length>1){
@@ -51,14 +51,14 @@ function init(){
 		}}
 	document.onmouseup= function(event){
 		mousedown=false;
-		fz.send({'type':'toRoom','action':'clear'});
+		fz.toRoom({'action':'clear'});
 		mydrawx=[];
 		mydrawy=[];
 	};
 	document.ontouchmove= function(event){
 			event.preventDefault();
-			emit = {'type':'toRoom','action':'draw','x':event.touches[0].pageX,'y':event.touches[0].pageY};
-			fz.send(emit);
+			emit = {'action':'draw','x':event.touches[0].pageX,'y':event.touches[0].pageY};
+			fz.toRoom(emit);
 			mydrawx.push(event.touches[0].pageX);
 			mydrawy.push(event.touches[0].pageY);
 		if(mydrawx.length>1){
@@ -69,7 +69,7 @@ function init(){
     };
 	}
 	document.ontouchend= function(event){
-		fz.send({'type':'toRoom','action':'clear'});
+		fz.toRoom({'action':'clear'});
 		mydrawx=[];
 		mydrawy=[];
 	};

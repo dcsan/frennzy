@@ -17,10 +17,10 @@ function defineFz(){
     }
 
     function setCookie(c_name,value,exdays){
-    var exdate=new Date();
-    exdate.setDate(exdate.getDate() + exdays);
-    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
-    document.cookie=c_name + "=" + c_value;
+        var exdate=new Date();
+        exdate.setDate(exdate.getDate() + exdays);
+        var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+        document.cookie=c_name + "=" + c_value;
     }
 
     function readCookies(){
@@ -29,48 +29,48 @@ function defineFz(){
       var players=[];
       optionsCookie=getCookie("fz");
       playersCookie=getCookie("players");
-    if (optionsCookie!=null && optionsCookie!="")
-      {
-      raw=optionsCookie.split("<^>");
-      players=playersCookie.split("<^>");
-      json.username=raw[0];
-      json.numPlayers=raw[1];
-      json.paid=raw[2];
-      json.credits=raw[3];
-      json.phones=raw[4];
-      json.freePlayers=raw[5];
-      json.host=raw[6];
-      json.game=raw[7];
-      json.players=players;
-      }
-    else
-      {
-      var json={};
+      if (optionsCookie!=null && optionsCookie!="")
+        {
+        raw=optionsCookie.split("_div_");
+        players=playersCookie.split("_div_");
+        json.username=raw[0];
+        json.numPlayers=parseFloat(raw[1]);
+        json.paid=raw[2];
+        json.frennzies=parseFloat(raw[3]);
+        json.phones=raw[4];
+        json.freePlayers=parseFloat(raw[5]);
+        json.host=raw[6];
+        json.game=raw[7];
+        json.players=players;
+        }
+      else
+        {
+        var json={};
         json.username='alphaman';
-        json.numPlayers='1';
+        json.numPlayers=1;
         json.paid='notPaid';
-        json.credits='0';
+        json.frennzies=0;
         json.phones='single';
-        json.freePlayers='1';
+        json.freePlayers=1;
         json.host='host';
         json.game='none';
         json.players=['Ninja','DC','Aaron','Brian','Alex','John'];
-        raw=json.username+"<^>"
-        raw+=json.numPlayers+"<^>"
-        raw+=json.paid+"<^>"
-        raw+=json.credits+"<^>"
-        raw+=json.phones+"<^>"
-        raw+=json.freePlayers+"<^>"
-        raw+=json.host+"<^>"
+        raw=json.username+"_div_"
+        raw+=json.numPlayers+"_div_"
+        raw+=json.paid+"_div_"
+        raw+=json.frennzies.toString()+"_div_"
+        raw+=json.phones+"_div_"
+        raw+=json.freePlayers+"_div_"
+        raw+=json.host+"_div_"
         raw+=json.game;
         setCookie("fz",raw,365);
         raw='';
         for(i=1;i<=json.players.length;i++){
-        raw+=json.players[i-1];
-        if(i!=json.players.length){
-        raw+='<^>';
-        }
-            setCookie("players",raw,365);
+            raw+=json.players[i-1];
+            if(i!=json.players.length){
+            raw+='_div_';
+            }
+        setCookie("players",raw,365);
         }
       }
       return json;
@@ -86,45 +86,45 @@ function defineFz(){
     //  $('.'+json.phones).show();
     //  $('.'+json.paid).show();
     //  $('.'+json.host).show();
-      var raw=fz.username+"<^>"
-      raw+=fz.numPlayers+"<^>"
-      raw+=fz.paid+"<^>"
-      raw+=fz.credits+"<^>"
-      raw+=fz.phones+"<^>"
-      raw+=fz.freePlayers+"<^>"
-      raw+=fz.host+"<^>"
+      var raw=fz.username+"_div_"
+      raw+=fz.numPlayers.toString()+"_div_"
+      raw+=fz.paid+"_div_"
+      raw+=fz.frennzies.toString()+"_div_"
+      raw+=fz.phones+"_div_"
+      raw+=fz.freePlayers.toString()+"_div_"
+      raw+=fz.host+"_div_"
       raw+=fz.game;
       setCookie("fz",raw,365);
       raw='';
       for(i=1;i<=fz.players.length;i++){
         raw+=fz.players[i-1];
         if(i!=fz.players.length){
-        raw+='<^>';
+        raw+='_div_';
         }
       }
       setCookie("players",raw,365);
     }
 
-    fz.send=function send(json){
-        json.valid=true;
-    //	if(json.type=='toRoom'){//not finished
-    //		json.room=fz.room;
-    //	}
-        socket.emit('data',json);
-    }
+	fz.toRoom = function toRoom(json){
+		socket.emit('toRoom',json);
+	}
+	fz.toDb = function toDb(json){
+		socket.emit('toDb',json);
+	}
+	fz.fromDb = function fromDb(json){
+		socket.emit('fromDb',json);
+	}
 
     function joinRoom(room){//not finished
         json.nickname=fz.nickname;
         json.playerId=fz.id;
-        json.type='joinRoom';
-        send(json);
+        socket.emit('joinRoom',json);
     }
 
     function leaveRoom(nick){//not finished
         json.nickname=nick;
         json.room=fz.room;
-        json.type='leaveRoom';
-        send(json);
+        socket.emit('leaveRoom',json);
     }
 
     fz.view=function view(pageName){

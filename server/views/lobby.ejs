@@ -10,8 +10,11 @@ for(i=1;i<=fz.players.length;i++){
 	if(fz.players.length>=8){
 		$('#addPlayer').hide();
 	}
+	else{
+		$('#addPlayer').show();
+	}
 	$('#gameName').html(fz.game);
-	$('#playButton').html('play '+fz.game);
+	$('#playbutton').html('play '+fz.game);
 }
 function editPlayer(edit){
 	$('#editPlayerName').html(fz.players[edit-1]);
@@ -36,7 +39,12 @@ function addPlayer(){
 	fz.save();
 }
 function openGame(){
-	window.location.assign('/games/'+fz.game+'/rules');
+	if(fz.credits==0){
+		window.location.assign('/top_up');
+	}
+	else{
+		window.location.assign('/games/'+fz.game+'/rules');
+	}
 }
 </script>
 
@@ -46,14 +54,14 @@ function openGame(){
 <table>
 <% for(i=1;i<=8;i++){%>
 <tr><td><div class='hide' id='player<%= i %>'></div></td>
-<td><button class='hide' id='edit<%= i %>' onclick='editPlayer(<%= i %>);'>edit</button></td>
-<td><button class='hide' id='delete<%= i %>' onclick='deletePlayer(<%= i %>);'>remove</button></td></tr>
+<td><a class='hide button' id='edit<%= i %>' href='javascript:editPlayer(<%= i %>);'>edit</a></td>
+<td><a class='hide button' id='delete<%= i %>' href='javascript:deletePlayer(<%= i %>);'>remove</a></td></tr>
 <%}%>
 </table>
-<button id='addPlayer' onclick='addPlayer()'>add player</button>
-<button id='playButton' onclick='openGame();'></button>
+<a id='addPlayer' class='button' href='javascript:addPlayer()'>add player</a>
+<a id='playbutton' class='button' href='javascript:openGame();'></a>
 
 <div id='configure' style="display: none;">
-<div id='editPlayerName' onclick='changeName();'></div>
-<button class='bottom right button' onclick="$('#configure').hide()">done</button>
+<div id='editPlayerName' href='javascript:changeName();'></div>
+<a class='bottom right a' onclick="$('#configure').hide()">done</a>
 </div>
