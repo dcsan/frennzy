@@ -113,6 +113,9 @@ function init(app){
     app.get('/lobby', function(req, res) {
                 showPage(req, res); 
             })
+    app.get('/debug', function(req, res) {
+                showPage(req, res); 
+            })
     app.get('/offer_wall', function(req,res) {
                 showPage(req, res);
             })
@@ -215,33 +218,30 @@ var sockets=[];
 var rooms={};
 io.sockets.on('connection',function(socket){
    	sockets.push(socket.id);
-   	socket.on('data',function(json){
-   		if(json.valid){
-    	switch(json.type){
-    		case 'toDb':
-    			console.log(json.action);
-    			break;
-    		case 'fromDb':
-    			break;
-    		case 'joinRoom':
-    			if(rooms[json.room]!=null&&roms[json.room]!=""){
-    				rooms[json.room].push(socket.id);
-    			}
-    			else{
-    				rooms[json.room]=[socket.id]
-    			}
-    			break;
-    		case 'leaveRoom':
-    			break;
-    		case 'toRoom':
-    			console.log(json);
-    			break;
-    		default:
-    			console.log('error in socket data packets'+json);
-    			break;
-    	}};
+   	socket.on('toDb',function(json){
+   		console.log(json.action);
    	});
-   	
+   	socket.on('fromDb',function(json){
+   		console.log(json.action);
+   	});
+   	socket.on('toRoom',function(json){
+   		action=json.action;
+   		console.log(json);
+   		delete json.action;
+   		console.log(json);
+    	io.sockets.emit(json.action,json);
+   	});
+   	socket.on('joinRoom',function(json){
+    	if(rooms[json.room]!=null&&roms[json.room]!=""){
+    		rooms[json.room].push(socket.id);
+    	}
+    	else{
+    		rooms[json.room]=[socket.id]
+    	}
+   	});
+   	socket.on('leaveRoom',function(json){
+   		console.log(json.action);
+   	});
    	socket.on('disconnect',function(){
 		delete sockets[sockets.indexOf(socket.id)];
 		console.log('disconnect');

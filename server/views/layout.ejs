@@ -34,7 +34,7 @@
 <script>
     var socket=io.connect();
     $(document).ready(function () {
-        if (typeof init == 'function') {
+        if (typeof(init) == 'function') {
             init();
         }
 
@@ -61,7 +61,7 @@
     <a href="/game_menu">game menu</a> |
     <a href="/top_up">top up</a> |
     <a href="/lobby">lobby</a> |
-    <a href="javascript:toggleDebug()">debug</a>
+    <a href="/debug">debug</a>
 </div>
 </div>
 

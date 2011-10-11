@@ -1,0 +1,15 @@
+<script>
+	function getMoreFrennzies(){
+		fz.frennzies++;
+		fz.save();
+		$('#frennzies').html(fz.frennzies.toString());
+	}
+	function init(){
+		$('#frennzies').html(fz.frennzies.toString());
+	}
+</script>
+
+<h3 id='frennzies'></h3>
+<a href='javascript:getMoreFrennzies()' class='button'>Get more frennzies</a>
+<a href='/offer_wall' class='button'>Offer Wall</a>
+<a href='/share' class='button'>Share</a>
