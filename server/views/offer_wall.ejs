@@ -1,4 +1,10 @@
-<div id='page1' class='page' style="height:200px;width:200px;background-color:#000000;position:absolute;top:20px;left:20px;">heloldakjfsdo </div>
-<div id='page2' class='page' style="height:200px;width:200px;background-color:#555555;position:absolute;top:0px;left:0px;">heloldalkda fhsdkj ghfaqiufh wie </div>
-<a class='button' href="javascript:fz.view('page1');" style='position:absolute;top:240px'>page1</a>
-<a class='button' href="javascript:fz.view('page2');" style='position:absolute;top:240px;left:50px;'>page2</a>
+<h1 id='touches'>aldsfjalk</h1>
+
+<script>
+	document.ontouchstart=function(){
+		$('#touches').html(event.touches.length);
+	}
+	document.ontouchend=function(){
+		$('#touches').html(event.touches.length);
+	}
+</script>
