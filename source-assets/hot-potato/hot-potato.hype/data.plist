@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentScene</key>
-	<string>AAFDCF6F-631D-402C-820B-B8C0F79944AE-1929-0000158E4C4D6BB5</string>
+	<string>53D27413-41FE-40DB-8C59-357150224F4E-6838-000031963F386E5D</string>
 	<key>documentVersion</key>
 	<string>82</string>
 	<key>drawSceneBackgrounds</key>
@@ -11,7 +11,7 @@
 	<key>layout</key>
 	<dict>
 		<key>mainWindowFrame</key>
-		<string>95 97 972 778 0 0 1440 878 </string>
+		<string>121 91 972 778 0 0 1440 878 </string>
 		<key>openTabs</key>
 		<array>
 			<dict>
@@ -20,13 +20,49 @@
 				<key>oid</key>
 				<string>9663AF80-A07B-46A8-91B6-2D223DE28C40-12991-00007166DC935102</string>
 			</dict>
+			<dict>
+				<key>className</key>
+				<string>HypeJavascript</string>
+				<key>oid</key>
+				<string>276A0362-4008-4EAD-943D-ABD01E455B4B-12585-00006B21F7AF55F9</string>
+			</dict>
+			<dict>
+				<key>className</key>
+				<string>HypeJavascript</string>
+				<key>oid</key>
+				<string>45D5C4BE-4C62-4042-86E9-9A36EE4C5BE7-6838-0000357A87B0B3E1</string>
+			</dict>
+			<dict>
+				<key>className</key>
+				<string>HypeJavascript</string>
+				<key>oid</key>
+				<string>1324499E-8573-4BE1-AB1A-717FE26C581F-6838-00002D12C1411E94</string>
+			</dict>
+			<dict>
+				<key>className</key>
+				<string>HypeJavascript</string>
+				<key>oid</key>
+				<string>3797E5D2-BF96-43F2-876B-3A4762B24CC5-453-000001D85CC4CF0B</string>
+			</dict>
+			<dict>
+				<key>className</key>
+				<string>HypeJavascript</string>
+				<key>oid</key>
+				<string>7AA5D718-6B18-4E80-BA42-F75D9FF250B0-343-0000120FEA28BA1A</string>
+			</dict>
+			<dict>
+				<key>className</key>
+				<string>HypeJavascript</string>
+				<key>oid</key>
+				<string>0FB9E38F-EEA6-43D4-8336-F6BD879D9FE8-6838-00003A49329D6802</string>
+			</dict>
 		</array>
 		<key>selectedTabIndex</key>
-		<integer>0</integer>
+		<integer>4</integer>
 		<key>showSceneTabView</key>
-		<false/>
+		<true/>
 		<key>splitHeight</key>
-		<real>536</real>
+		<real>540</real>
 	</dict>
 	<key>resources</key>
 	<array>
@@ -170,41 +206,6 @@
 			<string>/Users/BDJ/Dropbox/Gablinga/FinalArt/HotPotato.jpg</string>
 			<key>resourceName</key>
 			<string>HotPotato-1.jpg</string>
-		</dict>
-		<dict>
-			<key>bookmark</key>
-			<data>
-			Ym9va1ADAAAAAAEQEAAAAHgCAAAFAAAAAQEAAFVzZXJzAAAAAwAA
-			AAEBAABCREoABwAAAAEBAABEcm9wYm94AAgAAAABAQAAR2FibGlu
-			Z2EIAAAAAQEAAEZpbmFsQXJ0EAAAAAEBAABQYXNzVGhlUGhvbmUu
-			anBnGAAAAAEGAAAEAAAAFAAAACAAAAAwAAAAQAAAAFAAAAAIAAAA
-			BAMAAO2FAAAAAAAACAAAAAQDAADumgoAAAAAAAgAAAAEAwAAj7J/
-			AAAAAAAIAAAABAMAAPAWmAAAAAAACAAAAAQDAAAIvZgAAAAAAAgA
-			AAAEAwAAhRiZAAAAAAAYAAAAAQYAAIgAAACYAAAAqAAAALgAAADI
-			AAAA2AAAABgAAAABAgAAAQAAAAAAAAAPAAAAAAAAAAAAAAAAAAAA
-			BAAAAAMDAAAEAAAABAAAAAMDAAD1AQAADAAAAAEBAABNYWNpbnRv
-			c2ggSEQIAAAABAMAAABgURk6AAAACAAAAAAEAABBr4qqCAAAACQA
-			AAABAQAANjI5RUFFN0YtOTlEOS0zMjI1LUExNDctQTU2QkNCNTM1
-			NzMzGAAAAAECAACBAAAAAQAIAO8/AAABAAgAAAAAAAAAAAABAAAA
-			AQEAAC8AAAAAAAAAAQUAAAQAAAADAwAAAAEAAJAAAAABAgAAZTkx
-			ZDY0NmI3MWRhNWMzMDkwOTc5YTcxMTJiYWEwNTNiOTY2YmYzZTsw
-			MDAwMDAwMDswMDAwMDAwMDswMDAwMDAwMDAwMDAwMDIwO2NvbS5h
-			cHBsZS5hcHAtc2FuZGJveC5yZWFkLXdyaXRlOzAwMDAwMDAwMGUw
-			MDAwMDI7MDAwMDAwMDAwMDk5MTg4NTsAwAAAAP7///8BAAAAAAAA
-			AA8AAAAEEAAAaAAAAAAAAAAFEAAA6AAAAAAAAAAQEAAACAEAAAAA
-			AAACIAAAwAEAAAAAAAAQIAAAQAEAAAAAAAARIAAAdAEAAAAAAAAS
-			IAAAVAEAAAAAAAATIAAAZAEAAAAAAAAgIAAAoAEAAAAAAAAwIAAA
-			zAEAAAAAAAABwAAAKAEAAAAAAAARwAAAFAAAAAAAAAASwAAANAEA
-			AAAAAAAQ0AAA1AEAAAAAAACA8AAA4AEAAAAAAAA=
-			</data>
-			<key>md5</key>
-			<string>52140DFF2DDED9CE4E9AA83C1D05CE91</string>
-			<key>notifyOnBookmarkChange</key>
-			<true/>
-			<key>originalPath</key>
-			<string>/Users/BDJ/Dropbox/Gablinga/FinalArt/PassThePhone.jpg</string>
-			<key>resourceName</key>
-			<string>PassThePhone.jpg</string>
 		</dict>
 		<dict>
 			<key>bookmark</key>
@@ -397,6 +398,40 @@
 			<key>resourceName</key>
 			<string>Pasted-2.png</string>
 		</dict>
+		<dict>
+			<key>bookmark</key>
+			<data>
+			Ym9vaxQDAAAAAAEQEAAAADwCAAAFAAAAAQEAAFVzZXJzAAAAAwAA
+			AAEBAABCREoACQAAAAEBAABEb3dubG9hZHMAAAAeAAAAAQEAADEz
+			MTg0NDc4MzdfR2luZ2VyYnJlYWRfTWFuLnBuZwAAEAAAAAEGAAAE
+			AAAAFAAAACAAAAA0AAAACAAAAAQDAADthQAAAAAAAAgAAAAEAwAA
+			7poKAAAAAAAIAAAABAMAAAibCgAAAAAACAAAAAQDAADLpKkAAAAA
+			ABAAAAABBgAAdAAAAIQAAACUAAAApAAAABgAAAABAgAAAQAAAAAA
+			AAAPAAAAAAAAAAAAAAAAAAAABAAAAAMDAAACAAAABAAAAAMDAAD1
+			AQAADAAAAAEBAABNYWNpbnRvc2ggSEQIAAAABAMAAABgURk6AAAA
+			CAAAAAAEAABBr4qqCAAAACQAAAABAQAANjI5RUFFN0YtOTlEOS0z
+			MjI1LUExNDctQTU2QkNCNTM1NzMzGAAAAAECAACBAAAAAQAIAO8/
+			AAABAAgAAAAAAAAAAAABAAAAAQEAAC8AAAAAAAAAAQUAAAQAAAAD
+			AwAAAAEAAJAAAAABAgAAODhkOTdkOTQxNGEzNzI4NjYwYjUxOGNl
+			OWUzYThiNDNjOTRhN2Y5NTswMDAwMDAwMDswMDAwMDAwMDswMDAw
+			MDAwMDAwMDAwMDIwO2NvbS5hcHBsZS5hcHAtc2FuZGJveC5yZWFk
+			LXdyaXRlOzAwMDAwMDAwMGUwMDAwMDI7MDAwMDAwMDAwMGE5YTRj
+			YjsAwAAAAP7///8BAAAAAAAAAA8AAAAEEAAAXAAAAAAAAAAFEAAA
+			tAAAAAAAAAAQEAAAzAAAAAAAAAACIAAAhAEAAAAAAAAQIAAABAEA
+			AAAAAAARIAAAOAEAAAAAAAASIAAAGAEAAAAAAAATIAAAKAEAAAAA
+			AAAgIAAAZAEAAAAAAAAwIAAAkAEAAAAAAAABwAAA7AAAAAAAAAAR
+			wAAAFAAAAAAAAAASwAAA+AAAAAAAAAAQ0AAAmAEAAAAAAACA8AAA
+			pAEAAAAAAAA=
+			</data>
+			<key>md5</key>
+			<string>BF29F97E42FA9A4CE058EDA04A131757</string>
+			<key>notifyOnBookmarkChange</key>
+			<true/>
+			<key>originalPath</key>
+			<string>/Users/BDJ/Downloads/1318447837_Gingerbread_Man.png</string>
+			<key>resourceName</key>
+			<string>1318447837_Gingerbread_Man.png</string>
+		</dict>
 	</array>
 	<key>sceneSize</key>
 	<string>{320, 460}</string>
@@ -420,7 +455,7 @@
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{972, 536}</string>
+			<string>{972, 522}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
@@ -431,9 +466,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>BoxShadowBlurRadius</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>7px</string>
+							<string>128px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -664,24 +699,24 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundGradientEndColor</string>
+							<string>BoxShadowBlurRadius</string>
 							<key>objectValue</key>
-							<string>#557856</string>
+							<string>7px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>BackgroundGradientEndColor</string>
 							<key>objectValue</key>
-							<string>128px</string>
+							<string>#557856</string>
 						</dict>
 					</array>
 					<key>4736716B-ECB2-4E59-95F9-D7CE036BBF72-6838-0000370357C68418</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>BoxShadowBlurRadius</string>
 							<key>objectValue</key>
-							<string>128px</string>
+							<string>7px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -918,18 +953,18 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BoxShadowBlurRadius</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>7px</string>
+							<string>128px</string>
 						</dict>
 					</array>
 					<key>4FBE20CD-D23A-45FC-8F91-92C391FD7B0F-6838-0000368816AAE023</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>640px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1047,9 +1082,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>640px</string>
 						</dict>
 					</array>
 					<key>572A7327-F15D-4A85-9B05-53D9068DC5D5-6838-000037E22A6074FC</key>
@@ -1062,9 +1097,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FFFFFF</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1212,18 +1247,18 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FFFFFF</string>
 						</dict>
 					</array>
 					<key>745CB96C-ADFC-4ED5-9530-EF8D70416409-31070-00008B331AA4F9A5</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>BoxShadowBlurRadius</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>7px</string>
+							<string>128px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1454,15 +1489,15 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>BackgroundGradientEndColor</string>
+							<string>BoxShadowBlurRadius</string>
 							<key>objectValue</key>
-							<string>#557856</string>
+							<string>7px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>BackgroundGradientEndColor</string>
 							<key>objectValue</key>
-							<string>128px</string>
+							<string>#557856</string>
 						</dict>
 					</array>
 				</dict>
@@ -1680,7 +1715,7 @@
 			<key>selectedObjects</key>
 			<array/>
 			<key>splitHeight</key>
-			<real>536</real>
+			<real>522</real>
 		</dict>
 		<dict>
 			<key>animationController</key>
@@ -1695,32 +1730,191 @@
 				<key>timeCursors</key>
 				<dict>
 					<key>kTimelineDefaultIdentifier</key>
-					<real>0.0</real>
+					<real>2</real>
 				</dict>
 				<key>timescale</key>
 				<integer>120</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{972, 554}</string>
+			<string>{972, 500}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
 				<string>kTimelineDefaultIdentifier</string>
 				<key>elements</key>
 				<dict>
-					<key>0746077C-E208-49B7-87EA-85DE99ABD49D-6838-0000377269C8500D</key>
+					<key>0D0EE7C3-9024-4EB2-82E5-855587C9682B-4527-00002DA30DC49E38</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>DisplayName</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>PassThePhone</string>
+							<string>div</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingRight</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FontSize</string>
+							<key>objectValue</key>
+							<string>46px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ExplicitDimensions</string>
+							<key>objectValue</key>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Display</string>
+							<key>objectValue</key>
+							<string>inline</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WordWrap</string>
+							<key>objectValue</key>
+							<string>break-word</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ClassType</string>
+							<key>objectValue</key>
+							<string>Text</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Top</string>
+							<key>objectValue</key>
+							<string>16px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingBottom</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextShadowYOffset</string>
+							<key>objectValue</key>
+							<string>2px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WhiteSpaceCollapsing</string>
+							<key>objectValue</key>
+							<string>preserve</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Position</string>
 							<key>objectValue</key>
 							<string>absolute</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Height</string>
+							<key>objectValue</key>
+							<string>72px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Left</string>
+							<key>objectValue</key>
+							<string>16px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextShadowBlurRadius</string>
+							<key>objectValue</key>
+							<string>6px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextAlign</string>
+							<key>objectValue</key>
+							<string>center</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>InnerHTML</string>
+							<key>objectValue</key>
+							<string>Pass to...</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>12</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>272px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextShadowColor</string>
+							<key>objectValue</key>
+							<string>#000000</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingTop</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextShadowXOffset</string>
+							<key>objectValue</key>
+							<string>0px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Overflow</string>
+							<key>objectValue</key>
+							<string>visible</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayName</string>
+							<key>objectValue</key>
+							<string>Text-1</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextColor</string>
+							<key>objectValue</key>
+							<string>#FFFFFF</string>
+						</dict>
+					</array>
+					<key>35EB9E2F-28CF-4353-A22D-11377C1EC172-4527-00002DF1D3EF089F</key>
+					<array>
+						<dict>
+							<key>identifier</key>
+							<string>Position</string>
+							<key>objectValue</key>
+							<string>absolute</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayName</string>
+							<key>objectValue</key>
+							<string>Player Icon</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1732,25 +1926,19 @@
 							<key>identifier</key>
 							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>640px</string>
+							<string>128px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>SizeRatio</string>
 							<key>objectValue</key>
-							<string>0.666667</string>
+							<string>1</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Left</string>
 							<key>objectValue</key>
-							<string>0px</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>OriginalHeight</string>
-							<key>objectValue</key>
-							<string>960px</string>
+							<string>95px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1762,7 +1950,13 @@
 							<key>identifier</key>
 							<string>BackgroundImage</string>
 							<key>objectValue</key>
-							<string>PassThePhone.jpg</string>
+							<string>1318447837_Gingerbread_Man.png</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>OriginalHeight</string>
+							<key>objectValue</key>
+							<string>128px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1774,7 +1968,7 @@
 							<key>identifier</key>
 							<string>Height</string>
 							<key>objectValue</key>
-							<string>480px</string>
+							<string>128px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1786,13 +1980,13 @@
 							<key>identifier</key>
 							<string>Width</string>
 							<key>objectValue</key>
-							<string>320px</string>
+							<string>128px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>16px</string>
+							<string>84px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1804,7 +1998,11 @@
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>7</string>
+							<string>14</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AltText</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1823,9 +2021,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>128px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -1937,18 +2135,18 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>128px</string>
 						</dict>
 					</array>
 					<key>65B60053-78E6-42A5-9D93-F447002BF0D5-6838-000037758FEDDE26</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>128px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2060,18 +2258,24 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>128px</string>
 						</dict>
 					</array>
-					<key>D4855C06-9702-48A1-867C-27376B64114C-32601-00008D611DC2A13E</key>
+					<key>720F7004-79EF-4792-85AE-E64452267946-4527-00002DB6ECA0F932</key>
 					<array>
 						<dict>
 							<key>identifier</key>
 							<string>TextColor</string>
 							<key>objectValue</key>
 							<string>#FFFFFF</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FontWeight</string>
+							<key>objectValue</key>
+							<string>bold</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2083,13 +2287,17 @@
 							<key>identifier</key>
 							<string>FontSize</string>
 							<key>objectValue</key>
-							<string>16px</string>
+							<string>52px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>ExplicitDimensions</string>
 							<key>objectValue</key>
 							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AltText</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2113,7 +2321,7 @@
 							<key>identifier</key>
 							<string>Top</string>
 							<key>objectValue</key>
-							<string>16px</string>
+							<string>202px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2125,7 +2333,7 @@
 							<key>identifier</key>
 							<string>TextShadowYOffset</string>
 							<key>objectValue</key>
-							<string>1px</string>
+							<string>2px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2143,7 +2351,7 @@
 							<key>identifier</key>
 							<string>Height</string>
 							<key>objectValue</key>
-							<string>337px</string>
+							<string>151px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2155,25 +2363,19 @@
 							<key>identifier</key>
 							<string>TextShadowBlurRadius</string>
 							<key>objectValue</key>
-							<string>0px</string>
+							<string>6px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextAlign</string>
+							<key>objectValue</key>
+							<string>center</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>InnerHTML</string>
 							<key>objectValue</key>
-							<string>&lt;br&gt;</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>ZIndex</string>
-							<key>objectValue</key>
-							<string>11</string>
-						</dict>
-						<dict>
-							<key>identifier</key>
-							<string>Width</string>
-							<key>objectValue</key>
-							<string>272px</string>
+							<string>Player</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2183,9 +2385,21 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>272px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
 							<string>TextShadowColor</string>
 							<key>objectValue</key>
 							<string>#000000</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>13</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2197,7 +2411,7 @@
 							<key>identifier</key>
 							<string>TextShadowXOffset</string>
 							<key>objectValue</key>
-							<string>1px</string>
+							<string>0px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2209,7 +2423,7 @@
 							<key>identifier</key>
 							<string>DisplayName</string>
 							<key>objectValue</key>
-							<string>Text</string>
+							<string>Player Name</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2222,9 +2436,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>128px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2336,16 +2550,16 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>128px</string>
 						</dict>
 					</array>
 				</dict>
 				<key>onSceneAnimationCompleteAction</key>
 				<dict>
 					<key>javascriptOid</key>
-					<string>3797E5D2-BF96-43F2-876B-3A4762B24CC5-453-000001D85CC4CF0B</string>
+					<string>7AA5D718-6B18-4E80-BA42-F75D9FF250B0-343-0000120FEA28BA1A</string>
 					<key>type</key>
 					<integer>4</integer>
 				</dict>
@@ -2357,14 +2571,14 @@
 				<key>onSceneLoadAction</key>
 				<dict>
 					<key>javascriptOid</key>
-					<string>45D5C4BE-4C62-4042-86E9-9A36EE4C5BE7-6838-0000357A87B0B3E1</string>
+					<string>3797E5D2-BF96-43F2-876B-3A4762B24CC5-453-000001D85CC4CF0B</string>
 					<key>type</key>
 					<integer>4</integer>
 				</dict>
 				<key>properties</key>
 				<dict>
 					<key>backgroundColor</key>
-					<string>#000000</string>
+					<string>#C1E8FF</string>
 					<key>perspective</key>
 					<real>600</real>
 				</dict>
@@ -2563,13 +2777,13 @@
 			<key>oid</key>
 			<string>D43CDC4F-8DF6-4B8E-B3C9-F6F4B2CE25F0-453-000003F9B5078B01</string>
 			<key>scrollViewOffset</key>
-			<string>{0, 18}</string>
+			<string>{0, 0}</string>
 			<key>selectedObjects</key>
 			<array>
-				<string>F438FA2B-1FD4-4B4B-9DAC-DDBFCBE476DF-6838-000037759168A9B6</string>
+				<string>720F7004-79EF-4792-85AE-E64452267946-4527-00002DB6ECA0F932</string>
 			</array>
 			<key>splitHeight</key>
-			<real>536</real>
+			<real>414</real>
 		</dict>
 		<dict>
 			<key>animationController</key>
@@ -2587,7 +2801,7 @@
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{972, 545}</string>
+			<string>{972, 524}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
@@ -2709,9 +2923,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>128px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2823,18 +3037,18 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>128px</string>
 						</dict>
 					</array>
 					<key>B06BC67A-771F-454C-8400-D7C9941652D0-6838-00003833D7C2C729</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>128px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -2946,18 +3160,18 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>128px</string>
 						</dict>
 					</array>
 					<key>C5F56D3B-540A-4E13-9E23-1F12F889C2DD-6838-00003833D7CD451C</key>
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>128px</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3069,9 +3283,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>128px</string>
 						</dict>
 					</array>
 				</dict>
@@ -3300,7 +3514,7 @@
 				<string>866EE7AE-AA07-47B1-8248-9617069771AA-6838-0000383821E4CA1C</string>
 			</array>
 			<key>splitHeight</key>
-			<real>536</real>
+			<real>414</real>
 		</dict>
 		<dict>
 			<key>animationController</key>
@@ -3308,32 +3522,199 @@
 				<key>additionalAttributesToShow</key>
 				<dict/>
 				<key>expandedItems</key>
-				<array>
-					<string>B040BBE1-B8FA-4EBD-B0EA-7D6962920E7E-6838-000037112574C845</string>
-				</array>
+				<array/>
 				<key>timeCursors</key>
 				<dict>
 					<key>kTimelineDefaultIdentifier</key>
-					<real>4.0333333015441895</real>
+					<real>3.7000000476837158</real>
 				</dict>
 				<key>timescale</key>
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{972, 538}</string>
+			<string>{972, 540}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
 				<string>kTimelineDefaultIdentifier</string>
 				<key>elements</key>
 				<dict>
-					<key>B040BBE1-B8FA-4EBD-B0EA-7D6962920E7E-6838-000037112574C845</key>
+					<key>330F6BB6-C79F-479C-B24C-6A1AA38E5954-4527-0000343C5BE7B5B4</key>
 					<array>
+						<dict>
+							<key>identifier</key>
+							<string>FontWeight</string>
+							<key>objectValue</key>
+							<string>bold</string>
+						</dict>
 						<dict>
 							<key>identifier</key>
 							<string>TagName</string>
 							<key>objectValue</key>
 							<string>div</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingRight</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>AltText</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>FontSize</string>
+							<key>objectValue</key>
+							<string>52px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ExplicitDimensions</string>
+							<key>objectValue</key>
+							<string>YES</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Display</string>
+							<key>objectValue</key>
+							<string>inline</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WordWrap</string>
+							<key>objectValue</key>
+							<string>break-word</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ClassType</string>
+							<key>objectValue</key>
+							<string>Text</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Top</string>
+							<key>objectValue</key>
+							<string>108px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingBottom</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextShadowYOffset</string>
+							<key>objectValue</key>
+							<string>2px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>WhiteSpaceCollapsing</string>
+							<key>objectValue</key>
+							<string>preserve</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Position</string>
+							<key>objectValue</key>
+							<string>absolute</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Height</string>
+							<key>objectValue</key>
+							<string>151px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Left</string>
+							<key>objectValue</key>
+							<string>16px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextShadowBlurRadius</string>
+							<key>objectValue</key>
+							<string>6px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextAlign</string>
+							<key>objectValue</key>
+							<string>center</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>InnerHTML</string>
+							<key>objectValue</key>
+							<string>Player</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingLeft</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Width</string>
+							<key>objectValue</key>
+							<string>272px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextShadowColor</string>
+							<key>objectValue</key>
+							<string>#000000</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>ZIndex</string>
+							<key>objectValue</key>
+							<string>6</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>PaddingTop</string>
+							<key>objectValue</key>
+							<string>8px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextShadowXOffset</string>
+							<key>objectValue</key>
+							<string>0px</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>Overflow</string>
+							<key>objectValue</key>
+							<string>visible</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>DisplayName</string>
+							<key>objectValue</key>
+							<string>Player Name</string>
+						</dict>
+						<dict>
+							<key>identifier</key>
+							<string>TextColor</string>
+							<key>objectValue</key>
+							<string>#FFFFFF</string>
+						</dict>
+					</array>
+					<key>B040BBE1-B8FA-4EBD-B0EA-7D6962920E7E-6838-000037112574C845</key>
+					<array>
+						<dict>
+							<key>identifier</key>
+							<string>OriginalWidth</string>
+							<key>objectValue</key>
+							<string>450px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3458,7 +3839,7 @@
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>6</string>
+							<string>7</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3492,9 +3873,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>450px</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>CC622732-8E85-4704-8B80-63A609E6B7BF-6838-0000370BD5EE03CE</key>
@@ -3587,7 +3968,7 @@
 							<key>identifier</key>
 							<string>ZIndex</string>
 							<key>objectValue</key>
-							<string>5</string>
+							<string>6</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -3627,6 +4008,8 @@
 				</dict>
 				<key>onSceneLoadAction</key>
 				<dict>
+					<key>javascriptOid</key>
+					<string>1324499E-8573-4BE1-AB1A-717FE26C581F-6838-00002D12C1411E94</string>
 					<key>type</key>
 					<integer>4</integer>
 				</dict>
@@ -3978,11 +4361,11 @@
 			<key>oid</key>
 			<string>53D27413-41FE-40DB-8C59-357150224F4E-6838-000031963F386E5D</string>
 			<key>scrollViewOffset</key>
-			<string>{0, 10}</string>
+			<string>{0, 0}</string>
 			<key>selectedObjects</key>
 			<array/>
 			<key>splitHeight</key>
-			<real>536</real>
+			<real>540</real>
 		</dict>
 		<dict>
 			<key>animationController</key>
@@ -3994,13 +4377,13 @@
 				<key>timeCursors</key>
 				<dict>
 					<key>kTimelineDefaultIdentifier</key>
-					<real>0.0</real>
+					<real>0.73333334922790527</real>
 				</dict>
 				<key>timescale</key>
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{972, 546}</string>
+			<string>{972, 522}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
@@ -4011,9 +4394,9 @@
 					<array>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>OriginalWidth</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>640px</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4138,9 +4521,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>OriginalWidth</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>640px</string>
+							<string>div</string>
 						</dict>
 					</array>
 				</dict>
@@ -4181,13 +4564,13 @@
 			<key>oid</key>
 			<string>56BBFE81-8C46-476C-81FD-09E260A729A3-6838-00003A5E1605BA44</string>
 			<key>scrollViewOffset</key>
-			<string>{0, 10}</string>
+			<string>{0, 0}</string>
 			<key>selectedObjects</key>
 			<array>
 				<string>FAD895D1-0E43-4B79-A79B-2446805F393E-6838-00003A63A5AC362C</string>
 			</array>
 			<key>splitHeight</key>
-			<real>536</real>
+			<real>522</real>
 		</dict>
 		<dict>
 			<key>animationController</key>
@@ -4205,7 +4588,7 @@
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{972, 538}</string>
+			<string>{972, 531}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
@@ -4508,9 +4891,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FF8200</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4658,9 +5041,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FF8200</string>
 						</dict>
 					</array>
 					<key>358384D0-4D8D-4EC5-BBCC-D12697EA7C32-453-000000A28C47C0D6</key>
@@ -4673,9 +5056,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#0008FF</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -4842,9 +5225,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#0008FF</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>37179E00-A65D-4E71-9566-F8A1CC12EE5E-453-000003B0BED565B9</key>
@@ -4857,9 +5240,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FF0008</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5013,9 +5396,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FF0008</string>
 						</dict>
 					</array>
 					<key>6C7241F8-1FF1-4BC6-BFB3-71A4D742A8C2-453-000003B1065EA7B2</key>
@@ -5028,9 +5411,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#E9FF00</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5184,9 +5567,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#E9FF00</string>
 						</dict>
 					</array>
 					<key>6E9F460E-5DE9-48AB-9593-552B03A7E881-453-000003B0910ED360</key>
@@ -5199,9 +5582,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FF01FF</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5355,9 +5738,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FF01FF</string>
 						</dict>
 					</array>
 					<key>8300AA40-2146-41E7-B210-7CBF978A57B8-453-0000010F2E8FD04B</key>
@@ -5370,9 +5753,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FF7600</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5544,9 +5927,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FF7600</string>
 						</dict>
 					</array>
 					<key>FCDBE718-47D9-496C-9F65-6A9051844A63-453-000003B077B786B3</key>
@@ -5559,9 +5942,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#00C24D</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -5715,9 +6098,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#00C24D</string>
 						</dict>
 					</array>
 				</dict>
@@ -6845,7 +7228,7 @@
 				<string>0B4ABE65-DAD6-435F-8527-0CF857FB0C6B-453-00000375C5BB28C5</string>
 			</array>
 			<key>splitHeight</key>
-			<real>536</real>
+			<real>522</real>
 		</dict>
 		<dict>
 			<key>animationController</key>
@@ -6863,7 +7246,7 @@
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{972, 536}</string>
+			<string>{972, 522}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
@@ -7184,9 +7567,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#000000</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -7358,9 +7741,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#000000</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>B530CA78-4D94-43B6-B8EC-3BA06A03C1D9-31070-000088579FF6C9B5</key>
@@ -7373,9 +7756,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#000000</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -7547,9 +7930,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#000000</string>
 						</dict>
 					</array>
 				</dict>
@@ -7839,7 +8222,7 @@
 				<string>15F75397-201E-449C-A55E-D17E5B59C865-1929-00001F86E6624C45</string>
 			</array>
 			<key>splitHeight</key>
-			<real>536</real>
+			<real>522</real>
 		</dict>
 		<dict>
 			<key>animationController</key>
@@ -7857,7 +8240,7 @@
 				<integer>60</integer>
 			</dict>
 			<key>canvasSize</key>
-			<string>{972, 541}</string>
+			<string>{972, 531}</string>
 			<key>context</key>
 			<dict>
 				<key>currentTimelineIdentifier</key>
@@ -8160,9 +8543,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#E9FF00</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -8316,9 +8699,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#E9FF00</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>4AA814E9-C862-4400-A4AF-D8777DD7C875-6838-00003BB23A54DBCC</key>
@@ -8331,9 +8714,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#0008FF</string>
+							<string>div</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -8500,9 +8883,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#0008FF</string>
 						</dict>
 					</array>
 					<key>9B8BA25B-9209-4FFB-BDFF-0B4FFEA74F9E-6838-00003BB238E2B9E1</key>
@@ -8515,9 +8898,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FF8200</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -8665,9 +9048,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FF8200</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>A095210D-19CB-4519-A6B5-494F431A35FB-6838-00003BB239B46C4E</key>
@@ -8680,9 +9063,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FF0000</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -8854,9 +9237,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FF0000</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>BCD65C90-F851-4DAB-A07B-6229DBD2EFDC-6838-00003BB23897C7C1</key>
@@ -8869,9 +9252,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#0000FF</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -9025,9 +9408,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#0000FF</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>CB68E2AB-A8F0-4E2C-8260-F4815E754626-6838-00003BB2383B373F</key>
@@ -9040,9 +9423,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#00C24D</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -9196,9 +9579,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#00C24D</string>
+							<string>div</string>
 						</dict>
 					</array>
 					<key>E1DA0CE8-71A1-4FC3-B8D9-C2B77D941871-6838-00003BB23927E559</key>
@@ -9211,9 +9594,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TagName</string>
+							<string>TextColor</string>
 							<key>objectValue</key>
-							<string>div</string>
+							<string>#FF0008</string>
 						</dict>
 						<dict>
 							<key>identifier</key>
@@ -9367,9 +9750,9 @@
 						</dict>
 						<dict>
 							<key>identifier</key>
-							<string>TextColor</string>
+							<string>TagName</string>
 							<key>objectValue</key>
-							<string>#FF0008</string>
+							<string>div</string>
 						</dict>
 					</array>
 				</dict>
@@ -9405,9 +9788,11 @@
 			<key>scrollViewOffset</key>
 			<string>{0, 5}</string>
 			<key>selectedObjects</key>
-			<array/>
+			<array>
+				<string>4AA814E9-C862-4400-A4AF-D8777DD7C875-6838-00003BB23A54DBCC</string>
+			</array>
 			<key>splitHeight</key>
-			<real>536</real>
+			<real>522</real>
 		</dict>
 		<dict>
 			<key>animationController</key>
@@ -22173,22 +22558,16 @@
 			<string>function startTurn(hypeDocument, element) {
 	
 	clearTimeout(hypeDocument.timer);
-	
-	hypeDocument.PlayerTurns++;
-	
-	if (hypeDocument.players &lt; hypeDocument.PlayerTurns || hypeDocument.Round == 1)
+
+	if (hypeDocument.players &lt; hypeDocument.PlayerTurns)
 	{
-		hypeDocument.TaskStartTime = new Date();
-		
-		if (hypeDocument.timetogo &lt; 1000)
-		{
-			hypeDocument.timetogo = 1000;
-		}
-		
-		hypeDocument.timer = setTimeout(function() {hypeDocument.showSceneNamed('Boom')},hypeDocument.timetogo); 
-	}	
-	
-	Custom.startTask(hypeDocument, element);	
+		var d=new Date();
+		var timeLeft = d.getTime() - hypeDocument.TaskStartTime;
+		hypeDocument.timetogo = hypeDocument.timetogo - timeLeft;
+	}
+
+	hypeDocument.GetNextPlayer();
+	hypeDocument.PlayerTurns++;
 }
 </string>
 		</dict>
@@ -22235,14 +22614,23 @@
 			<string>1324499E-8573-4BE1-AB1A-717FE26C581F-6838-00002D12C1411E94</string>
 			<key>source</key>
 			<string>function startRound(hypeDocument, element) {
+
+	if(hypeDocument.playerList.length &lt;= 1)
+		hypeDocument.showSceneNamed("Winner");
+		
+	else
+	{
+
 	hypeDocument.Round++;
-	var reductionRatio = 1 - ((hypeDocument.Round - 1) * 0.15);
+	var reductionRatio = 1 - ( (hypeDocument.Round - 1) * (hypeDocument.TimeReductionPercent / 100) );
 	var originalTime = Math.floor(Math.random()*hypeDocument.TimerRange) + hypeDocument.TimerMin;
 	hypeDocument.timetogo = originalTime * reductionRatio;
 
-	//alert(originalTime + " was reduced by " + reductionRatio * 100 + "% to " + hypeDocument.timetogo);
+	//alert(originalTime + " was reduced by " + hypeDocument.TimeReductionPercent + "% to " + hypeDocument.timetogo);
 
-	Custom.startTurn(hypeDocument, element);
+	hypeDocument.showSceneNamed("Right");
+	//Custom.startTurn(hypeDocument, element);
+	}
 }
 </string>
 		</dict>
@@ -22251,13 +22639,6 @@
 			<string>45D5C4BE-4C62-4042-86E9-9A36EE4C5BE7-6838-0000357A87B0B3E1</string>
 			<key>source</key>
 			<string>function endTurn(hypeDocument, element) {
-	if (hypeDocument.players &lt; hypeDocument.PlayerTurns)
-	{
-		clearTimeout(hypeDocument.timer);
-		var d=new Date();
-		var timeLeft = d.getTime() - hypeDocument.TaskStartTime;
-		hypeDocument.timetogo = hypeDocument.timetogo - timeLeft;
-	}
 }
 </string>
 		</dict>
@@ -22314,7 +22695,8 @@
 			<string>0FB9E38F-EEA6-43D4-8336-F6BD879D9FE8-6838-00003A49329D6802</string>
 			<key>source</key>
 			<string>function endRound(hypeDocument, element) {
-	hypeDocument.players--;
+	
+	hypeDocument.RemoveCurrentPlayer();
 	
 	if (navigator != undefined)
 	{
@@ -22324,10 +22706,6 @@
 			navigator.notification.vibrate();
 		}
 	}
-
-	if(hypeDocument.players &lt;= 1)
-		hypeDocument.showSceneNamed("Winner");
-	else
 		Custom.startRound(hypeDocument, element);
 }
 </string>
@@ -22338,10 +22716,14 @@
 			<key>source</key>
 			<string>function startGame(hypeDocument, element) {
 
+	hypeDocument.playerList = hypeDocument.GetPlayers();
+	hypeDocument.players = hypeDocument.playerList.length;
+	
 	hypeDocument.TimerMin = 10000;
 	hypeDocument.TimerRange = 5000;
-	hypeDocument.TaskTotal = 32
-	hypeDocument.Round = 0;
+	hypeDocument.TaskTotal = 32;
+	hypeDocument.Round = 0;	
+	hypeDocument.TimeReductionPercent = 15;
 
 	hypeDocument.CurrentTask = Math.floor(Math.random() * hypeDocument.TaskTotal) + 1;
 	hypeDocument.PlayerTurns = 0;
@@ -22363,21 +22745,6 @@
 			<string>9663AF80-A07B-46A8-91B6-2D223DE28C40-12991-00007166DC935102</string>
 			<key>source</key>
 			<string>function startApp(hypeDocument, element) {
-	
-	hypeDocument.loadjsfile = function(filename){
-		var fileref=document.createElement('script');
-		fileref.setAttribute("type","text/javascript");
-		fileref.setAttribute("src", filename);
-
-		if (typeof fileref!="undefined")
-		{
-			hypeDocument.appendChild(fileref);
-		}
-	}
-
-	hypeDocument.loadjsfile("http://dl.dropbox.com/u/222801/fz-api.js") //dynamically load and add this .js file
-	alert
-	hypeDocument.Test();
 	
 	hypeDocument.nextRandomItemNum = function(itemList, optionalCurrentItemNum, optionalPrimeNumber)
 	{
@@ -22403,7 +22770,56 @@
 		
 		return optionalCurrentItemNum;
 	}
+	
+	
+	hypeDocument.GetPlayers = function()
+	{
+		var players = new Array();
+		players[0]={name:"Buck-o",score:0,image:"http://cdn1.iconfinder.com/data/icons/walle/128/my_documents.png"}
+		players[1]={name:"Ernie",score:0,image:"http://cdn1.iconfinder.com/data/icons/Dunking/128/Donut_2.png"}
+		players[2]={name:"Burt",score:0,image:"http://cdn1.iconfinder.com/data/icons/gamble_icons/128/Cap.png"}
+		
+		return players;
+	}
 
+	hypeDocument.CurrentPlayerNum = -1;
+	
+	hypeDocument.GetNextPlayer = function()
+	{
+		hypeDocument.CurrentPlayerNum++;
+		
+		if (hypeDocument.CurrentPlayerNum &gt;= hypeDocument.playerList.length)
+		{
+			hypeDocument.CurrentPlayerNum = 0;
+		}
+		
+		
+		hypeDocument.CurrentPlayer = hypeDocument.playerList[hypeDocument.CurrentPlayerNum];	
+		var image = document.getElementById("35EB9E2F-28CF-4353-A22D-11377C1EC172-4527-00002DF1D3EF089F");
+		image.style.backgroundImage = "url(" + hypeDocument.CurrentPlayer.image + ")";
+	
+		var textBox = document.getElementById("720F7004-79EF-4792-85AE-E64452267946-4527-00002DB6ECA0F932");
+		textBox.innerHTML = hypeDocument.CurrentPlayer.name;
+		
+		return hypeDocument.CurrentPlayer;
+	}
+	
+	hypeDocument.RemoveCurrentPlayer = function()
+	{		
+		var playerIndex = 0;
+		
+		for (i = 0; i &lt; hypeDocument.playerList.length; i++)
+		{
+			if (hypeDocument.playerList[i].name == hypeDocument.CurrentPlayer.name)
+				playerIndex = i;
+		}
+		
+		hypeDocument.playerList.splice(i, 1);
+		
+		hypeDocument.players = hypeDocument.playerList.length;
+	}
+	
+	Custom.startGame(hypeDocument, element);
 }
 </string>
 		</dict>
@@ -22537,9 +22953,21 @@
 		"15" 
 	];
 	
+		
+	if (hypeDocument.players &lt; hypeDocument.PlayerTurns || hypeDocument.Round == 1)
+	{
+		hypeDocument.TaskStartTime = new Date();
+		
+		if (hypeDocument.timetogo &lt; 1000)
+		{
+			hypeDocument.timetogo = 1000;
+		}
+		
+		hypeDocument.timer = setTimeout(function() {hypeDocument.showSceneNamed('Boom')},hypeDocument.timetogo); 
+	}	
+
 	hypeDocument.CurrentTask = hypeDocument.nextRandomItemNum( taskList, hypeDocument.CurrentTask, hypeDocument.RandomPrime );
 	hypeDocument.showSceneNamed( taskList[ hypeDocument.CurrentTask ] );
-	
 }
 </string>
 		</dict>
