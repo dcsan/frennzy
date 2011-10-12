@@ -1,11 +1,11 @@
 <script>
 function init(){
 $('.hide').hide();
-for(i=1;i<=fz.players.length;i++){
-	$('#player'+i).html(fz.players[i-1]);
-	$('#player'+i).show();
-	$('#edit'+i).show();
-	$('#delete'+i).show();
+for(i=0;i<fz.players.length;i++){
+	$('#player'+(i+1)).html(fz.players[i]);
+	$('#player'+(i+1)).show();
+	$('#edit'+(i+1)).show();
+	$('#delete'+(i+1)).show();
 	} 
 	if(fz.players.length>=8){
 		$('#addPlayer').hide();
@@ -46,6 +46,9 @@ function openGame(){
 		window.location.assign('/games/'+fz.game+'/rules');
 	}
 }
+function hideConfigure(){
+	$('#configure').hide();
+}
 </script>
 
 
@@ -62,6 +65,6 @@ function openGame(){
 <a id='playbutton' class='button' href='javascript:openGame();'></a>
 
 <div id='configure' style="display: none;">
-<div id='editPlayerName' href='javascript:changeName();'></div>
-<a class='bottom right a' onclick="$('#configure').hide()">done</a>
+<a id='editPlayerName' class='button' href='javascript:changeName();'></a>
+<a class='bottom right button' href="javascript:hideConfigure()">done</a>
 </div>

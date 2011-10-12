@@ -30,8 +30,9 @@ function init(){
  			context.moveTo(drawx[i-1],drawy[i-1]);
         	context.lineTo(drawx[i],drawy[i]);
         	context.stroke();
-    };
-	})};
+    	};
+	})
+};
 	if(role=='drawer'){
 	document.onmousedown=function(event){
 		mousedown=true;

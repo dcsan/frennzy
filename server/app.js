@@ -219,17 +219,13 @@ var rooms={};
 io.sockets.on('connection',function(socket){
    	sockets.push(socket.id);
    	socket.on('toDb',function(json){
-   		console.log(json.action);
    	});
    	socket.on('fromDb',function(json){
-   		console.log(json.action);
    	});
    	socket.on('toRoom',function(json){
    		action=json.action;
-   		console.log(json);
    		delete json.action;
-   		console.log(json);
-    	io.sockets.emit(json.action,json);
+    	io.sockets.emit(action,json);
    	});
    	socket.on('joinRoom',function(json){
     	if(rooms[json.room]!=null&&roms[json.room]!=""){

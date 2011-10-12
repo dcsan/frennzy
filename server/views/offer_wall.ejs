@@ -1,0 +1,10 @@
+<h1 id='touches'>aldsfjalk</h1>
+
+<script>
+	document.ontouchstart=function(){
+		$('#touches').html(event.touches.length);
+	}
+	document.ontouchend=function(){
+		$('#touches').html(event.touches.length);
+	}
+</script>
